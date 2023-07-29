@@ -35,6 +35,7 @@ theme:
         name: Switch to light mode
   features:
     - navigation.expand
+    - navigation.top
 
 extra_css:
   - stylesheets/extra.css
