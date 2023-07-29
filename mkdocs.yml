@@ -1,5 +1,8 @@
 site_name: 数据库课程实验文档
 
+repo_name: thu-db/thdb-doc
+repo_url: https://github.com/thu-db/thdb-doc
+
 nav:
   - 总述:
     - 实验框架: index.md
@@ -16,3 +19,22 @@ nav:
 
 theme:
   name: material
+  language: zh
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.expand
+
+extra_css:
+  - stylesheets/extra.css
