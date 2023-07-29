@@ -4,6 +4,13 @@ repo_name: thu-db/thdb-doc
 repo_url: https://github.com/thu-db/thdb-doc
 
 nav:
+  - 实验简介: index.md
+  - 实验描述:
+    - lab 1: 存储
+    - lab 2: 日志
+    - lab 3: 并发控制
+    - lab 4: 优化器
+    - lab 5: 执行器
   - 往年文档:
     - 2023年春:
       - 总述:
