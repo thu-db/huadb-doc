@@ -34,14 +34,20 @@
 ## 相关代码模块
 本次实验涉及到代码中如下的功能模块：
 
-1. [table](./modules/index.md):(功能)
-1. 1. (代码文件) + (文件详解连接):(功能)+(重要接口)
+- [table](./modules/index.md)：数据表相关操作
+  - [record]()：记录结构体，已经完成。
+  - [table]()：数据表结构体，需要补充记录插入和删除函数。
+  - [table_page]()：变长记录页面结构体，需要补充页面内部记录插入和阐述的函数。
+  - [table_scan]()：用于全表扫描，需要补获取下条记录的函数来实现数据遍历。
 
-2. [storage](./modules/index.md):(功能)
-3. 
+- [storage](./modules/index.md)：用于管理内存和外存的交互
+  - [buffer_strategy]()：缓存替换算法的抽象。
+  - [lru_buffer_strategy]()：LRU缓存替换算法的抽象，需要补全实现。
 
-相关功能模块的示意图如下
-(示意图)
+相关功能模块的抽象示意图如下：
+
+![](./pics/lab1-details.svg)
+
 
 ## 基础功能
 
