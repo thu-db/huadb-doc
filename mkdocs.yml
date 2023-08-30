@@ -1,7 +1,7 @@
 site_name: 数据库课程实验文档
 
-repo_name: thu-db/thdb-doc
-repo_url: https://github.com/thu-db/thdb-doc
+repo_name: thu-db/huadb-doc
+repo_url: https://github.com/thu-db/huadb-doc
 
 nav:
   - 实验概述: index.md
