@@ -34,15 +34,18 @@
 本次实验涉及到代码中如下的功能模块：
 
 - [table](./modules/index.md)：表相关结构体
-  - [table]()：
-  - [table_scan]()：
+    - [table]()：
+    - [table_scan]()：
 
 - [transaction](./modules/index.md)：事务相关结构体
-  - [lock_manager]()：
+    - [lock_manager]()：
     
 - [excutors](./modules/index.md)：执行器相关结构体
-  - [seqscan_executor]():
-  - [lock_rows_executor]():
+    - [seqscan_executor]():
+    - [insert_executor]():
+    - [delete_executor]():
+    - [update_executor]():
+    - [lock_rows_executor]():
 
 
 相关功能模块的抽象示意图如下：
