@@ -2,15 +2,15 @@
 
 ## 概述
 
-本课程实验均在 [thdb](https://github.com/thu-db/thdb) 上进行，thdb 数据库系统由 C++ 语言编写，支持基础的页面存储、故障恢复、缓存管理、查询解析、查询优化、查询处理等功能。课程提供 thdb 的基础实验框架，每次实验中，你需要在框架中填充相应的函数实现代码，使之通过该次实验的所有测例。
+本课程实验均在 [huadb](https://github.com/thu-db/huadb) 上进行，huadb 数据库系统由 C++ 语言编写，支持基础的页面存储、故障恢复、缓存管理、查询解析、查询优化、查询处理等功能。课程提供 huadb 的基础实验框架，每次实验中，你需要在框架中填充相应的函数实现代码，使之通过该次实验的所有测例。
 
 ## 环境配置
 
-thdb 使用了 C++17 标准，开始实验前，请确保你的开发环境支持 C++17 标准。
+huadb 使用了 C++17 标准，开始实验前，请确保你的开发环境支持 C++17 标准。
 
-目前 thdb 仅支持 macOS 和 Linux 操作系统，使用 Windows 的同学建议使用虚拟机进行实验。
+目前 huadb 仅支持 macOS 和 Linux 操作系统，使用 Windows 的同学建议使用虚拟机进行实验。
 
-thdb 代码下载与提交需要使用 [git](https://git-scm.com/) 工具，代码编译需要使用 [CMake](https://cmake.org/) 及 [Make](https://www.gnu.org/software/make/) 工具，且需要安装 [gcc](https://gcc.gnu.org/) 或 [clang](https://clang.llvm.org/) 编译器。此外，代码调试中可能会用到调试器 [gdb](https://www.sourceware.org/gdb/) 或 [lldb](https://lldb.llvm.org/)。开始实验前，请确保你的开发环境安装了这些工具并可以正常使用，如没有，请根据你使用的操作系统与发行版选择对应的命令进行环境配置。
+huadb 代码下载与提交需要使用 [git](https://git-scm.com/) 工具，代码编译需要使用 [CMake](https://cmake.org/) 及 [Make](https://www.gnu.org/software/make/) 工具，且需要安装 [gcc](https://gcc.gnu.org/) 或 [clang](https://clang.llvm.org/) 编译器。此外，代码调试中可能会用到调试器 [gdb](https://www.sourceware.org/gdb/) 或 [lldb](https://lldb.llvm.org/)。开始实验前，请确保你的开发环境安装了这些工具并可以正常使用，如没有，请根据你使用的操作系统与发行版选择对应的命令进行环境配置。
 
 ### Debian/Ubuntu
 
@@ -40,13 +40,13 @@ brew install cmake
 
 ### 克隆仓库
 
-首先，你需要使用 git 将 thdb 代码仓库克隆到你的开发机上，对于选修《数据库专题训练》课程的同学，助教已经在 git 上为你创建好仓库，使用如下命令进行克隆 (将 202x 改为你的选修年份，20xxxxxxxx 改为你的学号)：
+首先，你需要使用 git 将 huadb 代码仓库克隆到你的开发机上，对于选修《数据库专题训练》课程的同学，助教已经在 git 上为你创建好仓库，使用如下命令进行克隆 (将 202x 改为你的选修年份，20xxxxxxxx 改为你的学号)：
 
 ```bash
 git clone https://git.tsinghua.edu.cn/dbtrain/202x/dbtrain-20xxxxxxxx.git dbtrain
 ```
 
-thdb 代码随时可能会有更新，你需要将更新的部分同步到你的本地。为了新增一个远程仓库，在你的 dbtrain 目录下执行：
+huadb 代码随时可能会有更新，你需要将更新的部分同步到你的本地。为了新增一个远程仓库，在你的 dbtrain 目录下执行：
 
 ```bash
 git remote add upstream https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab-template.git
@@ -64,7 +64,7 @@ git pull upstream master
 
 ### 编译及测试
 
-直接运行 `make` 即可完成编译 thdb，如果你的编译速度太慢，可以设置 `CMAKE_BUILD_PARALLEL_LEVEL` 环境变量来进行多核编译：
+直接运行 `make` 即可完成编译 huadb，如果你的编译速度太慢，可以设置 `CMAKE_BUILD_PARALLEL_LEVEL` 环境变量来进行多核编译：
 
 ```bash
 CMAKE_BUILD_PARALLEL_LEVEL=$(nproc) make
@@ -74,7 +74,7 @@ CMAKE_BUILD_PARALLEL_LEVEL=$(nproc) make
 
 编译生成的文件位于 `build/debug` 目录，实验过程中只需要关注 `build/debug/bin` 目录中的可执行程序即可，具体包括：
 
-1. thdb: 数据库程序，运行后可以与数据库进行交互。
+1. shell: 数据库程序，运行后可以与数据库进行交互。
 
 2. sqllogictest: 测试程序，用于实验批量测试。
 
