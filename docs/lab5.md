@@ -34,8 +34,8 @@
 ## 相关代码模块
 本次实验涉及到代码中如下的功能模块：
 
-- [optimizer](./modules/index.md)：优化器相关结构体
-    - [optimizer]():
+- [optimizer](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/optimizer)：优化器相关结构体
+    - [optimizer](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/optimizer)：优化器结构体，需要补全算子下推功能以及连接算子重新排序的功能。
 
 <!--TODO:添加Analyze相关函数-->
 

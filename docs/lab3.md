@@ -41,11 +41,11 @@
     - [lock_manager](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/transaction/lock_manager.h)：锁管理器，负责管理事务锁，需要补充表级别、行级别加解锁函数以及相关辅助函数。
     
 - [excutors](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/)：执行器相关结构体
-    - [seqscan_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/seqscan_executor.h):需要补充获取事务列表的功能。
-    - [insert_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/insert_executor.h):添加插入的写事务锁。
-    - [delete_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/delete_executor.h):添加删除的写事务锁。
-    - [update_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/update_executor.h):添加更新的写事务锁。
-    - [lock_rows_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/lock_rows_executor.h):添加行级别加锁保护功能。
+    - [seqscan_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/seqscan_executor.h)：需要补充获取事务列表的功能。
+    - [insert_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/insert_executor.h)：添加插入的写事务锁。
+    - [delete_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/delete_executor.h)：添加删除的写事务锁。
+    - [update_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/update_executor.h)：添加更新的写事务锁。
+    - [lock_rows_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/lock_rows_executor.h)：添加行级别加锁保护功能。
 
 
 相关功能模块的抽象示意图如下：
