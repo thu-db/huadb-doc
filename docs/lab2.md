@@ -33,13 +33,13 @@
 ## 相关代码模块
 本次实验涉及到代码中如下的功能模块：
 
-- [log](./modules/index.md)：日志相关结构体
-    - [log_record]()：各类日志的抽象结构体，用于衍生出各种具体日志，已经完成。
-    - [log_manager]()：日志管理器，负责日志的记录以及故障恢复的具体执行过程，需要补充恢复算法。
-    - [logs/*_log]()：各类具体的物理日志结构体，需要补充其中记录增删改日志的重做和撤销。
+- [log](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log)：日志相关结构体
+    - [log_record](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_record.h)：各类日志的抽象结构体，用于衍生出各种具体日志，已经完成。
+    - [log_manager](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_manager.h)：日志管理器，负责日志的记录以及故障恢复的具体执行过程，需要补充恢复算法。
+    - [log_records/*_log](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_records)：各类具体的物理日志结构体，需要补充其中记录增删改日志的重做和撤销。
 
-- [table](./modules/index.md)：数据表相关结构体
-    - [table]()：在实验1的基础上添加记录变更时的日志记录功能。
+- [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table)：数据表相关结构体
+    - [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table.h)：在实验1的基础上添加记录变更时的日志记录功能。
 
 相关功能模块的抽象示意图如下：
 

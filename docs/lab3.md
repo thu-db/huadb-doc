@@ -33,19 +33,19 @@
 ## 相关代码模块
 本次实验涉及到代码中如下的功能模块：
 
-- [table](./modules/index.md)：表相关结构体
-    - [table]()：
-    - [table_scan]()：
+- [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/)：数据表相关结构体
+    - [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table.h)：修改实验1中记录的增删改接口，添加版本信息。
+    - [table_scan](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table_scan.h)：添加判断记录对事务可见性的接口，并修改查询函数。
 
-- [transaction](./modules/index.md)：事务相关结构体
-    - [lock_manager]()：
+- [transaction](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/transaction/)：事务相关结构体
+    - [lock_manager](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/transaction/lock_manager.h)：锁管理器，负责管理事务锁，需要补充表级别、行级别加解锁函数以及相关辅助函数。
     
-- [excutors](./modules/index.md)：执行器相关结构体
-    - [seqscan_executor]():
-    - [insert_executor]():
-    - [delete_executor]():
-    - [update_executor]():
-    - [lock_rows_executor]():
+- [excutors](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/)：执行器相关结构体
+    - [seqscan_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/seqscan_executor.h):需要补充获取事务列表的功能。
+    - [insert_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/insert_executor.h):添加插入的写事务锁。
+    - [delete_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/delete_executor.h):添加删除的写事务锁。
+    - [update_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/update_executor.h):添加更新的写事务锁。
+    - [lock_rows_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/lock_rows_executor.h):添加行级别加锁保护功能。
 
 
 相关功能模块的抽象示意图如下：
