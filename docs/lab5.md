@@ -108,15 +108,15 @@
 
 #### 实验描述
 
-基础功能中连接顺序选择过程基于了独立性简化假设进行技术估计，高级功能中要求使用数据画像来提高基数估计步骤的准确性（基于HyperLogLog算法）。
+基础功能中连接顺序选择过程基于了独立性简化假设进行技术估计，高级功能中要求使用数据画像来提高基数估计步骤的准确性（基于Count-Min或HyperLogLog算法）。
 
 #### 实现思路
 
-- 步骤0：理解HyperLogLog算法的原理和实现。
+- 步骤0：理解Count-Min，HyperLogLog算法的原理和实现。
 
-- 步骤1：修改数据库Analyze过程，在分析过程中添加HyperLogLog算法的初始化部分。
+- 步骤1：修改数据库Analyze过程，在分析过程中添加Count-Min或HyperLogLog算法所需的统计数据（可在statistic系统表添加新的列）。
 
-- 步骤2：修改Optimizer结构体中估计连接顺序基数的相关函数，使用HyperLogLog计算对应的Distinct值，从而实现更为准确的基数估计。
+- 步骤2：修改Optimizer结构体中估计连接顺序基数的相关函数，使用Count-Min或HyperLogLog算法进行更加准确的基数估计。
 
 <!--TODO:添加部分教材中的示意图-->
 
