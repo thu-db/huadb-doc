@@ -1,4 +1,5 @@
-site_name: 数据库课程实验文档
+site_name: 数据库专题训练课程实验文档
+copyright: Copyright &copy; 2023 清华大学计算机系数据库实验室。All Rights Reserved.
 
 repo_name: thu-db/huadb-doc
 repo_url: https://github.com/thu-db/huadb-doc
@@ -29,6 +30,7 @@ nav:
 theme:
   name: material
   language: zh
+  logo: assets/images/logo.png
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
