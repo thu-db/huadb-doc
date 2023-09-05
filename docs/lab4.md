@@ -46,8 +46,8 @@
     -   [orderby_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/orderby_executor)：排序算子，用于实现内存或外存的记录排序算法。
     -   [nested_loop_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/nested_loop_join_executor.h)：Nested Loop 连接算子，用于实现最基础的连接算法。
     -   [merge_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/merge_join_executor.h)：Merge 连接算子，要求底层算子节点已经完成排序，一种快速的连接算法。
-    -   [hash_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/hash_join_executor.h)：哈希连接算子，需要补充哈希组件后实现，一种快速高效的连接算法。
-    -   [aggregate_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/aggregate_executor.h)：聚合算子，依赖于哈希表结构，用于实现各类聚合算子的运算。
+    -   [hash_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/hash_join_executor.h)：（高级功能）哈希连接算子，需要补充哈希组件后实现，一种快速高效的连接算法。
+    -   [aggregate_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/aggregate_executor.h)：（高级功能）聚合算子，依赖于哈希表结构，用于实现各类聚合算子的运算。
 
 相关功能模块的抽象示意图如下：
 
@@ -109,13 +109,13 @@
 
 #### 实验描述
 
-基础功能中完成了几种难度适中的算子的实现，高级功能中要求在此基础上晚上哈希表相关功能，并基于此完成哈希连接算子以及聚合算子。
+基础功能中完成了几种难度适中的算子的实现，高级功能中要求在此基础完成哈希表相关功能，并基于此完成哈希连接算子以及聚合算子。
 
 #### 实现思路
 
 -   步骤 1：设计哈希表，实现记录字段的哈希功能。
 
--   步骤 2：基于哈希表和哈希函数完成内存上的哈希连接端子以及聚合算子的实现。
+-   步骤 2：基于哈希表和哈希函数实现内存上的哈希连接算子以及聚合算子。
 
 <!--TODO:添加部分教材中的示意图-->
 
