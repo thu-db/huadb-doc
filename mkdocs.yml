@@ -6,7 +6,6 @@ repo_url: https://github.com/thu-db/huadb-doc
 nav:
   - 实验概述: index.md
   - 实验配置: prepare.md
-  # - 实验框架说明: intro.md
   - 实验描述:
     - "lab 1: 缓存管理与页面组织": lab1.md
     - "lab 2: 事务处理与故障恢复": lab2.md
