@@ -9,10 +9,10 @@ nav:
   - 实验配置: prepare.md
   - 实验框架简介: overview.md
   - "实验 1: 页面组织与缓存管理":
-    - 概述: lab1/intro.md
-    - 基础功能: lab1/basic.md
-    - 高级功能: lab1/advanced.md
-    - 提交要求: lab1/submit.md
+    - 概述: lab1/1-intro.md
+    - 基础功能: lab1/2-basic.md
+    - 高级功能: lab1/3-advanced.md
+    - 提交要求: lab1/4-submit.md
   - "实验 2: 事务处理与故障恢复":
     - 概述: lab2/lab2.md
   - "实验 3: 多版本并发控制":

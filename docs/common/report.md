@@ -26,5 +26,5 @@
 -   Honor Code
 
 {%
-	include-markdown "modules/honor.md"
+	include-markdown "common/honor.md"
 %}

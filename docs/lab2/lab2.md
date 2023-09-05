@@ -150,9 +150,9 @@ insert delete new_page
 <!--TODO:添加部分教材中的示意图-->
 
 {%
-	include-markdown "modules/report.md"
+	include-markdown "common/report.md"
 %}
 
 {%
-	include-markdown "modules/feedback.md"
+	include-markdown "common/feedback.md"
 %}
