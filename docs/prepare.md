@@ -30,7 +30,7 @@ brew install cmake
 
 实验框架支持以下操作系统（发行版）版本：
 
-1. Ubuntu 18.04 及以上
+1. Ubuntu 20.04 及以上
 2. Debian 10 及以上
 3. macOS Monterey 及以上
 

@@ -22,7 +22,7 @@
 
 1. 故障恢复过程中的异常处理：实验框架中仅考虑系统仅考虑系统在查询执行中的异常处理，在此基础上添加恢复过程中的异常处理机制，核心为补偿日志机制的实现。
 
-2. 非阻塞检查点机制：实验框架中 Checkpoint 采用阻塞的信息写出方式，在此基础上单开线程实现非阻塞的 Checkpoint 机制，核心为修改 Begin&EndCheckpointLog 的实现。
+2. 非阻塞检查点机制：实验框架中 Checkpoint 采用阻塞的信息写出方式，在此基础上单开线程实现非阻塞的 Checkpoint 机制，核心为修改 BeginCheckpointLog 和 EndCheckpointLog 的实现。
 
 ## 关联知识点
 
