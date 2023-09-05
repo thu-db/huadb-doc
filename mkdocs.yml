@@ -14,13 +14,25 @@ nav:
     - 高级功能: lab1/3-advanced.md
     - 提交要求: lab1/4-submit.md
   - "实验 2: 事务处理与故障恢复":
-    - 概述: lab2/lab2.md
+    - 概述: lab2/1-intro.md
+    - 基础功能: lab2/2-basic.md
+    - 高级功能: lab2/3-advanced.md
+    - 提交要求: lab2/4-submit.md
   - "实验 3: 多版本并发控制":
-    - 概述: lab3/lab3.md
+    - 概述: lab3/1-intro.md
+    - 基础功能: lab3/2-basic.md
+    - 高级功能: lab3/3-advanced.md
+    - 提交要求: lab3/4-submit.md
   - "实验 4: 查询处理":
-    - 概述: lab4/lab4.md
+    - 概述: lab4/1-intro.md
+    - 基础功能: lab4/2-basic.md
+    - 高级功能: lab4/3-advanced.md
+    - 提交要求: lab4/4-submit.md
   - "实验 5: 查询优化":
-    - 概述: lab5/lab5.md
+    - 概述: lab5/1-intro.md
+    - 基础功能: lab5/2-basic.md
+    - 高级功能: lab5/3-advanced.md
+    - 提交要求: lab5/4-submit.md
   - 往年文档:
     - 2023年春:
       - 总述:
