@@ -7,11 +7,20 @@ repo_url: https://github.com/thu-db/huadb-doc
 nav:
   - 实验概述: index.md
   - 实验配置: prepare.md
-  - "实验 1: 页面组织与缓存管理": lab1.md
-  - "实验 2: 事务处理与故障恢复": lab2.md
-  - "实验 3: 多版本并发控制": lab3.md
-  - "实验 4: 查询处理": lab4.md
-  - "实验 5: 查询优化": lab5.md
+  - 实验框架简介: overview.md
+  - "实验 1: 页面组织与缓存管理":
+    - 概述: lab1/intro.md
+    - 基础功能: lab1/basic.md
+    - 高级功能: lab1/advanced.md
+    - 提交要求: lab1/submit.md
+  - "实验 2: 事务处理与故障恢复":
+    - 概述: lab2/lab2.md
+  - "实验 3: 多版本并发控制":
+    - 概述: lab3/lab3.md
+  - "实验 4: 查询处理":
+    - 概述: lab4/lab4.md
+  - "实验 5: 查询优化":
+    - 概述: lab5/lab5.md
   - 往年文档:
     - 2023年春:
       - 总述:
