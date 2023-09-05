@@ -36,16 +36,16 @@
 
 本次实验涉及到代码中如下的功能模块：
 
-- [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table)：数据表相关结构体
+-   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table)：数据表相关结构体
 
-  - [record](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/record.h)：记录结构体，已经完成。
-  - [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/table.h)：数据表结构体，需要补充记录插入和删除函数。
-  - [table_page](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/table_page.h)：变长记录页面结构体，需要补充页面内部记录插入和阐述的函数。
-  - [table_scan](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/table_scan.h)：用于全表扫描，需要补获取下条记录的函数来实现数据遍历。
+    -   [record](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/record.h)：记录结构体，已经完成。
+    -   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/table.h)：数据表结构体，需要补充记录插入和删除函数。
+    -   [table_page](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/table_page.h)：变长记录页面结构体，需要补充页面内部记录插入和阐述的函数。
+    -   [table_scan](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/table_scan.h)：用于全表扫描，需要补获取下条记录的函数来实现数据遍历。
 
-- [storage](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/storage)：用于管理内存和外存的交互
-  - [buffer_strategy](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/storage/buffer_strategy.h)：缓存替换算法的抽象。
-  - [lru_buffer_strategy](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/storage/lru_buffer_strategy.h)：LRU 缓存替换算法的抽象，需要补全实现。
+-   [storage](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/storage)：用于管理内存和外存的交互
+    -   [buffer_strategy](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/storage/buffer_strategy.h)：缓存替换算法的抽象。
+    -   [lru_buffer_strategy](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/storage/lru_buffer_strategy.h)：LRU 缓存替换算法的抽象，需要补全实现。
 
 相关功能模块的抽象示意图如下：
 
@@ -65,12 +65,12 @@
 
 页面组织的核心是将格式化的不定长记录结构体组织到固定大小的页面文件中，便于后续存储到持久化磁盘。可以按照如下的顺序完成本次实验：
 
-- 步骤 1：补全 table_page.cpp，实现单个页面内的记录操作
+-   步骤 1：补全 table_page.cpp，实现单个页面内的记录操作
 
 该文件为变长的记录页面管理的相关函数实现，本次实验中需要先补全对于页面内的相关操作：包括页面内记录的插入、删除、更新、获取。
 改结构体内的函数用于将格式化的记录结构体组织到无格式的页面中，从而实现内存中结构体到磁盘中无格式数据的转化。
 
-- 步骤 2：补全 table.cpp，以堆表的格式管理单个记录
+-   步骤 2：补全 table.cpp，以堆表的格式管理单个记录
 
 该文件为堆表的实现，用于向查询处理过程中的各种查询算子提供一种整体上的便于访问的数据表接口，让上层算子不需要关注底层数据表的实现方式。
 实验框架中选择实现上最简单的堆表作为数据表的组织方式。本次实验中需要补全数据表级别的增删改查函数。需要依赖于步骤 1 中完成的接口。
@@ -87,12 +87,12 @@
 
 缓存替换的核心是基于输入的页面访问序列，选择按照算法标准设计的换出页面编号。可以按照如下的顺序完成本次实验：
 
-- 步骤 1：补全 lru_buffer_strategy.h，设计 LRUBufferStrategy 结构体
+-   步骤 1：补全 lru_buffer_strategy.h，设计 LRUBufferStrategy 结构体
 
 BufferStrategy 采用了经典的策略模式。默认的函数模板提供了缓存池调用的接口，用具体的替换策略补全纯虚的抽象接口。
 首先需要再 LRUBufferStrategy 结构体中添加记录信息所需的成员变量。
 
-- 步骤 2：补全 lru_buffer_strategy.cpp，补全空缺的 Access 和 Evict 策略接口。
+-   步骤 2：补全 lru_buffer_strategy.cpp，补全空缺的 Access 和 Evict 策略接口。
 
 Access 函数：表示发生了页面访问，根据访问页面更新步骤 1 种添加的成员变量。
 
@@ -112,11 +112,11 @@ Evict 函数：按照 LRU 算法的规则，利用步骤 1 中添加的成员变
 
 #### 实现思路
 
-- 步骤 1：理解 DatabaseEngine::ExecuteSql 函数的实现，在结构体中补充 vacuum 的实现接口。
+-   步骤 1：理解 DatabaseEngine::ExecuteSql 函数的实现，在结构体中补充 vacuum 的实现接口。
 
-- 步骤 2：思考 vacuum 过程中节约空间的收益与执行 vacuum 的 IO 成本，根据课程内容设计一种合理的算法流程（主要思考合并范围、合并阈值等）。
+-   步骤 2：思考 vacuum 过程中节约空间的收益与执行 vacuum 的 IO 成本，根据课程内容设计一种合理的算法流程（主要思考合并范围、合并阈值等）。
 
-- 步骤 3：在 Table 和 TablePage 结构体中添加支持 vacuum 操作的函数，根据步骤 2 策略实现 vacuum 函数。
+-   步骤 3：在 Table 和 TablePage 结构体中添加支持 vacuum 操作的函数，根据步骤 2 策略实现 vacuum 函数。
 
 ### 优化堆表的插入效率
 
@@ -126,9 +126,9 @@ Evict 函数：按照 LRU 算法的规则，利用步骤 1 中添加的成员变
 
 #### 实现思路
 
-- 步骤 1：设计内存中的空闲空间数组，建议在 Table 中单独添加新的结构体用于管理空闲空间数组。
+-   步骤 1：设计内存中的空闲空间数组，建议在 Table 中单独添加新的结构体用于管理空闲空间数组。
 
-- 步骤 2：空闲空间数组的页面化管理，按照 TablePage 的思路设计新的页面结构。将空闲空间数组组织为页面格式进行存储，并在新建 Table 类后从文件导入。
+-   步骤 2：空闲空间数组的页面化管理，按照 TablePage 的思路设计新的页面结构。将空闲空间数组组织为页面格式进行存储，并在新建 Table 类后从文件导入。
 
 <!--TODO:添加部分教材中的示意图-->
 
@@ -136,15 +136,15 @@ Evict 函数：按照 LRU 算法的规则，利用步骤 1 中添加的成员变
 
 实验报告应该具备如下 3 部分内容：
 
-- 基础功能的新增成员变量和函数
+-   基础功能的新增成员变量和函数
 
 以模块（文件夹）为划分标准，分栏目介绍在实验中新增的成员变量与成员函数，并简要概括其作用。
 
-- 基础功能的难点总结
+-   基础功能的难点总结
 
 总结在完成基础功能中遇到的实现或理解方面的难点，分要点记录于这部分，建议不超过 5 点。
 
-- **高级功能的设计与实现**
+-   **高级功能的设计与实现**
 
 这部分可以作为报告的重点内容，要求详细阐述高级功能的设计思路与实现方法。
 可以按照如下流程进行介绍：

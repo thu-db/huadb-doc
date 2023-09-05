@@ -37,8 +37,8 @@
 
 本次实验涉及到代码中如下的功能模块：
 
-- [optimizer](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/optimizer)：优化器相关结构体
-  - [optimizer](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/optimizer/optimizer.h)：优化器结构体，需要补全算子下推功能以及连接算子重新排序的功能。
+-   [optimizer](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/optimizer)：优化器相关结构体
+    -   [optimizer](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/optimizer/optimizer.h)：优化器结构体，需要补全算子下推功能以及连接算子重新排序的功能。
 
 <!--TODO:添加Analyze相关函数-->
 
@@ -58,13 +58,13 @@
 
 #### 实现思路
 
-- 步骤 0：思考并补全 Optimizer 实现算子下推功能缺少的成员变量。
+-   步骤 0：思考并补全 Optimizer 实现算子下推功能缺少的成员变量。
 
-- 步骤 1：补全 PushDownFilter 函数，根据 Filter 条件判断算子为选择算子还是连接条件算子，分别添加到步骤 0 中添加的成员变量中。
+-   步骤 1：补全 PushDownFilter 函数，根据 Filter 条件判断算子为选择算子还是连接条件算子，分别添加到步骤 0 中添加的成员变量中。
 
-- 步骤 2：补全 PushDownSeqScan 函数，根据步骤 1 记录的选择算子调整扫描算子的结构，添加对应的过滤条件。
+-   步骤 2：补全 PushDownSeqScan 函数，根据步骤 1 记录的选择算子调整扫描算子的结构，添加对应的过滤条件。
 
-- 步骤 3：补全 PushDwonJoin 函数，根据步骤 1 记录的连接条件算子调整连接算子的实现方式，将原始的笛卡尔积算子优化为根据条件连接算子。
+-   步骤 3：补全 PushDwonJoin 函数，根据步骤 1 记录的连接条件算子调整连接算子的实现方式，将原始的笛卡尔积算子优化为根据条件连接算子。
 
 ### 简化假设下连接顺序选择
 
@@ -74,11 +74,11 @@
 
 #### 实现思路
 
-- 步骤 1：补全直方图结构体的生成以及查询函数，用于后续的基数估计。
+-   步骤 1：补全直方图结构体的生成以及查询函数，用于后续的基数估计。
 
-- 步骤 2：补全数据库 Analyze 功能，实现数据表的信息统计功能，需要调用直方图的生成函数并正确存储到系统表 statistic 表中。
+-   步骤 2：补全数据库 Analyze 功能，实现数据表的信息统计功能，需要调用直方图的生成函数并正确存储到系统表 statistic 表中。
 
-- 步骤 3：补全 Optimizer::RejoinOrder 函数，补全连接顺序选择算法，使用贪心算法实现这一过程。
+-   步骤 3：补全 Optimizer::RejoinOrder 函数，补全连接顺序选择算法，使用贪心算法实现这一过程。
 
 ## 高级功能
 
@@ -90,11 +90,11 @@
 
 #### 实现思路
 
-- 步骤 0：理解投影算子下推相较于选择算子的区别，思考如何在算子下推后维护数据列信息。
+-   步骤 0：理解投影算子下推相较于选择算子的区别，思考如何在算子下推后维护数据列信息。
 
-- 步骤 1：修改 Optimizer 结构体，添加用于辅助 PushProjection 函数的相关私有成员函数和成员变量。
+-   步骤 1：修改 Optimizer 结构体，添加用于辅助 PushProjection 函数的相关私有成员函数和成员变量。
 
-- 步骤 2：补全 Optimizer 结构体的 PushProjection 函数，注意并非部分连接运算后需要添加投影运算。
+-   步骤 2：补全 Optimizer 结构体的 PushProjection 函数，注意并非部分连接运算后需要添加投影运算。
 
 ### 连接选择优化
 
@@ -114,11 +114,11 @@
 
 #### 实现思路
 
-- 步骤 0：理解 Count-Min，HyperLogLog 算法的原理和实现。
+-   步骤 0：理解 Count-Min，HyperLogLog 算法的原理和实现。
 
-- 步骤 1：修改数据库 Analyze 过程，在分析过程中添加 Count-Min 或 HyperLogLog 算法所需的统计数据（可在 statistic 系统表添加新的列）。
+-   步骤 1：修改数据库 Analyze 过程，在分析过程中添加 Count-Min 或 HyperLogLog 算法所需的统计数据（可在 statistic 系统表添加新的列）。
 
-- 步骤 2：修改 Optimizer 结构体中估计连接顺序基数的相关函数，使用 Count-Min 或 HyperLogLog 算法进行更加准确的基数估计。
+-   步骤 2：修改 Optimizer 结构体中估计连接顺序基数的相关函数，使用 Count-Min 或 HyperLogLog 算法进行更加准确的基数估计。
 
 <!--TODO:添加部分教材中的示意图-->
 
@@ -126,15 +126,15 @@
 
 实验报告应该具备如下 3 部分内容：
 
-- 基础功能的新增成员变量和函数
+-   基础功能的新增成员变量和函数
 
 以模块（文件夹）为划分标准，分栏目介绍在实验中新增的成员变量与成员函数，并简要概括其作用。
 
-- 基础功能的难点总结
+-   基础功能的难点总结
 
 总结在完成基础功能中遇到的实现或理解方面的难点，分要点记录于这部分，建议不超过 5 点。
 
-- **高级功能的设计与实现**
+-   **高级功能的设计与实现**
 
 这部分可以作为报告的重点内容，要求详细阐述高级功能的设计思路与实现方法。
 可以按照如下流程进行介绍：

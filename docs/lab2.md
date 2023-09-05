@@ -36,14 +36,14 @@
 
 本次实验涉及到代码中如下的功能模块：
 
-- [log](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log)：日志相关结构体
+-   [log](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log)：日志相关结构体
 
-  - [log_record](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_record.h)：各类日志的抽象结构体，用于衍生出各种具体日志，已经完成。
-  - [log_manager](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_manager.h)：日志管理器，负责日志的记录以及故障恢复的具体执行过程，需要补充恢复算法。
-  - [log_records/\*\_log](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_records)：各类具体的物理日志结构体，需要补充其中记录增删改日志的重做和撤销。
+    -   [log_record](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_record.h)：各类日志的抽象结构体，用于衍生出各种具体日志，已经完成。
+    -   [log_manager](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_manager.h)：日志管理器，负责日志的记录以及故障恢复的具体执行过程，需要补充恢复算法。
+    -   [log_records/\*\_log](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_records)：各类具体的物理日志结构体，需要补充其中记录增删改日志的重做和撤销。
 
-- [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table)：数据表相关结构体
-  - [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table.h)：在实验 1 的基础上添加记录变更时的日志记录功能。
+-   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table)：数据表相关结构体
+    -   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table.h)：在实验 1 的基础上添加记录变更时的日志记录功能。
 
 相关功能模块的抽象示意图如下：
 
@@ -63,13 +63,13 @@
 
 日志设计的核心在于规划日志的存储格式，以及利用存储信息实现 Redo 和 Undo 的方式。可以按照如下的顺序完成本次实验：
 
-- 步骤 0：结合课程内容，思考为什么仅使用物理日志不会影响系统正确性
+-   步骤 0：结合课程内容，思考为什么仅使用物理日志不会影响系统正确性
 
-- 步骤 1：补全 log/insert_log.h 和 log/delete_log.h，实现插入和删除记录的物理日志
+-   步骤 1：补全 log/insert_log.h 和 log/delete_log.h，实现插入和删除记录的物理日志
 
 框架已经给出了这两类日志所需的必要信息，并实现了序列化和反序列化函数。实验种要求根据存储的信息确定在重做或撤销过程中，如何利用存储信息还原操作对于页面的影响。
 
-- 步骤 2：修改 table/table.cpp，添加记录变更时日志记录的操作
+-   步骤 2：修改 table/table.cpp，添加记录变更时日志记录的操作
 
 log_manager 文件中的日志管理器 LogManager 结构体已经提供了追加写出日志的接口，并在内部完成相关的缓存管理功能。
 因此本次实验仅需要在实验 1 的基础上，利用 LogManager 提供的追加日志接口(AppendXXXLog)在记录变更时记录对应的日志即可。
@@ -87,17 +87,17 @@ log_manager 文件中的日志管理器 LogManager 结构体已经提供了追�
 ARIES 故障恢复算法是针对于 steal+no-force 数据库系统的一种故障恢复算法，在实现前需要充分理解课程中讲解的 ARIES 算法执行流程。
 可以按照算法的执行顺序依次补全 3 个函数：
 
-- 步骤 1：补全 LogManager::Analyze，ARIES 算法的分析过程
+-   步骤 1：补全 LogManager::Analyze，ARIES 算法的分析过程
 
 ARIES 算法的分析过程读取检查点信息，恢复故障时的数据库状态并恢复活跃事务表和脏页表。
 实验框架中已经给出了数据库状态的恢复过程，本次实验中需要基于 checkpoint_lsn 恢复活跃事务表、脏页表以及算法所需的 LSN 信息。
 
-- 步骤 2：补全 LogManager::Redo，ARIES 算法的重做过程
+-   步骤 2：补全 LogManager::Redo，ARIES 算法的重做过程
 
 ARIES 的重做过程要求按照算法流程（需要步骤 1 中恢复的 LSN 信息）遍历执行日志的重做过程来恢复系统故障时缓存内的脏页状态。
 该步骤的正确性依赖于物理日志设计中 Redo 函数的正确性。
 
-- 步骤 3：补全 LogManager::Undo，ARIES 算法的撤销过程
+-   步骤 3：补全 LogManager::Undo，ARIES 算法的撤销过程
 
 ARIES 的撤销过程需要根据活跃事务表撤销未提交事务产生的页面更新，该步骤的正确性依赖于前两个步骤的正确性和物理日志设计中 Undo 函数的正确性。
 
@@ -115,9 +115,9 @@ ARIES 的撤销过程需要根据活跃事务表撤销未提交事务产生的�
 
 #### 实现思路
 
-- 步骤 1：理解 sqllogicaltest 的设计思路，添加在恢复过程中异常的指令和相关测例。
+-   步骤 1：理解 sqllogicaltest 的设计思路，添加在恢复过程中异常的指令和相关测例。
 
-- 步骤 2：理解课程中撤销阶段异常恢复的特殊性，理解补偿日志的机制。并在故障恢复算法中添加补偿日志的记录和处理能力。
+-   步骤 2：理解课程中撤销阶段异常恢复的特殊性，理解补偿日志的机制。并在故障恢复算法中添加补偿日志的记录和处理能力。
 
 ### 非阻塞检查点机制
 
@@ -127,11 +127,11 @@ ARIES 的撤销过程需要根据活跃事务表撤销未提交事务产生的�
 
 #### 实现思路
 
-- 步骤 0：理解实验框架中阻塞检查点的信息记录方法，思考非阻塞检查点的信息记录方式。
+-   步骤 0：理解实验框架中阻塞检查点的信息记录方法，思考非阻塞检查点的信息记录方式。
 
-- 步骤 1：修改 LogManager::Checkpoint 函数，修改 BeginCheckpointLog 和 EndCheckpointLog 的实现，确定 ATT 和 DPT 实际存储位置。
+-   步骤 1：修改 LogManager::Checkpoint 函数，修改 BeginCheckpointLog 和 EndCheckpointLog 的实现，确定 ATT 和 DPT 实际存储位置。
 
-- 步骤 2：修改 LogManager 结构体，添加多线程检查点任务结束的异步通知机制，添加多线程情况下的检查点完成的处理函数。
+-   步骤 2：修改 LogManager 结构体，添加多线程检查点任务结束的异步通知机制，添加多线程情况下的检查点完成的处理函数。
 
 <!--TODO:添加部分教材中的示意图-->
 
@@ -139,15 +139,15 @@ ARIES 的撤销过程需要根据活跃事务表撤销未提交事务产生的�
 
 实验报告应该具备如下 3 部分内容：
 
-- 基础功能的新增成员变量和函数
+-   基础功能的新增成员变量和函数
 
 以模块（文件夹）为划分标准，分栏目介绍在实验中新增的成员变量与成员函数，并简要概括其作用。
 
-- 基础功能的难点总结
+-   基础功能的难点总结
 
 总结在完成基础功能中遇到的实现或理解方面的难点，分要点记录于这部分，建议不超过 5 点。
 
-- **高级功能的设计与实现**
+-   **高级功能的设计与实现**
 
 这部分可以作为报告的重点内容，要求详细阐述高级功能的设计思路与实现方法。
 可以按照如下流程进行介绍：
