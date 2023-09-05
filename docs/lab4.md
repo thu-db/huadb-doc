@@ -1,31 +1,32 @@
 # 实验 4:查询处理
 
 ## 实验概述
+
 本次实验为数据库系统查询处理的实验，意图通过实现基于火山模型的执行器引擎来让学生们更好地理解数据库系统如何按照查询算子逐级处理查询请求。
 
 执行器是数据库系统将磁盘存储的页面数据处理为符合查询所需结果的模块。火山模型是一种经典的拉取式执行器模型，通过抽象算子的执行逻辑，上层算子逐层从下层算子拉取数据，算子内部完成处理后响应上层的拉取请求。通过这种方式可以在抽象结构上构建一种结构上非常简介的执行器模型，便于在执行引擎实现上的查询优化和异常处理。
 
 <!--TODO:火山模型结构图-->
 
-算子的实现是本次实验的难点。火山模型基于策略模式可以设计出不同的算子结构，并结合工厂模式可以快速创建不同类型的算子。系统根据查询计划树逐层生成算子，并调用算子的拉取函数完成查询的实际执行。部分算子在内部处理过程中需要存储中间结果来加速算子执行，例如连接算子以及聚合算子等，这种情况一般会使用内存作为中间结果的缓存。但是，部分算子在执行过程中将产生巨大存储容量的中间结果，不能够简单地存储到内存中（例如大表间的连接运算）。这类算子需要引入磁盘作为外部存储，一般称为外存算子，其中包括外存连接和外存排序算子。外存算子的执行效率对于磁盘IO的开销敏感，在实现上相较于内存算子更为复杂。本次实验要求补全几个常见的算子：连接、排序、Limit、聚合。考虑到不同算子本身实现难度的差异，基础功能中要求完成内存中的NestedLoopJoin、MergeJoin两类连接算子、排序算子以及Limit算子，高级功能在此基础上要求中引入内存资源的限制，并设计相应运算的外存算子，同时也可以选择实现难度较高的哈希连接算子以及聚合算子（二者均需要补全哈希表结构体的相关函数）。
+算子的实现是本次实验的难点。火山模型基于策略模式可以设计出不同的算子结构，并结合工厂模式可以快速创建不同类型的算子。系统根据查询计划树逐层生成算子，并调用算子的拉取函数完成查询的实际执行。部分算子在内部处理过程中需要存储中间结果来加速算子执行，例如连接算子以及聚合算子等，这种情况一般会使用内存作为中间结果的缓存。但是，部分算子在执行过程中将产生巨大存储容量的中间结果，不能够简单地存储到内存中（例如大表间的连接运算）。这类算子需要引入磁盘作为外部存储，一般称为外存算子，其中包括外存连接和外存排序算子。外存算子的执行效率对于磁盘 IO 的开销敏感，在实现上相较于内存算子更为复杂。本次实验要求补全几个常见的算子：连接、排序、Limit、聚合。考虑到不同算子本身实现难度的差异，基础功能中要求完成内存中的 NestedLoopJoin、MergeJoin 两类连接算子、排序算子以及 Limit 算子，高级功能在此基础上要求中引入内存资源的限制，并设计相应运算的外存算子，同时也可以选择实现难度较高的哈希连接算子以及聚合算子（二者均需要补全哈希表结构体的相关函数）。
 
-![](./pics/lab4-overview.svg) 
+![](./pics/lab4-overview.svg)
 
 ## 实验目标
+
 本次实验要求学生完成如下基础功能：
 
-1. Limit算子：补全Limit算子，一个功能非常简单的算子，不需要保存复杂的中间结果。
+1. Limit 算子：补全 Limit 算子，一个功能非常简单的算子，不需要保存复杂的中间结果。
 
 2. 内存排序算法：补全排序算子，中间结果使用成员变量保存在内存中。
 
-3. 内存连接算子：补全NestedLoop和Merge两类连接算子，中间结果使用成员变量保存在内存中。
+3. 内存连接算子：补全 NestedLoop 和 Merge 两类连接算子，中间结果使用成员变量保存在内存中。
 
 在基础功能之上，实验框架支持学生完成以下高级功能：
 
 1. 外存排序和连接算子：在内存排序和连接算子的基础上添加内存限制，使用外存储存中间结果，并设计内外存数据交互机制加速外存算法处理。
 
-3. 内存哈希连接算子+聚合算子：实现内存存储的哈希表结构体，并基于哈希表实现内存哈希连接算子以及聚合算子，中间结果利用哈希表保存。
-
+2. 内存哈希连接算子+聚合算子：实现内存存储的哈希表结构体，并基于哈希表实现内存哈希连接算子以及聚合算子，中间结果利用哈希表保存。
 
 ## 关联知识点
 
@@ -33,38 +34,38 @@
 
 1. 火山模型：本次实验需要充分理解火山模型的设计思路以及查询的实际执行流程。
 2. 内存算子：本次实验的基础功能要求理解基于内存的连接、排序、聚合等算子的算法实现以及计算、存储代价分析。
-3. 外存算子：本次实验的高级功能要求理解基于外存的连接、排序算子的算法实现以及计算、存储代价和IO代价分析。
+3. 外存算子：本次实验的高级功能要求理解基于外存的连接、排序算子的算法实现以及计算、存储代价和 IO 代价分析。
 
 ## 相关代码模块
+
 本次实验涉及到代码中如下的功能模块：
 
 - [excutors](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors)：执行器相关结构体
-    - [executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/executor.h)：执行器算子的抽象模板，用于衍生出各类实际算子。
-    - [limit_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/limit_executor.h)：Limit算子，用于限制输出数量。
-    - [orderby_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/orderby_executor)：排序算子，用于实现内存或外存的记录排序算法。
-    - [nested_loop_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/nested_loop_join_executor.h)：Nested Loop连接算子，用于实现最基础的连接算法。
-    - [merge_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/merge_join_executor.h)：Merge连接算子，要求底层算子节点已经完成排序，一种快速的连接算法。
-    - [hash_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/hash_join_executor.h)：哈希连接算子，需要补充哈希组件后实现，一种快速高效的连接算法。
-    - [aggregate_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/aggregate_executor.h)：聚合算子，依赖于哈希表结构，用于实现各类聚合算子的运算。
+  - [executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/executor.h)：执行器算子的抽象模板，用于衍生出各类实际算子。
+  - [limit_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/limit_executor.h)：Limit 算子，用于限制输出数量。
+  - [orderby_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/orderby_executor)：排序算子，用于实现内存或外存的记录排序算法。
+  - [nested_loop_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/nested_loop_join_executor.h)：Nested Loop 连接算子，用于实现最基础的连接算法。
+  - [merge_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/merge_join_executor.h)：Merge 连接算子，要求底层算子节点已经完成排序，一种快速的连接算法。
+  - [hash_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/hash_join_executor.h)：哈希连接算子，需要补充哈希组件后实现，一种快速高效的连接算法。
+  - [aggregate_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/aggregate_executor.h)：聚合算子，依赖于哈希表结构，用于实现各类聚合算子的运算。
 
 相关功能模块的抽象示意图如下：
 
 ![](./pics/lab4-details.svg)
 
-
 ## 基础功能
 
 基础功能侧重于函数功能的补全，通过阅读相关函数的输入输出描述以及函数解释即可完成。
 
-### Limit算子
+### Limit 算子
 
 #### 实验描述
 
-非常基础的一个内存算子，通过补全Limit算子结构体来理解Executor抽象结构体如何衍生出不同类型的查询算子。
+非常基础的一个内存算子，通过补全 Limit 算子结构体来理解 Executor 抽象结构体如何衍生出不同类型的查询算子。
 
 #### 实现思路
 
-按照Limit算子的功能需求补全LimitExecutor结构体成员变量和Next函数实现即可，主要用于理解Executor抽象结构体的设计。
+按照 Limit 算子的功能需求补全 LimitExecutor 结构体成员变量和 Next 函数实现即可，主要用于理解 Executor 抽象结构体的设计。
 
 ### 内存排序算子
 
@@ -74,20 +75,19 @@
 
 #### 实现思路
 
-按照排序算子的功能需求补全OrderByExecutor结构体，在内存中完成记录数据并存储排序结果，需要注意到排序的增序或降序属性。
+按照排序算子的功能需求补全 OrderByExecutor 结构体，在内存中完成记录数据并存储排序结果，需要注意到排序的增序或降序属性。
 
 ### 内存连接算子
 
 #### 实验描述
 
-连接算子具有多种实现方式，本次实验中要求实现NestedLoopJoin以及MergeJoin两类连接算法。前者算法实现简单，但复杂度较高；后者复杂度低，但依赖于排序算子的实现，且实现难度相对较高。总体而言，二者均为经典的连接算法，且实现方面易于修改为基于外存的连接算子。
+连接算子具有多种实现方式，本次实验中要求实现 NestedLoopJoin 以及 MergeJoin 两类连接算法。前者算法实现简单，但复杂度较高；后者复杂度低，但依赖于排序算子的实现，且实现难度相对较高。总体而言，二者均为经典的连接算法，且实现方面易于修改为基于外存的连接算子。
 
 #### 实现思路
 
-- 步骤1：按照连接算子的功能需求补全NestedLoopJoinExecutor结构体，理解火山模型中算子如何同时处理复数个子节点。
+- 步骤 1：按照连接算子的功能需求补全 NestedLoopJoinExecutor 结构体，理解火山模型中算子如何同时处理复数个子节点。
 
-- 步骤2：补全MergeJoinExecutor结构体，注意该算子假定底层子节点算子已经完成排序，因此该算子依赖于排序算子正确性。
-
+- 步骤 2：补全 MergeJoinExecutor 结构体，注意该算子假定底层子节点算子已经完成排序，因此该算子依赖于排序算子正确性。
 
 ## 高级功能
 
@@ -99,11 +99,11 @@
 
 #### 实现思路
 
-- 步骤0：阅读教材相关算法的伪代码，理解内存算法和外存算法的实现差异以及查询代价差异。
+- 步骤 0：阅读教材相关算法的伪代码，理解内存算法和外存算法的实现差异以及查询代价差异。
 
-- 步骤1：拓展BufferPool功能，添加对于查询算子使用BufferPool的支持。
+- 步骤 1：拓展 BufferPool 功能，添加对于查询算子使用 BufferPool 的支持。
 
-- 步骤2：修改查询算子的Next函数实现，并基于步骤1种拓展的BufferPool接口，通过缓存池实现内外存数据交互。
+- 步骤 2：修改查询算子的 Next 函数实现，并基于步骤 1 种拓展的 BufferPool 接口，通过缓存池实现内外存数据交互。
 
 ### 内存哈希连接与聚合算子
 
@@ -113,15 +113,15 @@
 
 #### 实现思路
 
-- 步骤1：补充哈希表HashTable结构体以及HashUtil的接口，实现记录字段的哈希功能。
+- 步骤 1：补充哈希表 HashTable 结构体以及 HashUtil 的接口，实现记录字段的哈希功能。
 
-- 步骤2：基于哈希表和哈希函数完成内存上的哈希连接端子以及聚合算子的实现。
+- 步骤 2：基于哈希表和哈希函数完成内存上的哈希连接端子以及聚合算子的实现。
 
 <!--TODO:添加部分教材中的示意图-->
 
 ## 实验报告
 
-实验报告应该具备如下3部分内容：
+实验报告应该具备如下 3 部分内容：
 
 - 基础功能的新增成员变量和函数
 
@@ -129,7 +129,7 @@
 
 - 基础功能的难点总结
 
-总结在完成基础功能中遇到的实现或理解方面的难点，分要点记录于这部分，建议不超过5点。
+总结在完成基础功能中遇到的实现或理解方面的难点，分要点记录于这部分，建议不超过 5 点。
 
 - **高级功能的设计与实现**
 
@@ -142,13 +142,11 @@
 
 (3) 新增成员函数的描述：介绍新增或已有结构体上增加的重要成员函数，以及这些函数的功能描述和调用关系。
 
-(4) 高级功能效果展示：结合新增或已有的测试用例，说明新增的高级功能的正确性或优化效果。 
-
+(4) 高级功能效果展示：结合新增或已有的测试用例，说明新增的高级功能的正确性或优化效果。
 
 ## 问题反馈
 
-### 框架BUG反馈
+### 框架 BUG 反馈
+
 有关于实验框架的问题可以在公开仓库中提交[git issues](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/issues/new)。
 或者直接提交包含问题描述和修复补丁的[pull request](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/merge_requests/new)。
-
-

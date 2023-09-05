@@ -1,6 +1,7 @@
 # 实验 3:多版本并发控制
 
 ## 实验概述
+
 本次实验为数据库系统并发控制的实验，意图通过实现多版本并发控制机制来让学生们更好地理解数据库系统如何以非阻塞方式处理并发查询处理中读写和写读冲突。
 
 并发查询处理是数据库系统维持高效率、高性能运行的必要条件。但是在并发查询处理中不可避免地会遇到不同事务同时访问相同数据区域的情景，可能发生读写、写读或者写写冲突。
@@ -8,9 +9,10 @@
 
 并发控制信息的维护和记录可见性分析是本次实验的难点。多版本并发控制依赖于记录所额外存储的版本信息，这要求在记录发生变更时需要同时更新记录的版本信息；同时需要实现记录级别或者页面级别的锁机制来应对写写冲突。在多版本并发控制的架构中，单个记录可以同时维持多个不同的版本来应对不同的事务上下文环境，读取的效率一方面要求系统能够根据版本信息和事务上下文快速确定不同记录版本对于特定事务的可见性，另一方面随着记录版本数量的增加，高效的记录查找机制和过期数据的清理机制才能保证查询性能不会受到严重的负面影响。本次实验要求补全解决读写和写读冲突的多版本并发控制，以及两阶段锁协议解决基本写写冲突，而涉及死锁问题的复杂写写冲突以及垃圾回收机制作为可选的高级功能。
 
-![](./pics/lab3-overview.svg) 
+![](./pics/lab3-overview.svg)
 
 ## 实验目标
+
 本次实验要求学生完成如下基础功能：
 
 1. 多版本并发控制：修改数据表的增删改查操作，添加版本信息的记录以及记录对于事务的可见性判断。
@@ -31,27 +33,26 @@
 2. 悲观并发控制：写写冲突的悲观处理将涉及到悲观并发控制的两阶段锁、死锁检测以及意向锁等内容。
 
 ## 相关代码模块
+
 本次实验涉及到代码中如下的功能模块：
 
 - [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/)：数据表相关结构体
-    - [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table.h)：修改实验1中记录的增删改接口，添加版本信息。
-    - [table_scan](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table_scan.h)：添加判断记录对事务可见性的接口，并修改查询函数。
+
+  - [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table.h)：修改实验 1 中记录的增删改接口，添加版本信息。
+  - [table_scan](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table_scan.h)：添加判断记录对事务可见性的接口，并修改查询函数。
 
 - [transaction](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/transaction/)：事务相关结构体
-    - [lock_manager](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/transaction/lock_manager.h)：锁管理器，负责管理事务锁，需要补充表级别、行级别加解锁函数以及相关辅助函数。
-    
+  - [lock_manager](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/transaction/lock_manager.h)：锁管理器，负责管理事务锁，需要补充表级别、行级别加解锁函数以及相关辅助函数。
 - [excutors](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/)：执行器相关结构体
-    - [seqscan_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/seqscan_executor.h)：需要补充获取事务列表的功能。
-    - [insert_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/insert_executor.h)：添加插入的写事务锁。
-    - [delete_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/delete_executor.h)：添加删除的写事务锁。
-    - [update_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/update_executor.h)：添加更新的写事务锁。
-    - [lock_rows_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/lock_rows_executor.h)：添加行级别加锁保护功能。
-
+  - [seqscan_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/seqscan_executor.h)：需要补充获取事务列表的功能。
+  - [insert_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/insert_executor.h)：添加插入的写事务锁。
+  - [delete_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/delete_executor.h)：添加删除的写事务锁。
+  - [update_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/update_executor.h)：添加更新的写事务锁。
+  - [lock_rows_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/lock_rows_executor.h)：添加行级别加锁保护功能。
 
 相关功能模块的抽象示意图如下：
 
 ![](./pics/lab3-details.svg)
-
 
 ## 基础功能
 
@@ -61,25 +62,23 @@
 
 #### 实验描述
 
-多版本并发控制用于解决并发查询处理中的读写和写读冲突，需要在Table相关结构体中添加版本信息以及并在查询记录时判断记录对事务的可见性。
+多版本并发控制用于解决并发查询处理中的读写和写读冲突，需要在 Table 相关结构体中添加版本信息以及并在查询记录时判断记录对事务的可见性。
 
 #### 实现思路
 
-- 步骤1：修改Table结构体插入、删除以及更新记录的函数，添加版本信息。
+- 步骤 1：修改 Table 结构体插入、删除以及更新记录的函数，添加版本信息。
 
-在实验1和2中完成的Table和TablePage的处理中没有考虑到事务的版本信息，需要在本次实验中将其补充。
+在实验 1 和 2 中完成的 Table 和 TablePage 的处理中没有考虑到事务的版本信息，需要在本次实验中将其补充。
 
-- 步骤2：补全SeqScanExecutor::Next函数中活跃事务表的获取，用于传递当前活跃事务信息。
+- 步骤 2：补全 SeqScanExecutor::Next 函数中活跃事务表的获取，用于传递当前活跃事务信息。
 
 多版本并发控制的数据表扫描中需要获取查询执行时的活跃事务表，结合隔离级别生成正确的活跃事务表即可。
 
-- 步骤3：补全TableScan的IsVisible函数，用于在查询记录时判断记录版本对于事务的可见性。
+- 步骤 3：补全 TableScan 的 IsVisible 函数，用于在查询记录时判断记录版本对于事务的可见性。
 
-根据隔离级别、记录的版本号以及当前事务的状态信息确定某条记录是否对于该事务可见。这部分是MVCC技术的关键的内容，建议充分理解课程内容后实现。
-
+根据隔离级别、记录的版本号以及当前事务的状态信息确定某条记录是否对于该事务可见。这部分是 MVCC 技术的关键的内容，建议充分理解课程内容后实现。
 
 完成上面三个步骤即可补全多版本并发控制的功能。
-
 
 ### 悲观并发控制
 
@@ -89,20 +88,19 @@
 
 #### 实现思路
 
-- 步骤1：补全LockManager的相关函数，完成表级锁和行级锁的控制和管理。
+- 步骤 1：补全 LockManager 的相关函数，完成表级锁和行级锁的控制和管理。
 
 <!--TODO:此处可以添加锁的级别-->
 
-LockManager定义了表级锁和行级锁的相关接口，同时按照不同等级区分了多种类型的锁结构。实验要求补全表级别和行级别的加锁和解锁函数，以及相关的辅助函数。
+LockManager 定义了表级锁和行级锁的相关接口，同时按照不同等级区分了多种类型的锁结构。实验要求补全表级别和行级别的加锁和解锁函数，以及相关的辅助函数。
 需要特别注意，实验框架中仅实现了事务锁，没有实现页面锁。
 
-- 步骤2：补全算子中申请锁的部分。
+- 步骤 2：补全算子中申请锁的部分。
 
-补全Insert、Delete和Unpdate三个算子执行过程中的写锁申请部分，用于解决基本的写写冲突。
-补全LockRows算子执行过程中的读锁或写锁的申请，用于支持SELECT ... FOR SHARE和SELECT ... FOR UPDATE类查询语句。
+补全 Insert、Delete 和 Unpdate 三个算子执行过程中的写锁申请部分，用于解决基本的写写冲突。
+补全 LockRows 算子执行过程中的读锁或写锁的申请，用于支持 SELECT ... FOR SHARE 和 SELECT ... FOR UPDATE 类查询语句。
 
 完成上面两个步骤即可补全基于两阶段锁的悲观并发控制的功能。
-
 
 ## 高级功能
 
@@ -116,12 +114,11 @@ LockManager定义了表级锁和行级锁的相关接口，同时按照不同等
 
 #### 实现思路
 
-- 步骤0：阅读相关课件，理解死锁发生的条件并设计产生死锁的测例文件。
+- 步骤 0：阅读相关课件，理解死锁发生的条件并设计产生死锁的测例文件。
 
-- 步骤1：涉及死锁检测机制，可以考虑使用锁申请的等待时间作为检测标准。
+- 步骤 1：涉及死锁检测机制，可以考虑使用锁申请的等待时间作为检测标准。
 
-- 步骤2：当检测到死锁后撤销当前事务并重做，注意重做的启动时间问题，避免相同事务重复陷入死锁状态。
-
+- 步骤 2：当检测到死锁后撤销当前事务并重做，注意重做的启动时间问题，避免相同事务重复陷入死锁状态。
 
 ### 乐观并发控制
 
@@ -131,22 +128,19 @@ LockManager定义了表级锁和行级锁的相关接口，同时按照不同等
 
 #### 实现思路
 
-- 步骤1：添加判断标志，当标记为乐观模式下跳过悲观并发控制中的相关锁操作。
+- 步骤 1：添加判断标志，当标记为乐观模式下跳过悲观并发控制中的相关锁操作。
 
-- 步骤2：在Table结构体中添加页面锁，避免页面的写冲突，并添加单个页面的时间戳检测机制。
+- 步骤 2：在 Table 结构体中添加页面锁，避免页面的写冲突，并添加单个页面的时间戳检测机制。
 
-- 步骤3：添加新的结构体，用于整体检测乐观并发控制过程严格时间戳规则是否被满足，冲突时撤销事务。
+- 步骤 3：添加新的结构体，用于整体检测乐观并发控制过程严格时间戳规则是否被满足，冲突时撤销事务。
 
-- 步骤4：设计合理的事务重启机制，避免相同事务重复撤销导致的“饿死”问题。
-
-
+- 步骤 4：设计合理的事务重启机制，避免相同事务重复撤销导致的“饿死”问题。
 
 <!--TODO:添加部分教材中的示意图-->
 
-
 ## 实验报告
 
-实验报告应该具备如下3部分内容：
+实验报告应该具备如下 3 部分内容：
 
 - 基础功能的新增成员变量和函数
 
@@ -154,7 +148,7 @@ LockManager定义了表级锁和行级锁的相关接口，同时按照不同等
 
 - 基础功能的难点总结
 
-总结在完成基础功能中遇到的实现或理解方面的难点，分要点记录于这部分，建议不超过5点。
+总结在完成基础功能中遇到的实现或理解方面的难点，分要点记录于这部分，建议不超过 5 点。
 
 - **高级功能的设计与实现**
 
@@ -167,15 +161,11 @@ LockManager定义了表级锁和行级锁的相关接口，同时按照不同等
 
 (3) 新增成员函数的描述：介绍新增或已有结构体上增加的重要成员函数，以及这些函数的功能描述和调用关系。
 
-(4) 高级功能效果展示：结合新增或已有的测试用例，说明新增的高级功能的正确性或优化效果。 
-
+(4) 高级功能效果展示：结合新增或已有的测试用例，说明新增的高级功能的正确性或优化效果。
 
 ## 问题反馈
 
-### 框架BUG反馈
+### 框架 BUG 反馈
+
 有关于实验框架的问题可以在公开仓库中提交[git issues](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/issues/new)。
 或者直接提交包含问题描述和修复补丁的[pull request](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/merge_requests/new)。
-
-
-
-

@@ -34,7 +34,7 @@ brew install cmake
 2. Debian 10 及以上
 3. macOS Monterey 及以上
 
-在其他的环境（如 Windows, WSL, BSD等）也可能可以编译和运行，但不保证可以正常工作。
+在其他的环境（如 Windows, WSL, BSD 等）也可能可以编译和运行，但不保证可以正常工作。
 
 ## 开始前的工作
 
