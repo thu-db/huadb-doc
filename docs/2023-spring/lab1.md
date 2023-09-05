@@ -7,6 +7,7 @@
 ## 实验任务
 
 本次实验主要有两个任务：
+
 1. 阅读代码，对于记录管理模块有一个结构性的理解
 2. 设计底层记录页面组织，完成记录管理的各项基本功能
 
@@ -27,14 +28,14 @@
 不要求将高级功能集成到主分支中，建议单开分支完成实验。但是建议同学们设计验证自己实验结果的测例并给出测试的可视化结果展示。
 
 1. 变长记录存储：实现 varchar 类型的变长存储，需给出实现方式的示意图，以及使用前后存储空间变化。
-2. 数据加密或数据压缩：使用加密或压缩相关库对表数据进行加密和压缩，同时支持数据的查询和更新，需给出相关性能参数（如压缩加密的时间，对查询性能的影响）以及实际HEX编码变化。
+2. 数据加密或数据压缩：使用加密或压缩相关库对表数据进行加密和压缩，同时支持数据的查询和更新，需给出相关性能参数（如压缩加密的时间，对查询性能的影响）以及实际 HEX 编码变化。
 3. 删除记录空间回收：自动回收已经删除的记录条目所占用的空间，设计回收策略，如什么时候进行回收，如何回收，需要给出执行效率和存储空间变化
 
 同时也鼓励同学们结合相关课程内容提出自己的创新设计。
 
 考虑到本次实验高级功能实现难度较大，只需完整实现一个高级功能即可得到满分，如果没有实现高级功能，可以在报告中写出高级功能的设计方式，也可得到部分分数。
 
-特别注意第二项数据加密最好采用记录或字段级别的相关加密技术，或者包含完整密钥管理的成熟页面级别加密技术。简单在页面IO过程中使用同密钥加密的安全性不足，无法获取全部分数。数据压缩则重点需要考虑到数据更新过程中的优化。简单在IO过程中直接调用压缩和解压函数的更新效率同样无法获取全部分数。
+特别注意第二项数据加密最好采用记录或字段级别的相关加密技术，或者包含完整密钥管理的成熟页面级别加密技术。简单在页面 IO 过程中使用同密钥加密的安全性不足，无法获取全部分数。数据压缩则重点需要考虑到数据更新过程中的优化。简单在 IO 过程中直接调用压缩和解压函数的更新效率同样无法获取全部分数。
 
 ## 一条 SQL 语句的运行流程
 
@@ -43,20 +44,20 @@
 cli 程序的主函数位于 cli.cpp 文件，该文件的核心代码为：
 
 ```c++
-ast:: Visitor *visitor = new ast:: Visitor(); 
-Result result = std::any_cast<Result>(ast::parse_tree->accept(visitor)); 
-printer->Print(&result); 
-delete visitor; 
+ast:: Visitor *visitor = new ast:: Visitor();
+Result result = std::any_cast<Result>(ast::parse_tree->accept(visitor));
+printer->Print(&result);
+delete visitor;
 
 ```
 
 对于输入的 SQL 文本，首先通过 yyparse 函数对 SQL 进行解析，语法文件位于 parser/sql.y，解析后将 SQL 转化为语法树节点，语法树节点的定义位于 parser/ast.h 文件。
 
-随后通过 ast::parsetree->accept 方法对语法树进行遍历，解析器采用 visitor 模式，遍历时程序会进入 SQL 语句对应的 visit 函数中，对于 show databases 这条 SQL 语句，遍历后会进入 parser/visitor.cpp 的 Visitor::visit(ShowDatabases *) 函数：
+随后通过 ast::parsetree->accept 方法对语法树进行遍历，解析器采用 visitor 模式，遍历时程序会进入 SQL 语句对应的 visit 函数中，对于 show databases 这条 SQL 语句，遍历后会进入 parser/visitor.cpp 的 Visitor::visit(ShowDatabases \*) 函数：
 
 ```c++
 std::any Visitor::visit(ShowDatabases *) {
-    return SystemManager::GetInstance().ShowDatabases(); 
+    return SystemManager::GetInstance().ShowDatabases();
 }
 ```
 
@@ -79,7 +80,7 @@ Result SystemManager:: ShowDatabases() {
 
 SystemManager 为数据库的系统管理模块，主要负责数据库的创建、删除、查找、切换、关闭，表的创建和删除功能。该类采用单例模式实现，只需调用 SystemManager::GetInstance() 即可获得 SystemManager 对象。
 
-由于 SystemManager 在初始化时已经在 db\_names\_ 中记录了当前所有数据库的名称，我们只需将 db\_names\_ 的内容包装为 Result 对象即可。
+由于 SystemManager 在初始化时已经在 db_names\_ 中记录了当前所有数据库的名称，我们只需将 db_names\_ 的内容包装为 Result 对象即可。
 
 查看 result/result.h 中 Result 类的定义：
 
@@ -92,14 +93,14 @@ private:
 };
 ```
 
-发现该类的数据成员由 header\_ 和 records\_ 组成，分别表示输出结果的表头和输出结果的内容，对于 show databases 命令，我们简单地将 header\_ 设置为 Databases，然后只需将 db\_names\_ 包装为 RecordList 对象，一个结果对象的组成部分如下：
+发现该类的数据成员由 header\_ 和 records\_ 组成，分别表示输出结果的表头和输出结果的内容，对于 show databases 命令，我们简单地将 header\_ 设置为 Databases，然后只需将 db_names\_ 包装为 RecordList 对象，一个结果对象的组成部分如下：
 
 ![Result](./pics/result.svg)
 
 在 record/record.h 文件中找到 RecordList 以及 Record 的定义：
 
 ```c++
-typedef vector<Record*> RecordList; 
+typedef vector<Record*> RecordList;
 
 class Record {
 

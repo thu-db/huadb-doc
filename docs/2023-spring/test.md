@@ -125,7 +125,7 @@ dbtrain> show databases;
 +----------+
 (1 rows)
 
-dbtrain> 
+dbtrain>
 ```
 
 通过 ctrl+c 或 ctrl+d 即可退出数据库交互界面。
