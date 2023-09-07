@@ -15,7 +15,7 @@ statement ok/error <label>
 SQL
 ```
 
-第一部分为 statement ok 或 statemenr error，表示这是一条 statement 记录，期望执行成功 (对应 ok) 或执行失败 (对应 error)；第二行为对应的 SQL。例如：
+第一部分为 statement ok 或 statement error，表示这是一条 statement 记录，期望执行成功 (对应 ok) 或执行失败 (对应 error)；第二行为对应的 SQL。例如：
 
 ```sql
 statement ok
