@@ -55,7 +55,7 @@
 
 ## 存储
 
-页面设计与 PostgreSQL 类似，可参考 PostgreSQL 的[页面组织](https://www.postgresql.org/docs/current/storage-page-layout.html)。
+页面设计与 PostgreSQL 的[页面组织](https://www.postgresql.org/docs/current/storage-page-layout.html)类似，页面头由以下几个字段组成：
 
 | 变量名         | 变量类型  | 长度 | 作用                   |
 | -------------- | --------- | ---- | ---------------------- |
