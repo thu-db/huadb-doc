@@ -1,8 +1,80 @@
 # 实验框架简介
 
+## 实验要求
+
+每次实验聚焦于实验框架的一个模块，我们已为你提供了相应的类以及函数声明，你需要完成其中部分函数的实现。
+
+## 运行
+
+实验代码根目录的 Makefile 文件提供了多种命令的支持，具体包括：
+
+-   `make` 或 `make lab1-debug`：实验 1 数据库的构建。
+-   `make debug`：实验 1 之后的数据库构建（debug 版本）。
+-   `make release`：实验 1 之后的数据库构建（release 版本）。
+-   `make shell`：进入数据库交互界面。
+-   `make labn`：运行 lab 0 至 lab n 的所有测例（0 <= n <= 5）。
+-   `make labn-only`：仅运行 lab n 的测例（0 <= n <= 5）。
+-   `make labn/xx`：运行所有符合通配符 test/labn/x\* 匹配的测例。
+
+我们采用系统表管理数据库的元信息，包括如下三个表：
+
+| 表名            | 作用                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------- |
+| huadb_table     | 存储所有表的 oid，所属数据库的 oid，表名，表的结构，以及表的行数（用于实验 5 基数估计） |
+| huadb_database  | 存储数据库的 oid，以及数据库名                                                          |
+| huadb_statistic | 存储列的统计信息，包括直方图和不同值的个数                                              |
+
+完成实验 1 后，你可以进入 system 数据库中查看系统表的结构：
+
+```console
+huadb> \c system
+ Change to database system
+system> \d
++-----------------+
+| table_name      |
++-----------------+
+| huadb_table     |
+| huadb_database  |
+| huadb_statistic |
++-----------------+
+(3 rows)
+
+system> \d huadb_table
++-------------+---------+------+
+| name        | type    | size |
++-------------+---------+------+
+| table_oid   | uint    | 4    |
+| db_oid      | uint    | 4    |
+| table_name  | varchar | 32   |
+| schema      | varchar | 1024 |
+| cardinality | int     | 4    |
++-------------+---------+------+
+(5 rows)
+
+system> \d huadb_database
++---------+---------+------+
+| name    | type    | size |
++---------+---------+------+
+| db_oid  | uint    | 4    |
+| db_name | varchar | 32   |
++---------+---------+------+
+(2 rows)
+
+system> \d huadb_statistic
++-------------+---------+------+
+| name        | type    | size |
++-------------+---------+------+
+| table_name  | varchar | 32   |
+| column_name | varchar | 32   |
+| histogram   | varchar | 1024 |
+| n_distinct  | int     | 4    |
++-------------+---------+------+
+(4 rows)
+```
+
 ## 测试
 
-每次实验均为端到端 SQL 测试，不设单元测试，测试框架基于 [sqllogictest](https://www.sqlite.org/sqllogictest/doc/trunk/about.wiki) ，并在其基础上对测试格式略加修改。
+每次实验均为端到端 SQL 测试，不设单元测试，测试框架基于 [sqllogictest](https://www.sqlite.org/sqllogictest/doc/trunk/about.wiki) 。
 
 ### 测试文件格式
 
