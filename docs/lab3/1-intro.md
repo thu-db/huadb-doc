@@ -54,15 +54,4 @@
 
 相关功能模块的抽象示意图如下：
 
-![](../pics/lab3-details.svg)
-
-## 记录头
-
-参考 PostgreSQL [记录头](https://www.postgresql.org/docs/current/storage-page-layout.html#STORAGE-TUPLE-LAYOUT)
-
-| 变量名    | 变量类型 | 长度 | 作用                                           |
-| --------- | -------- | ---- | ---------------------------------------------- |
-| deleted\_ | bool     | 1    | 在实验 1 中用于标注记录是否删除，实验 3 中弃用 |
-| xmin\_    | xid      | 4    | 插入该数据的事务 id                            |
-| xmax\_    | xid      | 4    | 删除该数据的事务 id                            |
-| cid\_     | cid_t    | 4    | 插入该数据的事务内部 command id                |
+![](../pics/lab3-details.svg) |

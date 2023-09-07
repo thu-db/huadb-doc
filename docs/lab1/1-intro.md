@@ -52,14 +52,3 @@
 ![](../pics/lab1-details.svg)
 
 <!--TODO:添加部分教材中的示意图-->
-
-## 存储
-
-页面设计与 PostgreSQL 的[页面组织](https://www.postgresql.org/docs/current/storage-page-layout.html)类似，页面头由以下几个字段组成：
-
-| 变量名         | 变量类型  | 长度 | 作用                   |
-| -------------- | --------- | ---- | ---------------------- |
-| page_lsn\_     | lsn_t     | 8    | PageLSN，实验 2 中使用 |
-| next_page_id\_ | pageid_t  | 4    | 记录下一个页面的页面号 |
-| lower\_        | db_size_t | 2    | 页面空闲空间起始位置   |
-| upper\_        | db_size_t | 2    | 页面空闲空间终止位置   |

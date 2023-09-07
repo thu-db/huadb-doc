@@ -19,6 +19,8 @@
 -   `make labn`：运行 lab 0 至 lab n 的所有测例（0 <= n <= 5）。
 -   `make labn-only`：仅运行 lab n 的测例（0 <= n <= 5）。
 -   `make labn/xx`：运行所有符合通配符 test/labn/x\* 匹配的测例。
+-   `make clean`：删除编译生成的文件。
+-   `make destroy`：删除数据库文件。
 
 我们采用系统表管理数据库的元信息，包括如下三个表：
 
