@@ -4,6 +4,8 @@
 
 每次实验均为端到端 SQL 测试，不设单元测试，测试框架基于 [sqllogictest](https://www.sqlite.org/sqllogictest/doc/trunk/about.wiki) ，并在其基础上对测试格式略加修改。
 
+### 测试文件格式
+
 每个 sqllogictest 测试文件由一系列测试记录 (record) 组成，每条记录包含测试 SQL 语句以及语句的期望输出。测试记录分为 statement 和 query 两类。
 
 对于 statement 记录，我们不指定期望输出结果，只判断语句是否成功执行，对应的 SQL 通常由两部分组成：
@@ -73,7 +75,7 @@ statement ok
 create table test(id int, info varchar(10));
 
 query
-insert into test (1, 'aaa'), (2, 'bbb');
+insert into test values(1, 'aaa'), (2, 'bbb');
 ----
 2
 
@@ -102,3 +104,64 @@ delete from test;
 statement ok
 drop table test;
 ```
+
+### 测试程序输出
+
+测试成功
+
+```console
+xxx.test PASS
+```
+
+测试失败，分为以下几种情况：
+
+-   期望执行成功，实际执行失败
+
+```console
+xxx.test ERROR
+xxx.test:<行号>
+Unexpected error: <错误信息>
+```
+
+-   期望执行失败，实际执行成功
+
+```console
+xxx.test ERROR
+xxx.test:<行号>
+Unexpected success
+```
+
+-   查询输出结果与期望结果不一致
+
+```console
+xxx.test ERROR
+xxx.test:<行号>
+Unexpected error: Wrong Result
+Your Result:
+<你的查询结果>
+
+Expected Result:
+<期望查询结果>
+```
+
+此外，测试程序还会在测试文件夹`huadb_test`下生成两个文件：`yours.log`和`expected.log`，分别对应你的查询结果和期望查询结果。对于一些结果行数较多的查询，直接观察终端输出可能难以发现哪些行与期望输出不一致，此时可以使用`diff`工具对比两个文件的差异。
+
+-   段错误
+
+```console
+xxx.test Segmentation fault (core dumped)
+```
+
+```console
+xxx.test Trace/BPT trap: 5
+```
+
+这些错误表示你的代码中存在一些非法操作，如空指针解引用、数组越界访问、栈溢出等。
+
+-   死循环
+
+```console
+xxx.test
+```
+
+如果你的测试程序长期保持在这个界面，没有 PASS 或 ERROR 的输出，那么你的程序很可能进入了死循环。
