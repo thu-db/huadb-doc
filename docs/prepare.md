@@ -64,7 +64,7 @@ git pull upstream master
 
 ### 编译及测试
 
-直接运行 `make` 即可完成编译 huadb，如果你的编译速度太慢，可以设置 `CMAKE_BUILD_PARALLEL_LEVEL` 环境变量来进行多核编译：
+直接运行 `make` 即可完成编译 huadb，你也可以通过设置 `CMAKE_BUILD_PARALLEL_LEVEL` 环境变量来进行多核编译：
 
 ```bash
 CMAKE_BUILD_PARALLEL_LEVEL=$(nproc) make
@@ -170,4 +170,4 @@ huadb> \q
 
 在完成实验 1 之前，你的程序仅支持在默认数据库 huadb 中创建表、删除表和查看表的结构，还不支持数据库的创建/切换/删除，也不支持在表中插入和读取数据。
 
-至此，环境配置与验证工作已经结束，你可以开始[实验](lab1/1-intro)，或阅读[实验框架说明](overview)。
+至此，环境配置与验证工作已经结束，你可以开始[实验](../lab1/1-intro)，或阅读[实验框架说明](../overview)。
