@@ -10,7 +10,7 @@ huadb 使用了 C++17 标准，开始实验前，请确保你的开发环境支�
 
 目前 huadb 仅支持 macOS 和 Linux 操作系统，使用 Windows 的同学建议使用虚拟机进行实验。
 
-huadb 代码下载与提交需要使用 [git](https://git-scm.com/) 工具，代码编译需要使用 [CMake](https://cmake.org/) 及 [Make](https://www.gnu.org/software/make/) 工具，且需要安装 [gcc](https://gcc.gnu.org/) 或 [clang](https://clang.llvm.org/) 编译器。此外，代码调试中可能会用到调试器 [gdb](https://www.sourceware.org/gdb/) 或 [lldb](https://lldb.llvm.org/)。开始实验前，请确保你的开发环境安装了这些工具并可以正常使用，如没有，请根据你使用的操作系统与发行版选择对应的命令进行环境配置。
+huadb 代码下载与提交需要使用 [git](https://git-scm.com/) 工具，代码编译需要使用 [CMake](https://cmake.org/) 及 [Make](https://www.gnu.org/software/make/) 工具，且需要安装 [gcc](https://gcc.gnu.org/) 或 [clang](https://clang.llvm.org/) 编译器。此外，代码调试中可能会用到调试器 [gdb](https://www.sourceware.org/gdb/) 或 [lldb](https://lldb.llvm.org/)。开始实验前，请确保你的开发环境安装了这些工具并可以正常使用，如没有，请根据你使用的操作系统选择对应的命令进行环境配置。
 
 ### Debian/Ubuntu
 
@@ -76,7 +76,7 @@ CMAKE_BUILD_PARALLEL_LEVEL=$(nproc) make
 
 1. shell: 数据库程序，运行后可以与数据库进行交互。
 
-2. sqllogictest: 测试程序，用于实验批量测试。
+2. sqllogictest: 测试程序，用于批量测试。
 
 运行如下命令来验证你编译出的数据库程序和测试程序可以正常运行：
 
@@ -87,13 +87,87 @@ make lab0
 如果产生如下输出：
 
 ```bash
-basic.test PASS
-database.test PASS
-expression.test PASS
+Test: 1/3
+lab0/10-basic.test PASS
+lab0/20-expression.test PASS
+lab0/30-set_and_show.test PASS
+lab0/40-error.test PASS
+Test: 2/3
+lab0/10-basic.test PASS
+lab0/20-expression.test PASS
+lab0/30-set_and_show.test PASS
+lab0/40-error.test PASS
+Test: 3/3
+lab0/10-basic.test PASS
+lab0/20-expression.test PASS
+lab0/30-set_and_show.test PASS
+lab0/40-error.test PASS
 ```
 
 表示程序正常运行。
 
-如果程序报错，可以根据报错信息对照[测试说明]()进行排查。
+如果程序报错，可以根据报错信息对照[测试说明](overview)进行排查。
 
-至此，环境配置与验证工作已经结束，你可以开始[实验](lab1)，或阅读[实验框架说明](intro)。
+此外，你可以通过如下命令进入数据库交互界面：
+
+```bash
+make shell
+```
+
+你可以在交互界面中运行一些基础的 DDL 命令，如：
+
+```bash
+Welcome to huadb. Type "\?" or "\h" for help
+huadb> \?
+
+   \? or \h              show help message
+   \c [database_name]    change database
+   \d                    show tables
+   \d [table_name]       describe table
+   \l                    show databases
+   \q                    quit
+
+huadb> \l
++---------------+
+| database_name |
++---------------+
+| system        |
+| huadb         |
++---------------+
+(2 rows)
+
+huadb> create table test(id int, info varchar(10));
+ CREATE TABLE
+huadb> \d
++------------+
+| table_name |
++------------+
+| test       |
++------------+
+(1 row)
+
+huadb> \d test
++------+---------+------+
+| name | type    | size |
++------+---------+------+
+| id   | int     | 4    |
+| info | varchar | 10   |
++------+---------+------+
+(2 rows)
+
+huadb> drop table test;
+ DROP TABLE
+huadb> \d
++------------+
+| table_name |
++------------+
+(0 rows)
+
+huadb> \q
+```
+
+这些命令的名称参考了 [PostgreSQL](https://www.postgresql.org/) 命令的设计，如果你有过 PostgreSQL 的使用经验，应该会得到熟悉的体验。
+
+在完成实验 1 之前，你的程序仅支持在默认数据库 huadb 中创建表、删除表和查看表的结构，还不支持数据库的创建/切换/删除，也不支持在表中插入和读取数据。
+
+至此，环境配置与验证工作已经结束，你可以开始[实验](lab1/1-intro)，或阅读[实验框架说明](overview)。
