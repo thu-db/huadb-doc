@@ -32,7 +32,7 @@
 
 我们首先来看记录插入的部分，记录插入的上层调用位于`insert_executor.cpp`，调用了 Table 类的 InsertRecord 函数，该函数返回插入记录的 rid\_（rid\_表示一条记录的位置，由页面 id 和页面中的槽 id 组成）。
 
-Table 类的 InsertRecord 函数是你需要实现的部分。在这个函数中，你需要找到一个页面，调用页面 TablePage 的 InsertRecord 函数插入记录。
+Table 类的 InsertRecord 函数是你需要实现的部分。在这个函数中，你需要找到一个页面，通过 BufferPool 的 GetPage 函数获取页面，进一步调用页面 TablePage 的 InsertRecord 函数插入记录。在寻找页面时，你需要保证页面的空闲空间能够放下要插入的记录，如果找不到这样的页面，你需要调用 BufferPool 的 NewPage 函数新建一个页面，并在新页面中插入记录。
 
 TablePage 的 InsertRecord 函数也是需要实现的部分，你需要维护页面的 lower 和 upper 指针，以及页面的记录槽信息（记录位置与记录长度），并将记录写入页面，同时不要忘了将页面标记为脏页，只有脏页才会在缓存替换时写回磁盘。
 
@@ -42,7 +42,7 @@ TablePage 的 InsertRecord 函数也是需要实现的部分，你需要维护�
 make lab1/10
 ```
 
-通常情况下，你将会得到如下输出：
+正常情况下，你将会得到如下输出：
 
 ```console
 Test: 1/3
@@ -95,35 +95,62 @@ table_page.cpp 的 DeleteRecord 函数实现了页面中记录的删除，在实
 
 至此，若你的实现正确，可以通过 `20-delete.test` 和 `30-update.test`。你可能会好奇，为何我们的框架没有 update 函数，却可以通过 update 测例。这是因为实验框架没有实现原地更新函数，所有更新操作均由删除+插入的方式实现，你可以查看 update_executor.cpp 来了解框架的实现方式。这种实现方式会导致删除数据的空间不能被回收，造成了空间的浪费，带来的好处是在实验 2 和实验 3 中更简洁的实现。如果你对删除数据的空间回收感兴趣，可以在高级功能中实现[垃圾回收](../3-advanced)。
 
+!!! note "万圣节问题"
+
+    如果你尝试运行以下 update 语句：
+
+    ```sql
+    create table test(id int);
+    insert into test values(1), (2);
+    update test set id = id + 1;
+    ```
+
+    可能会发现程序会陷入死循环，这在数据库中被称为万圣节问题 ([Halloween Problem](https://en.wikipedia.org/wiki/Halloween_Problem))。
+
+    这是因为在我们删除+插入的更新操作中，由于每次只对一条记录进行操作，读取记录时会将新插入的记录继续读取，对于新插入的记录，会再次执行删除+插入的操作，从而使读取永远不会中止。在本次实验中，你暂时无需解决这个问题，我们会在实验 3 中通过事务的 command id 来解决。
+
+### 步骤 4：将 SimpleCatalog 替换为系统表 SystemCatalog
+
+本部分不需要添加任何代码，只需要改变编译选项即可。
+
+在完成步骤 1-3 之前，由于数据库不具备基础的增删改查功能，存储元信息的系统表无法正常工作，我们使用了 SimpleCatalog 临时替代了系统表功能。但是 SimpleCatalog 没有数据库的增加/删除/切换功能，导致我们无法通过 `40-database.test` 测例。因此，我们需要改变编译选项，让我们的数据库使用系统表 SystemCatalog。
+
+首先清理此前生成的编译文件及数据库文件：
+
+```bash
+make destroy && make clean
+```
+
+之后编译使用 SystemCatalog 的数据库：
+
+```bash
+make debug
+```
+
+编译完成后，再次对 lab 1 测例进行测试，可以通过 `40-database.test`。
+
+此后的所有实验，我们只需要使用 SystemCatalog 版本的数据库即可，不再需要使用 `make lab1-debug` 命令。你可以修改 Makefile 文件，将：
+
+```
+all: lab1-debug
+```
+
+修改为:
+
+```
+all: debug
+```
+
+以避免在之后的实验中编译出错误的版本。
+
 ## 任务 2：LRU 缓存替换算法（3 分）
 
-### 实验描述
+在任务 1 中，我们多次调用 BufferPool 的 GetPage 和 NewPage 函数，本任务中，你需要阅读 BufferPool 中这两个函数的实现代码，并为缓存池添加 LRU 替换算法。你只需修改 lru_buffer_strategy.cpp 即可，必要时可以在 lru_buffer_strategy.h 中添加成员变量。整体代码量很小，但希望通过此任务加深对缓存池的理解，这将帮助你更快地之后的实验。
 
-补全 storage 文件夹下的 LRU 缓存替换策略类，实现页面缓存池的 LRU 缓存替换策略。
+BufferPool 的主要成员变量有三个：页面缓存 buffers\_ ，页面号到 buffers\_ 下标的映射表 hashmap\_ 以及缓存替换策略成员 buffer_strategy\_。
 
-### 实现思路
+其他成员变量主要为系统表相关变量，你无需过多关注。
 
-缓存替换的核心是基于输入的页面访问序列，选择按照算法标准设计的换出页面编号。可以按照如下的顺序完成本次实验：
+页面缓存大小默认为 5，每次访问页面时会将页面放入缓存区，并调用 BufferStrategy 的 Access 函数。若缓存区已满，则需要调用 BufferStrategy 的 Evict 函数获取淘汰页面的编号。
 
--   步骤 1：补全 lru_buffer_strategy.h，设计 LRUBufferStrategy 类
-
-BufferStrategy 采用了经典的策略模式。默认的函数模板提供了缓存池调用的接口，用具体的替换策略补全纯虚的抽象接口。
-首先需要再 LRUBufferStrategy 类中添加记录信息所需的成员变量。
-
--   步骤 2：补全 lru_buffer_strategy.cpp，补全空缺的 Access 和 Evict 策略接口。
-
-Access 函数：表示发生了页面访问，根据访问页面更新步骤 1 中添加的成员变量。
-
-Evict 函数：按照 LRU 算法的规则，利用步骤 1 中添加的成员变量确定最久未使用的页面作为换出页面即可。
-
-完成上面两个步骤即可补全 LRU 缓存替换算法。
-
-## 基础功能实现顺序及测例分析
-
-### table_page 的插入和删除
-
-### table 的插入和删除
-
-### Halloween Problem
-
-### 缓存管理
+本任务中，你需要实现 LRUBufferStrategy 的 Access 和 Evict 函数，实现 LRU 缓存替换算法，正确实现后你将通过`50-buffer_pool.test`测例。

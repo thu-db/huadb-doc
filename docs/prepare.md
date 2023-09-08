@@ -70,7 +70,7 @@ git pull upstream master
 CMAKE_BUILD_PARALLEL_LEVEL=$(nproc) make
 ```
 
-通过以上指令默认可以编译出 debug 版本的程序，为便于调试，我们不建议编译 release 版本，保持默认即可。
+通过以上指令可以编译出 debug 版本的程序，为便于调试，我们不建议编译 release 版本。
 
 编译生成的文件位于 `build/debug` 目录，实验过程中只需要关注 `build/debug/bin` 目录中的可执行程序即可，具体包括：
 
