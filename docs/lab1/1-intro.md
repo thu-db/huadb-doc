@@ -47,6 +47,8 @@
     -   [buffer_strategy](https://github.com/thu-db/huadb/tree/main/src/storage/buffer_strategy.h)：缓存替换算法的抽象类。
     -   [lru_buffer_strategy](https://github.com/thu-db/huadb/tree/main/src/storage/lru_buffer_strategy.h)：LRU 缓存替换算法类，需要补全实现。
 
+基础功能需要补充约 100 行代码。
+
 相关功能模块的抽象示意图如下：
 
 ![](../pics/lab1-details.svg)

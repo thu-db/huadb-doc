@@ -166,7 +166,7 @@ huadb> \d
 huadb> \q
 ```
 
-这些命令的名称参考了 PostgreSQL 客户端 [psql](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS) 命令的设计，如果你有过 psql 的使用经验，应该会得到熟悉的体验。
+这些命令的名称参考了 PostgreSQL 客户端 [psql](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS) 命令的设计，如果你有过 psql 的使用经验，应该会熟悉这些命令。
 
 在完成实验 1 之前，你的程序仅支持在默认数据库 huadb 中创建表、删除表和查看表的结构，还不支持数据库的创建/切换/删除，也不支持在表中插入和读取数据。
 

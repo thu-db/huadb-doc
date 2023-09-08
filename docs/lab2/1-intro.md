@@ -45,8 +45,8 @@
 -   [table](https://github.com/thu-db/huadb/tree/main/src/table)：数据表相关类
     -   [table](https://github.com/thu-db/huadb/tree/main/src/table/table.h)：在实验 1 的基础上添加记录变更时的日志记录功能。
 
+基础功能需要补充约 200 行代码。
+
 相关功能模块的抽象示意图如下：
 
 ![](../pics/lab2-details.svg)
-
-## 日志
