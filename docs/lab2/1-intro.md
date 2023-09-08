@@ -36,14 +36,14 @@
 
 本次实验涉及到代码中如下的功能模块：
 
--   [log](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log)：日志相关类
+-   [log](https://github.com/thu-db/huadb/tree/main/src/log)：日志相关类
 
-    -   [log_record](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_record.h)：各类日志的抽象类，用于衍生出各种具体日志，已经完成。
-    -   [log_manager](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_manager.h)：日志管理器，负责日志的记录以及故障恢复的具体执行过程，需要补充恢复算法。
-    -   [log_records](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/log/log_records)：各类具体的物理日志类，需要补充其中记录增删改日志的重做和撤销。
+    -   [log_record](https://github.com/thu-db/huadb/tree/main/src/log/log_record.h)：各类日志的抽象类，用于衍生出各种具体日志，已经完成。
+    -   [log_manager](https://github.com/thu-db/huadb/tree/main/src/log/log_manager.h)：日志管理器，负责日志的记录以及故障恢复的具体执行过程，需要补充恢复算法。
+    -   [log_records](https://github.com/thu-db/huadb/tree/main/src/log/log_records)：各类具体的物理日志类，需要补充其中记录增删改日志的重做和撤销。
 
--   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table)：数据表相关类
-    -   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table.h)：在实验 1 的基础上添加记录变更时的日志记录功能。
+-   [table](https://github.com/thu-db/huadb/tree/main/src/table)：数据表相关类
+    -   [table](https://github.com/thu-db/huadb/tree/main/src/table/table.h)：在实验 1 的基础上添加记录变更时的日志记录功能。
 
 相关功能模块的抽象示意图如下：
 

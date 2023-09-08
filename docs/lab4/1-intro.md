@@ -40,14 +40,14 @@
 
 本次实验涉及到代码中如下的功能模块：
 
--   [excutors](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors)：执行器相关类
-    -   [executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/executor.h)：执行器算子的抽象模板，用于衍生出各类实际算子。
-    -   [limit_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/limit_executor.h)：Limit 算子，用于限制输出数量。
-    -   [orderby_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/orderby_executor)：排序算子，用于实现内存或外存的记录排序算法。
-    -   [nested_loop_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/nested_loop_join_executor.h)：Nested Loop 连接算子，用于实现最基础的连接算法。
-    -   [merge_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/merge_join_executor.h)：Merge 连接算子，要求底层算子节点已经完成排序，一种快速的连接算法。
-    -   [hash_join_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/hash_join_executor.h)：（高级功能）哈希连接算子，需要补充哈希组件后实现，一种快速高效的连接算法。
-    -   [aggregate_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/executors/aggregate_executor.h)：（高级功能）聚合算子，依赖于哈希表结构，用于实现各类聚合算子的运算。
+-   [excutors](https://github.com/thu-db/huadb/blob/main/src/executors)：执行器相关类
+    -   [executor](https://github.com/thu-db/huadb/blob/main/src/executors/executor.h)：执行器算子的抽象模板，用于衍生出各类实际算子。
+    -   [limit_executor](https://github.com/thu-db/huadb/blob/main/src/executors/limit_executor.h)：Limit 算子，用于限制输出数量。
+    -   [orderby_executor](https://github.com/thu-db/huadb/blob/main/src/executors/orderby_executor)：排序算子，用于实现内存或外存的记录排序算法。
+    -   [nested_loop_join_executor](https://github.com/thu-db/huadb/blob/main/src/executors/nested_loop_join_executor.h)：Nested Loop 连接算子，用于实现最基础的连接算法。
+    -   [merge_join_executor](https://github.com/thu-db/huadb/blob/main/src/executors/merge_join_executor.h)：Merge 连接算子，要求底层算子节点已经完成排序，一种快速的连接算法。
+    -   [hash_join_executor](https://github.com/thu-db/huadb/blob/main/src/executors/hash_join_executor.h)：（高级功能）哈希连接算子，需要补充哈希组件后实现，一种快速高效的连接算法。
+    -   [aggregate_executor](https://github.com/thu-db/huadb/blob/main/src/executors/aggregate_executor.h)：（高级功能）聚合算子，依赖于哈希表结构，用于实现各类聚合算子的运算。
 
 相关功能模块的抽象示意图如下：
 

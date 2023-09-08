@@ -36,16 +36,16 @@
 
 本次实验涉及到代码中如下的功能模块：
 
--   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table)：数据表相关类
+-   [table](https://github.com/thu-db/huadb/tree/main/src/table)：数据表相关类
 
-    -   [record](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/record.h)：记录类，已经完成。
-    -   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/table.h)：数据表类，需要补充记录插入和删除函数。
-    -   [table_page](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/table_page.h)：变长记录页面类，需要补充页面内部记录插入和删除的函数。
-    -   [table_scan](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/blob/master/src/table/table_scan.h)：用于全表扫描，需要补充获取下条记录的函数来实现数据遍历。
+    -   [record](https://github.com/thu-db/huadb/blob/main/src/table/record.h)：记录类，已经完成。
+    -   [table](https://github.com/thu-db/huadb/blob/main/src/table/table.h)：数据表类，需要补充记录插入和删除函数。
+    -   [table_page](https://github.com/thu-db/huadb/blob/main/src/table/table_page.h)：变长记录页面类，需要补充页面内部记录插入和删除的函数。
+    -   [table_scan](https://github.com/thu-db/huadb/blob/main/src/table/table_scan.h)：用于全表扫描，需要补充获取下条记录的函数来实现数据遍历。
 
--   [storage](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/storage)：用于管理内存和外存的交互
-    -   [buffer_strategy](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/storage/buffer_strategy.h)：缓存替换算法的抽象类。
-    -   [lru_buffer_strategy](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/storage/lru_buffer_strategy.h)：LRU 缓存替换算法类，需要补全实现。
+-   [storage](https://github.com/thu-db/huadb/tree/main/src/storage)：用于管理内存和外存的交互
+    -   [buffer_strategy](https://github.com/thu-db/huadb/tree/main/src/storage/buffer_strategy.h)：缓存替换算法的抽象类。
+    -   [lru_buffer_strategy](https://github.com/thu-db/huadb/tree/main/src/storage/lru_buffer_strategy.h)：LRU 缓存替换算法类，需要补全实现。
 
 相关功能模块的抽象示意图如下：
 

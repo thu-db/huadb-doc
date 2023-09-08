@@ -36,21 +36,21 @@
 
 本次实验涉及到代码中如下的功能模块：
 
--   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/)：数据表相关类。
+-   [table](https://github.com/thu-db/huadb/tree/main/src/table/)：数据表相关类。
 
-    -   [table](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table.h)：修改实验 1 中记录的增删改接口，添加版本信息。
-    -   [table_scan](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/table/table_scan.h)：添加判断记录对事务可见性的接口，并修改查询函数。
+    -   [table](https://github.com/thu-db/huadb/tree/main/src/table/table.h)：修改实验 1 中记录的增删改接口，添加版本信息。
+    -   [table_scan](https://github.com/thu-db/huadb/tree/main/src/table/table_scan.h)：添加判断记录对事务可见性的接口，并修改查询函数。
 
--   [transaction](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/transaction/)：事务相关类。
+-   [transaction](https://github.com/thu-db/huadb/tree/main/src/transaction/)：事务相关类。
 
-    -   [lock_manager](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/transaction/lock_manager.h)：锁管理器，负责管理事务锁，需要补充表级别、行级别加解锁函数以及相关辅助函数。
+    -   [lock_manager](https://github.com/thu-db/huadb/tree/main/src/transaction/lock_manager.h)：锁管理器，负责管理事务锁，需要补充表级别、行级别加解锁函数以及相关辅助函数。
 
--   [excutors](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/)：执行器相关类。
-    -   [seqscan_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/seqscan_executor.h)：需要补充获取事务列表的功能。
-    -   [insert_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/insert_executor.h)：添加插入的写事务锁。
-    -   [delete_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/delete_executor.h)：添加删除的写事务锁。
-    -   [update_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/update_executor.h)：添加更新的写事务锁。
-    -   [lock_rows_executor](https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab/-/tree/master/src/executors/lock_rows_executor.h)：添加行级别加锁保护功能。
+-   [excutors](https://github.com/thu-db/huadb/tree/main/src/executors/)：执行器相关类。
+    -   [seqscan_executor](https://github.com/thu-db/huadb/tree/main/src/executors/seqscan_executor.h)：需要补充获取事务列表的功能。
+    -   [insert_executor](https://github.com/thu-db/huadb/tree/main/src/executors/insert_executor.h)：添加插入的写事务锁。
+    -   [delete_executor](https://github.com/thu-db/huadb/tree/main/src/executors/delete_executor.h)：添加删除的写事务锁。
+    -   [update_executor](https://github.com/thu-db/huadb/tree/main/src/executors/update_executor.h)：添加更新的写事务锁。
+    -   [lock_rows_executor](https://github.com/thu-db/huadb/tree/main/src/executors/lock_rows_executor.h)：添加行级别加锁保护功能。
 
 相关功能模块的抽象示意图如下：
 
