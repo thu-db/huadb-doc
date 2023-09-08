@@ -10,7 +10,7 @@
 
 要在事务执行 rollback 时完成回滚操作，我们必须保证事务从开始到回滚之间所作的页面修改操作都记录在日志中，正确记录日志是实现回滚的重要前提，因此第一步，我们需要修改 table.cpp 的 InsertRecord 和 DeleteRecord 函数实现，在 write_log 参数为 true 时，添加日志写入的代码。
 
-!!!info "关于系统表日志"
+!!!info "系统表不写日志"
 
     为简化实现，实验框架中系统表相关操作不记录日志，系统表调用 InsertRecord 和 DeleteRecord 函数时会将 write_log 参数设为 false。实验也不要求对系统表操作进行回滚和重做，测例中不会出现 DDL 语句的重做和回滚。
 
@@ -28,11 +28,19 @@
 
 执行 rollback 语句时，数据库会调用 LogManager 的 Rollback 函数，这一步骤中，我们需要实现 Rollback 函数。在步骤 1 调用 AppendLog 函数的过程中，已帮你维护了 Logmanager 中的活跃事务表 att\_ 和脏页表 dpt\_ 变量，你可以在活跃事务表中查找到事务最后一条日志记录的 LSN，每条日志记录都有一个 prev_lsn\_ 字段，表示该事务前一条日志记录的 LSN，通过活跃事务表 att\_ 和 prev_lsn\_，便可以实现对一个事务相关日志记录的倒序遍历。
 
-!!! note LSN 的含义
+!!! note "LSN 的含义"
 
     在课程中，LSN 使用递增的连续序号表示，而在实验框架中，LSN 使用的是日志记录在日志文件中的位置表示，这种表示方法可以方便地通过 LSN 直接获取日志，无需再单独存一份 LSN 到日志位置的映射表。
 
 得到一条日志记录的 LSN 后，你需要判断 LSN 与 flushed_lsn\_ 的大小关系。flushed_lsn\_ 表示刷新到磁盘的最大 LSN，通过比较 LSN 与 flushed_lsn\_，可以得知日志记录位于磁盘中还是 log 缓存中，进而从对应的位置获取到完整的日志记录。获取到日志记录后，调用日志记录的 Undo 函数进行回滚。
+
+### 步骤 3：实现日志的 Undo 操作
+
+本步骤中，你将实现 InsertLog, DeleteLog 和 NewPageLog 的 Undo 函数，以及 TablePage 类的 UndoDeleteRecord 函数，来撤销事务对页面的修改。
+
+对于 InsertLog，你需要将插入的记录删除；对于 DeleteLog，你需要清除记录的删除标记（调用 TablePage 类的 UndoDeleteRecord 函数）；对于 NewPageLog，你需要重新设置前一页的 next_page_id\_ 字段，正确实现这些函数后，你将可以通过测例 `10-rollback.test`。
+
+测例 `10-rollback.test` 分别进行了插入、删除、更新和新建页面的回滚测试，建议每实现完一种日志的回滚函数，进行一次测试，观察是否通过了对应操作的回滚测试。
 
 ## 任务 2：物理日志的设计（5 分）
 
