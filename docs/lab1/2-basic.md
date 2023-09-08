@@ -4,7 +4,7 @@
 
 本任务中，你需要补全 `table.cpp`, `table_page.cpp` 以及 `table_scan.cpp`，来实现记录的增删改查功能。
 
-实验框架的文件组织方式为堆表，记录的顺序没有限制。页面之间采用链表连接，页面组织支持变长记录，页面头由以下几个字段组成：
+实验框架的文件组织方式为堆表，页面之间采用链表连接，页面组织支持变长记录，页面大小为 256B。页面头由以下几个字段组成：
 
 | 变量名         | 变量类型  | 长度 | 作用                   |
 | -------------- | --------- | ---- | ---------------------- |
@@ -28,9 +28,46 @@
 
 本任务中，第一步你需要补全记录插入和读取的代码，正确实现后可以通过测例`10-insert.test`。
 
-我们首先来看插入记录的部分，插入记录的上层调用位于`insert_executor.cpp`，调用了 table\_ 对象的 InsertRecord 函数，该函数返回插入记录的 rid\_（rid\_表示一条记录的位置，由页面 id 和页面中的槽 id 组成）。
+我们首先来看插入记录的部分，插入记录的上层调用位于`insert_executor.cpp`，调用了 Table 类的 InsertRecord 函数，该函数返回插入记录的 rid\_（rid\_表示一条记录的位置，由页面 id 和页面中的槽 id 组成）。
 
-Table 类的 InsertRecord 函数是你需要实现的部分。
+Table 类的 InsertRecord 函数是你需要实现的部分。在这个函数中，你需要找到一个页面，调用页面 TablePage 的 InsertRecord 函数插入记录。
+
+TablePage 的 InsertRecord 函数也是需要实现的部分，你需要维护页面的 lower 和 upper 指针，以及页面的记录槽信息，并将记录写入页面，同时不要忘了将页面标记为脏页，只有脏页才会在缓存替换时写回磁盘。
+
+完成这两个函数后，记录插入的部分就全部完成了，此时你可以尝试测试`10-insert.test`：
+
+```bash
+make lab1/10
+```
+
+通常情况下，你将会得到如下输出：
+
+```console
+Test: 1/3
+lab1/10-insert.test ERROR
+lab1/10-insert.test:9
+Unexpected error: Wrong Result
+Your Result:
+
+Expected Result:
+1 1.1 a
+2 2.2 bb
+3 3.3 ccc
+```
+
+看上去好像数据插入并没有成功？其实不是，这是因为我们还没有补全数据读取的代码，不能通过 select 语句正确读取记录。但是，你可以通过 xxd 或 hexdump 等工具查看数据页面，判断记录插入是否成功。
+
+```
+xxd huadb_test/huadb_data/2/10000
+```
+
+或
+
+```
+hexdump -C huadb_test/huadb_data/2/10000
+```
+
+若你在程序右侧输出的 ascii 码中观察到插入数据的 a, bb, ccc 等字样，则说明数据已经成功写入到磁盘。
 
 ### 实验描述
 

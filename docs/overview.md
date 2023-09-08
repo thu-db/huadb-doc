@@ -84,6 +84,8 @@ system> \d huadb_statistic
 
 每次实验均为端到端 SQL 测试，不设单元测试，测试框架基于 [sqllogictest](https://www.sqlite.org/sqllogictest/doc/trunk/about.wiki) 。
 
+测试脚本会将测例文件运行三次，若三次均通过，则本次测试通过。
+
 ### 测试文件格式
 
 每个 sqllogictest 测试文件由一系列测试记录 (record) 组成，每条记录包含测试 SQL 语句以及语句的期望输出。测试记录分为 statement 和 query 两类。
