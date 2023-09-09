@@ -44,7 +44,7 @@ make lab1/10
 
 正常情况下，你将会得到如下输出：
 
-```console
+```
 Test: 1/3
 lab1/10-insert.test ERROR
 lab1/10-insert.test:9

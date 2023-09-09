@@ -1,5 +1,3 @@
-# 实验框架简介
-
 ## 实验要求
 
 每次实验聚焦于实验框架的一个模块，我们已为你提供了相应的类以及函数声明，你需要完成其中部分函数的实现，所有需要你来完成的代码部分均标注了`// LAB n BEGIN`，n 表示第 n 次实验，你可以通过 IDE 的全局搜索功能快速定位每次实验需要补充代码的位置。
@@ -32,7 +30,7 @@
 
 完成实验 1 后，你可以进入 system 数据库中查看系统表的结构：
 
-```console
+```
 huadb> \c system
  Change to database system
 system> \d
@@ -92,7 +90,7 @@ system> \d huadb_statistic
 
 对于 statement 记录，我们不指定期望输出结果，只判断语句是否成功执行，对应的 SQL 通常由两部分组成：
 
-```sql
+```
 statement ok/error <label>
 SQL
 ```
@@ -129,7 +127,7 @@ commit;
 
 对于 query 记录，我们不仅期望查询语句成功执行，还会对执行结果进行比对，判断执行结果是否正确，每条 query 记录由以下四个部分组成：
 
-```sql
+```
 query <sort-mode> <label>
 SQL
 ----
@@ -191,7 +189,7 @@ drop table test;
 
 测试成功
 
-```console
+```
 xxx.test PASS
 ```
 
@@ -199,7 +197,7 @@ xxx.test PASS
 
 -   期望执行成功，实际执行失败
 
-```console
+```
 xxx.test ERROR
 xxx.test:<行号>
 Unexpected error: <错误信息>
@@ -207,7 +205,7 @@ Unexpected error: <错误信息>
 
 -   期望执行失败，实际执行成功
 
-```console
+```
 xxx.test ERROR
 xxx.test:<行号>
 Unexpected success
@@ -215,7 +213,7 @@ Unexpected success
 
 -   查询输出结果与期望结果不一致
 
-```console
+```
 xxx.test ERROR
 xxx.test:<行号>
 Unexpected error: Wrong Result
@@ -230,11 +228,11 @@ Expected Result:
 
 -   段错误
 
-```console
+```
 xxx.test Segmentation fault (core dumped)
 ```
 
-```console
+```
 xxx.test Trace/BPT trap: 5
 ```
 
@@ -242,7 +240,7 @@ xxx.test Trace/BPT trap: 5
 
 -   死循环
 
-```console
+```
 xxx.test
 ```
 
