@@ -52,6 +52,8 @@
     -   [update_executor](https://github.com/thu-db/huadb/tree/main/src/executors/update_executor.h)：添加更新的写事务锁。
     -   [lock_rows_executor](https://github.com/thu-db/huadb/tree/main/src/executors/lock_rows_executor.h)：添加行级别加锁保护功能。
 
+基础功能需要补充约 100 行代码。
+
 相关功能模块的抽象示意图如下：
 
 ![](../pics/lab3-details.svg) |
