@@ -143,7 +143,7 @@ all: debug
 
 以避免在之后的实验中编译出错误的版本。
 
-## 任务 2：LRU 缓存替换算法（3 分）
+## 任务 2：空闲空间管理（3 分）
 
 在任务 1 中，我们多次调用 BufferPool 的 GetPage 和 NewPage 函数，本任务中，你需要阅读 BufferPool 中这两个函数的实现代码，并为缓存池添加 LRU 替换算法。你只需修改 lru_buffer_strategy.cpp 即可，必要时可以在 lru_buffer_strategy.h 中添加成员变量。整体代码量很小，但希望通过此任务加深对缓存池的理解，这将帮助你更快地之后的实验。
 
