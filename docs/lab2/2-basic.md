@@ -1,6 +1,6 @@
 # 基础功能
 
-## 任务 1：事务回滚（5 分）
+## 任务 1：事务回滚（6 分）
 
 本次实验中，你首先需要实现事务回滚的功能，主要涉及 log_manager.cpp 的 Rollback 函数，insert_log.cpp, delete_log.cpp 和 new_page_log.cpp 的 Undo 函数，此外，还需要修改 lab 1 中对 table.cpp 的实现，添加日志相关部分，并在 table_page.cpp 中增加 RedoInsertRecord 和 UndoDeleteRecord 的逻辑，完整实现后可以通过 `10-rollback.test` 测例。
 
@@ -42,64 +42,38 @@
 
 测例 `10-rollback.test` 分别进行了插入、删除、更新和新建页面的回滚测试，建议每实现完一种日志的回滚函数，进行一次测试，观察是否通过了对应操作的回滚测试。
 
-## 任务 2：物理日志的设计（5 分）
+## 任务 2：Redo（4 分）
 
-### 实验描述
+本任务中，你将实现日志的 redo 函数，通过 `20-recover.test` 测例。
 
-补全 log/logs 文件夹下 insert_log.h 和 delete_log.h 来完成物理日志的设计，并修改 Table 类中对应函数。
+### 步骤 1：Redo 日志读取
 
-### 实现思路
+你需要补充 LogManager 的 Redo 函数，从头至尾顺序读取日志，直至 flushed_lsn\_，调用每个日志记录的 Redo 函数。
 
-日志设计的核心在于规划日志的存储格式，以及利用存储信息实现 Redo 和 Undo 的方式。可以按照如下的顺序完成本次实验：
+### 步骤 2：实现日志的 Redo 操作
 
--   步骤 0：结合课程内容，思考为什么仅使用物理日志不会影响系统正确性
+与任务 1 的步骤 3 类似，你需要实现 InsertLog, DeleteLog 和 NewPageLog 的 Redo 函数，以及 TablePage 类的 RedoInsertRecord 函数，来重做事务对页面的修改。
 
--   步骤 1：补全 log/insert_log.h 和 log/delete_log.h，实现插入和删除记录的物理日志
+由于我们没有记录 DDL 的日志，因此在重做过程中，你需要判断表的 oid 是否存在，如果不存在，说明日志记录对应的表已经被删除，无需进行重做。正确实现这些函数后，你将通过 `20-recover.test` 测例。
 
-框架已经给出了这两类日志所需的必要信息，并实现了序列化和反序列化函数。实验中要求根据存储的信息确定在重做或撤销过程中，如何利用存储信息还原操作对于页面的影响。
-
--   步骤 2：修改 table/table.cpp，添加记录变更时日志记录的操作
-
-log_manager 文件中的日志管理器 LogManager 类已经提供了追加写出日志的接口，并在内部完成相关的缓存管理功能。
-因此本次实验仅需要在实验 1 的基础上，利用 LogManager 提供的追加日志接口(AppendXXXLog)在记录变更时记录对应的日志即可。
-
-完成上面两个步骤即可补全物理日志的功能。
+与测例 `10-rollback.test` 类似，测例 `20-recover.test` 分别对插入、删除、更新和新建页面操作进行了重做测试，每实现完一种重做日志便可以进行测试。
 
 ## 任务 3：ARIES 恢复算法（5 分）
 
-### 实验描述
+本任务中，你将实现完整的 ARIES 恢复算法，通过测例 `30-aries.test`，该测例与课程 PPT 案例说明中的例子是一致的。
 
-补全 log_manager.cpp 中 LogManager 类的 Analyze，Redo，Undo 函数，从而补全 ARIES 故障恢复算法。
+### 步骤 1：实现 Analyze 函数
 
-### 实现思路
+首先，你需要实现 Analyze 函数，对应 ARIES 算法的分析阶段。我们已为你提供了读取 master record 部分的代码，你需要从 checkpoint_lsn 开始，正序读取日志，读取过程中根据日志类型，来对活跃事务表 att\_ 和脏页表中的数据 dpt\_ 进行维护。
 
-ARIES 故障恢复算法是针对于 steal+no-force 数据库系统的一种故障恢复算法，在实现前需要充分理解课程中讲解的 ARIES 算法执行流程。
-可以按照算法的执行顺序依次补全 3 个函数：
+### 步骤 2：实现 Undo 函数
 
--   步骤 1：补全 LogManager::Analyze，ARIES 算法的分析过程
+经过 Analyze 阶段，你将得到数据库崩溃时的活跃事务表和脏页表，接下来，你将在 Undo 函数中调用任务 1 实现的 Rollback 函数将活跃事务回滚。
 
-ARIES 算法的分析过程读取检查点信息，恢复故障时的数据库状态并恢复活跃事务表和脏页表。
-实验框架中已经给出了数据库状态的恢复过程，本次实验中需要基于 checkpoint_lsn 恢复活跃事务表、脏页表以及算法所需的 LSN 信息。
+完成以上步骤后，在 `30-aries.test` 中，数据库恢复后将读取到正确的数据。
 
--   步骤 2：补全 LogManager::Redo，ARIES 算法的重做过程
+### 步骤 3：优化 Redo 次数
 
-ARIES 的重做过程要求按照算法流程（需要步骤 1 中恢复的 LSN 信息）遍历执行日志的重做过程来恢复系统故障时缓存内的脏页状态。
-该步骤的正确性依赖于物理日志设计中 Redo 函数的正确性。
+你需要根据分析阶段维护的脏页表，在 redo 时根据脏页表中的 rec_lsn\_，页面的 page_lsn\_，以及日志的 lsn 的大小关系，判断 redo 操作是否有必要进行。每进行一次 redo 操作，你需要调用 LogManager 的 IncrementRedoCount 函数，统计 redo 操作次数。
 
--   步骤 3：补全 LogManager::Undo，ARIES 算法的撤销过程
-
-ARIES 的撤销过程需要根据活跃事务表撤销未提交事务产生的页面更新，该步骤的正确性依赖于前两个步骤的正确性和物理日志设计中 Undo 函数的正确性。
-
-完成上面三个步骤即可补全 ARIES 恢复算法。
-
-## 基础功能实现顺序及测例分析
-
-### 实现事务回滚
-
-insert delete
-
-### 实现故障恢复重做
-
-insert delete new_page
-
-### 实现 Aries
+正确实现本步骤后，你将通过测例 `30-aries.test`，从而完成本次实验。
