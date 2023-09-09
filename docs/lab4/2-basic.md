@@ -16,18 +16,16 @@ Limit 算子是本次实验最基础的一个任务，算子本身的实现非�
 
 你需要补充 orderby_executor.cpp 中的 Next 函数，与 Limit 算子类似，你可能会使用到 OrderByOperator 中的成员变量，从中获取排序的列以及排序的类型（升序还是降序），实现过程中可以使用 STL 的 sort 函数。
 
-正确实现后你将通过 `20-sort.test` 测例。
+正确实现后将通过 `20-sort.test` 测例。
 
 ## 任务 3：嵌套循环连接算子（4 分）
 
-### 实验描述
+你需要补充 nested_loop_join_executor.cpp 中的 Next 函数，从 NestedLoopJoinOperator 中获取连接条件，本次实验中仅要求实现内连接即可。
 
-连接算子具有多种实现方式，本次实验中要求实现 NestedLoopJoin 以及 MergeJoin 两类连接算法。前者算法实现简单，但复杂度较高；后者复杂度低，但依赖于排序算子的实现，且实现难度相对较高。总体而言，二者均为经典的连接算法，且实现方面易于修改为基于外存的连接算子。
+正确实现后将通过 `30-nested-loop-join.test` 测例。
 
-### 实现思路
+## 任务 4：归并连接算子（4 分）
 
--   步骤 1：按照连接算子的功能需求补全 NestedLoopJoinExecutor 类，理解火山模型中算子如何同时处理多个子节点。
+你需要补充 merge_join_executor.cpp 中的 Next 函数，从 MergeJoinOperator 中获取连接条件，本次实验中仅要求实现内连接即可，注意可能需要对 join 两侧的表存在重复值的情况特殊处理。
 
--   步骤 2：补全 MergeJoinExecutor 类，注意该算子假定底层子节点算子已经完成排序，因此该算子依赖于排序算子正确性。
-
-## 任务 3：归并连接算子（4 分）
+正确实现后将通过 `40-merge-join.test` 测例。
