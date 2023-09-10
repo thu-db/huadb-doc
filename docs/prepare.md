@@ -84,7 +84,7 @@ make lab0
 
 如果产生如下输出：
 
-```bash
+```
 Test: 1/3
 lab0/10-basic.test PASS
 lab0/20-expression.test PASS
