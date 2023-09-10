@@ -38,16 +38,16 @@ brew install cmake
 
 ### 克隆仓库
 
-首先，你需要使用 git 将 HuaDB 代码仓库克隆到你的开发机上，对于选修《数据库专题训练》课程的同学，助教已经在 git 上为你创建好仓库，使用如下命令进行克隆 (将 202x 改为你的选修年份，20xxxxxxxx 改为你的学号)：
+首先，你需要使用 git 将 HuaDB 代码仓库克隆到你的开发机上，对于选修《数据库专题训练》课程的同学，助教已经在 git 上为你创建好仓库，使用如下命令进行克隆 (将 202x 改为你的选修年份，20xxxxxxxx 改为你的学号，克隆前请在 GitLab 上添加你的 SSH Key)：
 
 ```bash
-git clone https://git.tsinghua.edu.cn/dbtrain/202x/dbtrain-20xxxxxxxx.git dbtrain
+git clone git@git.tsinghua.edu.cn:dbtrain/202x/dbtrain-20xxxxxxxx.git
 ```
 
 HuaDB 代码随时可能会有更新，你需要将更新的部分同步到你的本地。为了新增一个远程仓库，在你的 dbtrain 目录下执行：
 
 ```bash
-git remote add upstream https://git.tsinghua.edu.cn/dbtrain/dbtrain-lab-template.git
+git remote add upstream git@github.com:thu-db/huadb.git
 ```
 
 实验代码更新时，执行如下命令将更新的部分合并入你的代码：
@@ -57,6 +57,18 @@ git pull upstream master
 ```
 
 合并过程中可能产生冲突，冲突时请手动解决所有冲突并执行 `git add` 和 `git commit` 指令完成合并。
+
+如没有选修《数据库专题训练》课程，你可以从 GitHub 或 Gitee 克隆代码：
+
+```bash
+git clone git@github.com:thu-db/huadb.git
+```
+
+或
+
+```bash
+git clone git@gitee.com:thu-db/huadb.git
+```
 
 无论你是否选修《数据库专题训练》课程，**请不要将你的代码放到任何公有仓库上**。
 
@@ -129,10 +141,9 @@ huadb> \l
 +---------------+
 | database_name |
 +---------------+
-| system        |
-| huadb         |
+| tmp           |
 +---------------+
-(2 rows)
+(1 row)
 
 huadb> create table test(id int, info varchar(10));
  CREATE TABLE
@@ -164,8 +175,6 @@ huadb> \d
 huadb> \q
 ```
 
-这些命令的名称参考了 PostgreSQL 客户端 [psql](https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-META-COMMANDS) 命令的设计，如果你有过 psql 的使用经验，应该会熟悉这些命令。
+在完成实验 1 之前，你的程序仅支持在临时数据库 tmp 中创建表、删除表和查看表的结构，还不支持数据库的创建/切换/删除，也不支持在表中插入和读取数据。
 
-在完成实验 1 之前，你的程序仅支持在默认数据库 huadb 中创建表、删除表和查看表的结构，还不支持数据库的创建/切换/删除，也不支持在表中插入和读取数据。
-
-至此，环境配置与验证工作已经结束，你可以开始[实验](../lab1/1-intro)，或阅读[实验框架说明](../overview)。
+至此，环境配置与验证工作已经结束，你可以开始[实验](../lab1/1-intro)，或阅读[实验框架介绍](../overview)。
