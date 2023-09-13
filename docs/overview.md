@@ -28,7 +28,7 @@
 | huadb_database  | 存储数据库的 oid，以及数据库名                                                          |
 | huadb_statistic | 存储列的统计信息，包括直方图和不同值的个数                                              |
 
-完成实验 1 后，你可以进入 system 数据库中查看系统表的结构：
+**完成实验 1 后**，你可以进入 system 数据库中查看系统表的结构：
 
 ```
 huadb> \c system
