@@ -233,6 +233,10 @@ xxx.test Segmentation fault (core dumped)
 ```
 
 ```
+xxx.test Bus error: 10
+```
+
+```
 xxx.test Trace/BPT trap: 5
 ```
 
