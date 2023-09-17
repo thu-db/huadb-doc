@@ -24,6 +24,7 @@ jobs:
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
   sync:
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: Sync to Gitee
