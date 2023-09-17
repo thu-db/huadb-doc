@@ -52,6 +52,7 @@ theme:
   name: material
   language: zh
   logo: assets/images/logo.png
+  font: false
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
