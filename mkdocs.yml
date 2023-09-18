@@ -72,6 +72,9 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - javascripts/analytics.js
+
 plugins:
   - search
   - include-markdown

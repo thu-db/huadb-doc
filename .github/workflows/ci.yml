@@ -44,4 +44,4 @@ jobs:
           gitee-username: hnjylwb
           gitee-password: ${{ secrets.GITEE_PASSWORD }}
           gitee-repo: thu-db/huadb-doc
-          branch: gh-pages
+          branch: gitee-pages
