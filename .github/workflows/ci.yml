@@ -23,6 +23,9 @@ jobs:
             mkdocs-material-
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
+      - run: git switch gh-pages
+      - run: find . -type f -exec gsed -i s/G-5GB0HPD8DB/G-HEL2FBFEDQ/g {} \;
+      - run: mkdocs gh-deploy --force -b gitee-pages
   sync:
     needs: deploy
     runs-on: ubuntu-latest
