@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="693 711 178 271" width="178" height="271">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="black">
+      <g>
+        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="LAB_4__" fill="none" stroke="none" stroke-dasharray="none" stroke-opacity="1" fill-opacity="1">
+    <title>LAB 4 细化</title>
+    <rect fill="white" x="693" y="711" width="178" height="271"/>
+    <g id="LAB_4___图层_1">
+      <title>图层 1</title>
+      <g id="Graphic_2">
+        <rect x="694.75" y="779" width="172.5" height="126.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(699.75 784)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="58.75" y="16">执行器</tspan>
+        </text>
+      </g>
+      <g id="Graphic_4">
+        <rect x="708" y="718" width="50.5" height="40.5" fill="white"/>
+        <rect x="708" y="718" width="50.5" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(713 723)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="8.25" y="13">执行</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="8.25" y="30">计划</tspan>
+        </text>
+      </g>
+      <g id="Graphic_5">
+        <path d="M 711 813.5 L 851 813.5 C 853.2091 813.5 855 815.2909 855 817.5 L 855 836.5 C 855 838.7091 853.2091 840.5 851 840.5 L 711 840.5 C 708.7909 840.5 707 838.7091 707 836.5 L 707 817.5 C 707 815.2909 708.7909 813.5 711 813.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(712 816.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="39" y="16">火山模型</tspan>
+        </text>
+      </g>
+      <g id="Graphic_6">
+        <path d="M 711 861 L 775 861 C 777.2091 861 779 862.7909 779 865 L 779 884 C 779 886.2091 777.2091 888 775 888 L 711 888 C 708.7909 888 707 886.2091 707 884 L 707 865 C 707 862.7909 708.7909 861 711 861 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(712 864)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="1" y="16">内存算子</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <path d="M 787 861 L 851 861 C 853.2091 861 855 862.7909 855 865 L 855 884 C 855 886.2091 853.2091 888 851 888 L 787 888 C 784.7909 888 783 886.2091 783 884 L 783 865 C 783 862.7909 784.7909 861 787 861 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(788 864)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="1" y="16">外存算子</tspan>
+        </text>
+      </g>
+      <g id="Graphic_18">
+        <path d="M 701.5 974.1 L 701.5 918.9 C 701.5 915.0912 737.116 912 781 912 C 824.884 912 860.5 915.0912 860.5 918.9 L 860.5 974.1 C 860.5 977.9088 824.884 981 781 981 C 737.116 981 701.5 977.9088 701.5 974.1 M 701.5 918.9 C 701.5 922.7088 737.116 925.8 781 925.8 C 824.884 925.8 860.5 922.7088 860.5 918.9" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_17">
+        <text transform="translate(713 931)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">页面</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="37">存储</tspan>
+        </text>
+      </g>
+      <g id="Graphic_16">
+        <path d="M 780 945.6729 C 780 942.7363 779.6825 942.373 777.36325 939.4667 L 777.33875 939.4366 C 775.00725 936.5 774.983 936.5 772.59025 936.5 C 769.40425 936.5 755 936.5 755 936.5 L 755 967.5 L 780 967.5 L 780 945.6729 Z" fill="white"/>
+        <path d="M 780 945.6729 C 780 942.7363 779.6825 942.373 777.36325 939.4667 L 777.33875 939.4366 C 775.00725 936.5 774.983 936.5 772.59025 936.5 C 769.40425 936.5 755 936.5 755 936.5 L 755 967.5 L 780 967.5 L 780 945.6729 Z M 780 945.5216 C 780 942.7363 779.9755 942.7363 774.983 942.7363 L 774.983 942.7363 C 774.983 936.5304 774.983 936.5 772.73675 936.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_15">
+        <path d="M 812 945.6729 C 812 942.7363 811.6825 942.373 809.36325 939.4667 L 809.33875 939.4366 C 807.00725 936.5 806.983 936.5 804.59025 936.5 C 801.40425 936.5 787 936.5 787 936.5 L 787 967.5 L 812 967.5 L 812 945.6729 Z" fill="white"/>
+        <path d="M 812 945.6729 C 812 942.7363 811.6825 942.373 809.36325 939.4667 L 809.33875 939.4366 C 807.00725 936.5 806.983 936.5 804.59025 936.5 C 801.40425 936.5 787 936.5 787 936.5 L 787 967.5 L 812 967.5 L 812 945.6729 Z M 812 945.5216 C 812 942.7363 811.9755 942.7363 806.983 942.7363 L 806.983 942.7363 C 806.983 936.5304 806.983 936.5 804.73675 936.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_14">
+        <path d="M 844 945.6729 C 844 942.7363 843.6825 942.373 841.3632 939.4667 L 841.3388 939.4366 C 839.0072 936.5 838.983 936.5 836.59025 936.5 C 833.40425 936.5 819 936.5 819 936.5 L 819 967.5 L 844 967.5 L 844 945.6729 Z" fill="white"/>
+        <path d="M 844 945.6729 C 844 942.7363 843.6825 942.373 841.3632 939.4667 L 841.3388 939.4366 C 839.0072 936.5 838.983 936.5 836.59025 936.5 C 833.40425 936.5 819 936.5 819 936.5 L 819 967.5 L 844 967.5 L 844 945.6729 Z M 844 945.5216 C 844 942.7363 843.9755 942.7363 838.983 942.7363 L 838.983 942.7363 C 838.983 936.5304 838.983 936.5 836.73675 936.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_19">
+        <path d="M 753.1875 919 L 745.0625 919 L 745.0625 900 L 741 900 L 749.125 888 L 757.25 900 L 753.1875 900 Z" fill="white"/>
+        <path d="M 753.1875 919 L 745.0625 919 L 745.0625 900 L 741 900 L 749.125 888 L 757.25 900 L 753.1875 900 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_20">
+        <path d="M 819 888.5 L 827.125 899.2461 L 822.5902 899.2461 L 822.5902 908.2539 L 827.125 908.2539 L 819 919 L 810.875 908.2539 L 815.4098 908.2539 L 815.4098 899.2461 L 810.875 899.2461 Z" fill="white"/>
+        <path d="M 819 888.5 L 827.125 899.2461 L 822.5902 899.2461 L 822.5902 908.2539 L 827.125 908.2539 L 819 919 L 810.875 908.2539 L 815.4098 908.2539 L 815.4098 899.2461 L 810.875 899.2461 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_24">
+        <path d="M 735.351 840.5 C 735.351 840.5 730.5584 847.8508 731.351 855.5 C 731.5771 857.6812 732.227 859.5942 733.0406 861.2146" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_28">
+        <path d="M 750.649 867.5 C 750.649 867.5 755.4416 860.1492 754.649 852.5 C 754.4229 850.3188 753.773 848.4058 752.9594 846.7854" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_30">
+        <path d="M 811.351 840.5 C 811.351 840.5 806.5584 847.8508 807.351 855.5 C 807.5771 857.6812 808.227 859.5942 809.0406 861.2146" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_29">
+        <path d="M 826.649 867.5 C 826.649 867.5 831.4416 860.1492 830.649 852.5 C 830.4229 850.3188 829.773 848.4058 828.9594 846.7854" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_31">
+        <rect x="783" y="712.25" width="87" height="52" fill="white"/>
+        <rect x="783" y="712.25" width="87" height="52" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(788 717.25)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="16" y="16">解析器</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="16" y="37">优化器</tspan>
+        </text>
+      </g>
+      <g id="Graphic_32">
+        <path d="M 783.5 734.875 L 783.5 741.625 L 772.5 741.625 L 772.5 745 L 758.5 738.25 L 772.5 731.5 L 772.5 734.875 Z" fill="white"/>
+        <path d="M 783.5 734.875 L 783.5 741.625 L 772.5 741.625 L 772.5 745 L 758.5 738.25 L 772.5 731.5 L 772.5 734.875 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_33">
+        <path d="M 729.875 758.25 L 736.625 758.25 L 736.625 803.5 L 740 803.5 L 733.25 817.5 L 726.5 803.5 L 729.875 803.5 Z" fill="white"/>
+        <path d="M 729.875 758.25 L 736.625 758.25 L 736.625 803.5 L 740 803.5 L 733.25 817.5 L 726.5 803.5 L 729.875 803.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>
