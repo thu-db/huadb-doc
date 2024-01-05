@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="784 858 292 208" width="292" height="208">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="black">
+      <g>
+        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="LAB_5__" fill="none" stroke="none" stroke-dasharray="none" stroke-opacity="1" fill-opacity="1">
+    <title>LAB 5 细化</title>
+    <rect fill="white" x="784" y="858" width="292" height="208"/>
+    <g id="LAB_5___图层_1">
+      <title>图层 1</title>
+      <g id="Graphic_2">
+        <rect x="785" y="900" width="157.5" height="124" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(790 905)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="51.25" y="16">优化器</tspan>
+        </text>
+      </g>
+      <g id="Graphic_3">
+        <rect x="953.5" y="900" width="121" height="124" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(958.5 905)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="28.4025" y="16">Catalog</tspan>
+        </text>
+      </g>
+      <g id="Graphic_5">
+        <path d="M 889.25 967 L 930.75 967 C 932.9591 967 934.75 968.7909 934.75 971 L 934.75 1010 C 934.75 1012.2091 932.9591 1014 930.75 1014 L 889.25 1014 C 887.0409 1014 885.25 1012.2091 885.25 1010 L 885.25 971 C 885.25 968.7909 887.0409 967 889.25 967 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(890.25 969.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="4.75" y="16">代价</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="4.75" y="37">估计</tspan>
+        </text>
+      </g>
+      <g id="Graphic_6">
+        <path d="M 798.5 967 L 862.5 967 C 864.7091 967 866.5 968.7909 866.5 971 L 866.5 1010 C 866.5 1012.2091 864.7091 1014 862.5 1014 L 798.5 1014 C 796.2909 1014 794.5 1012.2091 794.5 1010 L 794.5 971 C 794.5 968.7909 796.2909 967 798.5 967 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(799.5 969.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="8.5" y="16">连接顺</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="8.5" y="37">序选择</tspan>
+        </text>
+      </g>
+      <g id="Graphic_7">
+        <path d="M 798.5 929 L 862.5 929 C 864.7091 929 866.5 930.7909 866.5 933 L 866.5 952 C 866.5 954.2091 864.7091 956 862.5 956 L 798.5 956 C 796.2909 956 794.5 954.2091 794.5 952 L 794.5 933 C 794.5 930.7909 796.2909 929 798.5 929 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(799.5 932)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="1" y="16">谓词下推</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <path d="M 965 929 L 1063 929 C 1065.2091 929 1067 930.7909 1067 933 L 1067 952 C 1067 954.2091 1065.2091 956 1063 956 L 965 956 C 962.7909 956 961 954.2091 961 952 L 961 933 C 961 930.7909 962.7909 929 965 929 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(966 932)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="10.5" y="16">元数据管理</tspan>
+        </text>
+      </g>
+      <g id="Graphic_9">
+        <path d="M 965 967 L 1063 967 C 1065.2091 967 1067 968.7909 1067 971 L 1067 1010 C 1067 1012.2091 1065.2091 1014 1063 1014 L 965 1014 C 962.7909 1014 961 1012.2091 961 1010 L 961 971 C 961 968.7909 962.7909 967 965 967 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(966 969.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="18" y="16">统计信息</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="25.5" y="37">直方图</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <rect x="805.25" y="859.5" width="50.5" height="27" fill="white"/>
+        <rect x="805.25" y="859.5" width="50.5" height="27" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(810.25 864.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="2.25" y="13">语法树</tspan>
+        </text>
+      </g>
+      <g id="Graphic_11">
+        <rect x="798.75" y="1037.5" width="67.75" height="27" fill="white"/>
+        <rect x="798.75" y="1037.5" width="67.75" height="27" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(803.75 1042.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="4.875" y="13">执行计划</tspan>
+        </text>
+      </g>
+      <g id="Graphic_12">
+        <rect x="885.25" y="859.5" width="121" height="27" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(890.25 864.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="33" y="16">解析器</tspan>
+        </text>
+      </g>
+      <g id="Graphic_13">
+        <rect x="885.25" y="1037.5" width="121" height="27" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(890.25 1042.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="33" y="16">执行器</tspan>
+        </text>
+      </g>
+      <g id="Graphic_14">
+        <path d="M 827.125 886.5 L 833.875 886.5 L 833.875 915.5 L 837.25 915.5 L 830.5 929.5 L 823.75 915.5 L 827.125 915.5 Z" fill="white"/>
+        <path d="M 827.125 886.5 L 833.875 886.5 L 833.875 915.5 L 837.25 915.5 L 830.5 929.5 L 823.75 915.5 L 827.125 915.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_15">
+        <path d="M 829.25 1014 L 836 1014 L 836 1030.5 L 839.375 1030.5 L 832.625 1044.5 L 825.875 1030.5 L 829.25 1030.5 Z" fill="white"/>
+        <path d="M 829.25 1014 L 836 1014 L 836 1030.5 L 839.375 1030.5 L 832.625 1044.5 L 825.875 1030.5 L 829.25 1030.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_16">
+        <path d="M 860.5 990.5 L 871.2461 982.375 L 871.2461 986.9098 L 880.2539 986.9098 L 880.2539 982.375 L 891 990.5 L 880.2539 998.625 L 880.2539 994.0902 L 871.2461 994.0902 L 871.2461 998.625 Z" fill="white"/>
+        <path d="M 860.5 990.5 L 871.2461 982.375 L 871.2461 986.9098 L 880.2539 986.9098 L 880.2539 982.375 L 891 990.5 L 880.2539 998.625 L 880.2539 994.0902 L 871.2461 994.0902 L 871.2461 998.625 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_17">
+        <line x1="959" y1="990.5" x2="944.85" y2="990.5" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_18"/>
+      <g id="Graphic_21">
+        <path d="M 866.5 1054.375 L 866.5 1047.625 L 883 1047.625 L 883 1044.25 L 897 1051 L 883 1057.75 L 883 1054.375 Z" fill="white"/>
+        <path d="M 866.5 1054.375 L 866.5 1047.625 L 883 1047.625 L 883 1044.25 L 897 1051 L 883 1057.75 L 883 1054.375 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_22">
+        <path d="M 885.25 869.625 L 885.25 876.375 L 868.75 876.375 L 868.75 879.75 L 854.75 873 L 868.75 866.25 L 868.75 869.625 Z" fill="white"/>
+        <path d="M 885.25 869.625 L 885.25 876.375 L 868.75 876.375 L 868.75 879.75 L 854.75 873 L 868.75 866.25 L 868.75 869.625 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

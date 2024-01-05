@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="66 268 216 322" width="216" height="322">
+  <defs/>
+  <g id="Canvas_1" fill-opacity="1" fill="none" stroke-dasharray="none" stroke="none" stroke-opacity="1">
+    <title>Canvas 1</title>
+    <rect fill="white" x="66" y="268" width="216" height="322"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Group_2">
+        <title>Architecture</title>
+        <g id="Graphic_34">
+          <rect x="66" y="268" width="216" height="322" fill="white"/>
+        </g>
+        <g id="Group_3">
+          <title>Architecture_图层_1</title>
+          <g id="Group_31">
+            <title>Graphic_11</title>
+            <g id="Graphic_33">
+              <rect x="67" y="269" width="214" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_32">
+              <title>Text</title>
+              <text transform="translate(118.5 278.5)" fill="black">
+                <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">前端界面：命令行</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="Group_28">
+            <title>Graphic_10</title>
+            <g id="Graphic_30">
+              <rect x="67" y="309" width="214" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_29">
+              <title>Text</title>
+              <text transform="translate(151.5 316.5)" fill="black">
+                <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">解析器</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="Group_25">
+            <title>Graphic_9</title>
+            <g id="Graphic_27">
+              <rect x="67" y="349" width="214" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_26">
+              <title>Text</title>
+              <text transform="translate(145.24512 356.5)" fill="#ff2600">
+                <tspan font-family="PingFang SC" font-size="15" fill="#ff2600" x="0" y="16">优化器</tspan>
+                <tspan font-family="Helvetica" font-size="15" fill="#ff2600" y="16"> 5</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="Group_22">
+            <title>Graphic_8</title>
+            <g id="Graphic_24">
+              <rect x="67" y="429" width="214" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_23">
+              <title>Text</title>
+              <text transform="translate(145.24512 438.5)" fill="#ff0bfe">
+                <tspan font-family="PingFang SC" font-size="15" fill="#ff0bfe" x="0" y="16">执行器</tspan>
+                <tspan font-family="Helvetica" font-size="15" fill="#ff0bfe" y="16"> 4</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="Group_19">
+            <title>Graphic_7</title>
+            <g id="Graphic_21">
+              <rect x="67" y="389" width="107" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_20">
+              <title>Text</title>
+              <text transform="translate(84.24512 398.5)" fill="#942092">
+                <tspan font-family="PingFang SC" font-size="15" fill="#942092" x="0" y="16">事务管理</tspan>
+                <tspan font-family="Helvetica" font-size="15" fill="#942092" y="16"> 2</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="Group_16">
+            <title>Graphic_6</title>
+            <g id="Graphic_18">
+              <rect x="67" y="469" width="214" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_17">
+              <title>Text</title>
+              <text transform="translate(137.74512 476.5)" fill="#0432ff">
+                <tspan font-family="PingFang SC" font-size="15" fill="#0432ff" x="0" y="16">页面管理</tspan>
+                <tspan font-family="Helvetica" font-size="15" fill="#0432ff" y="16"> 1</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="Group_13">
+            <title>Graphic_5</title>
+            <g id="Graphic_15">
+              <rect x="67" y="509" width="214" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_14">
+              <title>Text</title>
+              <text transform="translate(159 516.5)" fill="black">
+                <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">缓存</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="Group_10">
+            <title>Graphic_4</title>
+            <g id="Graphic_12">
+              <rect x="174" y="389" width="107" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_11">
+              <title>Text</title>
+              <text transform="translate(191.24512 398.5)" fill="#ff9300">
+                <tspan font-family="PingFang SC" font-size="15" fill="#ff9300" x="0" y="16">并发控制</tspan>
+                <tspan font-family="Helvetica" font-size="15" fill="#ff9300" y="16"> 3</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="Group_7">
+            <title>Graphic_3</title>
+            <g id="Graphic_9">
+              <rect x="67" y="549" width="107" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_8">
+              <title>Text</title>
+              <text transform="translate(105.5 556.5)" fill="black">
+                <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">磁盘</tspan>
+              </text>
+            </g>
+          </g>
+          <g id="Group_4">
+            <title>Graphic_2</title>
+            <g id="Graphic_6">
+              <rect x="174" y="549" width="107" height="40" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+            </g>
+            <g id="Graphic_5">
+              <title>Text</title>
+              <text transform="translate(212.5 556.5)" fill="black">
+                <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">日志</tspan>
+              </text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

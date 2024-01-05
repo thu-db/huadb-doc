@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns:xl="http://www.w3.org/1999/xlink" viewBox="269 276 486 376" width="486" height="376">
+  <defs>
+    <font-face font-family="Times New Roman" font-size="19.36" panose-1="2 2 6 3 5 4 5 2 3 4" units-per-em="1000" underline-position="-108.88672" underline-thickness="48.828125" slope="0" x-height="447.2656" cap-height="662.1094" ascent="891.1133" descent="-216.3086" font-weight="400">
+      <font-face-src>
+        <font-face-name name="TimesNewRomanPSMT"/>
+      </font-face-src>
+    </font-face>
+  </defs>
+  <metadata> Produced by OmniGraffle 7.18.5\n2022-04-25 09:13:52 +0000</metadata>
+  <g id="Canvas_1" stroke="none" stroke-dasharray="none" fill-opacity="1" stroke-opacity="1" fill="none">
+    <title>Canvas 1</title>
+    <rect fill="white" x="269" y="276" width="486" height="376"/>
+    <g id="Canvas_1_Layer_1">
+      <title>Layer 1</title>
+      <g id="Graphic_7"/>
+      <g id="Line_6">
+        <line x1="469.5" y1="434.2" x2="554.5226" y2="388.94207" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_5">
+        <line x1="583" y1="388.94207" x2="668.0226" y2="432.86667" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_4">
+        <text transform="translate(520 281)" fill="#333">
+          <tspan font-family="Times New Roman" font-size="19.36" font-weight="400" fill="#333" x="0" y="17">Project Node</tspan>
+        </text>
+      </g>
+      <g id="Line_3">
+        <line x1="344" y1="524" x2="344.07143" y2="591.91265" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_2">
+        <line x1="566.5" y1="303.2" x2="566.5714" y2="371.11265" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_11">
+        <text transform="translate(527.4765 372.7)" fill="#333">
+          <tspan font-family="Times New Roman" font-size="19.36" font-weight="400" fill="#333" x="0" y="17">Join Node</tspan>
+        </text>
+      </g>
+      <g id="Graphic_15"/>
+      <g id="Line_14">
+        <line x1="356" y1="500.7" x2="441.0226" y2="455.44207" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Line_13">
+        <line x1="469.5" y1="455.44207" x2="554.5226" y2="499.36667" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_12">
+        <text transform="translate(413.9765 439.2)" fill="#333">
+          <tspan font-family="Times New Roman" font-size="19.36" font-weight="400" fill="#333" x="0" y="17">Join Node</tspan>
+        </text>
+      </g>
+      <g id="Graphic_20">
+        <text transform="translate(588 439.2)" fill="#333">
+          <tspan font-family="Times New Roman" font-size="19.36" font-weight="400" fill="#333" x="0" y="17">Table Scan Node(t2)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_21">
+        <text transform="translate(304.9765 499)" fill="#333">
+          <tspan font-family="Times New Roman" font-size="19.36" font-weight="400" fill="#333" x="0" y="17">Filter Node</tspan>
+        </text>
+      </g>
+      <g id="Graphic_22">
+        <text transform="translate(274.75227 602.5)" fill="#333">
+          <tspan font-family="Times New Roman" font-size="19.36" font-weight="400" fill="#333" x="0" y="17">Table Scan Node(t3)</tspan>
+        </text>
+      </g>
+      <g id="Graphic_23">
+        <text transform="translate(469.5 499)" fill="#333">
+          <tspan font-family="Times New Roman" font-size="19.36" font-weight="400" fill="#333" x="0" y="17">Table Scan Node(t1)</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>
