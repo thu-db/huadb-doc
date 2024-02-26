@@ -46,10 +46,10 @@
     -   [orderby_executor](https://github.com/thu-db/huadb/blob/main/src/executors/orderby_executor)：排序算子，用于实现内存或外存的记录排序算法。
     -   [nested_loop_join_executor](https://github.com/thu-db/huadb/blob/main/src/executors/nested_loop_join_executor.h)：Nested Loop 连接算子，用于实现最基础的连接算法。
     -   [merge_join_executor](https://github.com/thu-db/huadb/blob/main/src/executors/merge_join_executor.h)：Merge 连接算子，要求底层算子节点已经完成排序，一种快速的连接算法。
-    -   [hash_join_executor](https://github.com/thu-db/huadb/blob/main/src/executors/hash_join_executor.h)：（高级功能）哈希连接算子，需要补充哈希组件后实现，一种快速高效的连接算法。
-    -   [aggregate_executor](https://github.com/thu-db/huadb/blob/main/src/executors/aggregate_executor.h)：（高级功能）聚合算子，依赖于哈希表结构，用于实现各类聚合算子的运算。
+    -   [hash_join_executor](https://github.com/thu-db/huadb/blob/main/src/executors/hash_join_executor.h)：(高级功能) 哈希连接算子，需要补充哈希组件后实现，一种快速高效的连接算法。
+    -   [aggregate_executor](https://github.com/thu-db/huadb/blob/main/src/executors/aggregate_executor.h)：(高级功能) 聚合算子，依赖于哈希表结构，用于实现各类聚合算子的运算。
 
-基础功能需要补充约 200 行代码，本次实验依赖于实验 1，请确保完成以上任务再开始本次实验。
+基础功能需要补充约 200 行代码，本次实验依赖于实验 1，请确保完成实验 1 再开始本次实验。
 
 相关功能模块的抽象示意图如下：
 

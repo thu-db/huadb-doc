@@ -33,3 +33,7 @@
 ### 实现思路
 
 修改数据库 Analyze 过程，在分析过程中使用 Count-Min 或 HyperLogLog 算法估计 distinct value。
+
+{%
+	include-markdown "common/advanced.md"
+%}
