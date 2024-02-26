@@ -4,7 +4,7 @@
 
 ### 实验描述
 
-基础功能中删除仅采用标记删除的方法，没有添加垃圾回收的功能，高级功能要求在此基础上补全 vacuum 机制，实现主动垃圾回收功能。可参考 PostgreSQL 文档中关于[Vacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html)的描述。
+基础功能中删除仅采用标记删除的方法，没有添加垃圾回收的功能，高级功能要求在此基础上补全 vacuum 机制，实现主动垃圾回收功能。可参考 PostgreSQL 文档中关于 [Vacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html) 的描述。
 
 ### 实现思路
 
