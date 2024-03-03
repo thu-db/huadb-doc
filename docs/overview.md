@@ -10,8 +10,8 @@
 
 实验代码根目录的 Makefile 文件提供了多种命令的支持，具体包括：
 
--   `make` 或 `make lab1-debug`：实验 1 数据库构建。
--   `make debug`：实验 1 之后的数据库构建（debug 版本）。
+-   `make lab1-debug`：实验 1 数据库构建。
+-   `make` 或 `make debug`：实验 1 之后的数据库构建（debug 版本）。
 -   `make release`：实验 1 之后的数据库构建（release 版本）。
 -   `make shell`：进入数据库交互界面。
 -   `make labn`：运行 lab 0 至 lab n 的所有测例（0 <= n <= 5）。
@@ -76,7 +76,7 @@ system> \d huadb_statistic
 (4 rows)
 ```
 
-在进行实验 1 之前，由于数据库还不支持记录的增删改查功能，系统表无法正常工作，你需要使用 catalog 文件夹下的 simple_catalog 来替代 system_catalog，因此在实验 1 中请使用 `make` 或 `make lab1-debug` 进行编译，完成实验 1 之后使用 `make debug` 进行编译。
+在进行实验 1 之前，由于数据库还不支持记录的增删改查功能，系统表无法正常工作，你需要使用 catalog 文件夹下的 simple_catalog 来替代 system_catalog，因此在实验 1 中请使用 `make lab1-debug` 进行编译，完成实验 1 之后使用 `make` 或 `make debug` 进行编译。
 
 ## 测试
 

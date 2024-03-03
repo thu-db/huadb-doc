@@ -128,24 +128,18 @@ make destroy && make clean
 之后编译使用 SystemCatalog 的数据库：
 
 ```bash
+make
+```
+
+或
+
+```bash
 make debug
 ```
 
 编译完成后，再次对 lab 1 测例进行测试，可以通过 `40-database.test`。
 
-此后的所有实验，我们只需要使用 SystemCatalog 版本的数据库即可，不再需要使用 `make lab1-debug` 命令。你可以修改 Makefile 文件，将：
-
-```
-all: lab1-debug
-```
-
-修改为:
-
-```
-all: debug
-```
-
-以避免在之后的实验中编译出错误的版本。
+此后的所有实验，我们只需要使用 SystemCatalog 版本的数据库即可，不再需要使用 `make lab1-debug` 命令。
 
 ## 任务 2：LRU 缓存替换策略（3 分）
 

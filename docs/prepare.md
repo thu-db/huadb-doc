@@ -65,7 +65,7 @@ git remote add upstream git@github.com:thu-db/huadb.git
 实验代码更新时，执行如下命令将更新的部分合并入你的代码：
 
 ```bash
-git pull upstream master
+git pull upstream main
 ```
 
 合并过程中可能产生冲突，冲突时请手动解决所有冲突并执行 `git add` 和 `git commit` 指令完成合并。
@@ -86,10 +86,10 @@ git clone git@gitee.com:thu-db/huadb.git
 
 ### 编译及测试
 
-直接运行 `make` 即可完成编译 HuaDB，你也可以通过设置 `CMAKE_BUILD_PARALLEL_LEVEL` 环境变量来进行多核编译：
+运行 `make lab1-debug` 即可完成编译 HuaDB，你也可以通过设置 `CMAKE_BUILD_PARALLEL_LEVEL` 环境变量来进行多核编译：
 
 ```bash
-CMAKE_BUILD_PARALLEL_LEVEL=$(nproc) make
+CMAKE_BUILD_PARALLEL_LEVEL=$(nproc) make lab1-debug
 ```
 
 通过以上指令可以编译出 debug 版本的程序，为便于调试，我们不建议编译 release 版本。
