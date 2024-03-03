@@ -146,9 +146,11 @@ make
 make debug
 ```
 
-编译完成后，再次对 lab 1 测例进行测试，可以通过 `40-database.test`。
+编译完成后，再次对 lab 1 测例进行测试，可以通过 `40-database.test` 测例。
 
 此后的所有实验，我们只需要使用 SystemCatalog 版本的数据库即可，不再需要使用 `make lab1-debug` 命令。
+
+如果改变编译选项后仍无法通过 `40-database.test` 测例，可以与我们[联系](../index.md#contact)。
 
 ## 任务 2：LRU 缓存替换策略（3 分） { #t2 }
 
