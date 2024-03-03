@@ -10,7 +10,7 @@
 
 要在事务执行 rollback 时完成回滚操作，我们必须保证事务从开始到回滚之间所作的页面修改操作都记录在日志中，正确记录日志是实现回滚的重要前提，因此第一步，我们需要修改 table.cpp 的 InsertRecord 和 DeleteRecord 函数实现，在 write_log 参数为 true 时，添加日志写入的代码。
 
-!!!info "系统表无需写日志"
+!!! info "系统表无需写日志"
 
     为简化实现，实验框架中系统表相关操作不记录日志，系统表调用 InsertRecord 和 DeleteRecord 函数时会将 write_log 参数设为 false。实验也不要求对系统表操作进行回滚和重做，测例中不会出现 DDL 语句的重做和回滚。
 

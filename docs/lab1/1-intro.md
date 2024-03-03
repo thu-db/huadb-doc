@@ -28,8 +28,8 @@
 
 本次实验关联数据库存储章节，重点涉及如下的知识点：
 
-1. 页面组织：变长记录的页面组织任务将涉及到变长记录的组织方式.
-2. 文件组织：堆表的插入效率优化任务将涉及到堆表组织、空闲空间数组的设计.
+1. 页面组织：变长记录的页面组织方式.
+2. 文件组织：堆表组织、空闲空间数组的设计.
 3. 缓冲区：缓存替换算法的实现将涉及到各类缓存替换策略的原理与算法流程.
 
 ## 相关代码模块 { #code }
@@ -38,7 +38,7 @@
 
 -   [table](https://github.com/thu-db/huadb/tree/main/src/table)：数据表相关类.
 
-    -   [record](https://github.com/thu-db/huadb/blob/main/src/table/record.h)：记录类，已经完成。
+    -   [record](https://github.com/thu-db/huadb/blob/main/src/table/record.h)：记录类。
     -   [table](https://github.com/thu-db/huadb/blob/main/src/table/table.h)：数据表类，需要补充记录插入和删除函数。
     -   [table_page](https://github.com/thu-db/huadb/blob/main/src/table/table_page.h)：变长记录页面类，需要补充页面内部记录插入和删除的函数。
     -   [table_scan](https://github.com/thu-db/huadb/blob/main/src/table/table_scan.h)：用于全表扫描，需要补充获取下条记录的函数来实现数据遍历。

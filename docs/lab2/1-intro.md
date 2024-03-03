@@ -45,7 +45,7 @@
 -   [table](https://github.com/thu-db/huadb/tree/main/src/table)：数据表相关类
     -   [table](https://github.com/thu-db/huadb/tree/main/src/table/table.h)：在实验 1 的基础上添加记录变更时的日志记录功能。
 
-基础功能需要补充约 200 行代码，本次实验依赖于实验 1，请确保完成实验 1 再开始本次实验。
+基础功能需要补充约 250 行代码，本次实验依赖于实验 1，请确保完成实验 1 再开始本次实验。
 
 相关功能模块的示意图如下：
 
