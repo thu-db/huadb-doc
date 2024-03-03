@@ -2,13 +2,19 @@
 
 !!! info
 
-    可通过 `// LAB 1 BEGIN` 快速定位需要补充的代码的位置
+    可通过搜索 `// LAB 1 BEGIN` 快速定位需要补充的代码的位置
 
 ## 任务 1：变长记录的页面组织（12 分） { #t1 }
 
 本任务中，你需要补全 `table.cpp`, `table_page.cpp` 以及 `table_scan.cpp`，来实现记录的增删改查功能。
 
-实验框架的文件组织方式为堆表，页面之间采用链表连接，页面组织支持变长记录，页面大小为 256B。页面头由以下几个字段组成：
+实验框架的文件组织方式为堆表，页面之间采用链表连接，页面组织支持变长记录，页面大小为 256B。
+
+!!! note
+
+    实际数据库系统中，数据页面大小一般设置为 4KB, 8KB, 16KB 等，实验框架将页面大小设置为 256B，主要是为了方便测试，避免在测试多页面功能时测试数据文件过大。
+
+页面头由以下几个字段组成：
 
 | 变量名         | 变量类型  | 长度 | 作用                   |
 | -------------- | --------- | ---- | ---------------------- |
@@ -38,7 +44,7 @@
 
 ### 步骤 1：记录插入 { #t1_s1 }
 
-我们首先来看记录插入的部分，记录插入的上层调用位于`insert_executor.cpp`，调用了 Table 类的 InsertRecord 函数，该函数返回插入记录的 rid\_（rid\_表示一条记录的位置，由页面 id 和页面中的槽 id 组成）。
+我们首先来看记录插入的部分，记录插入的上层调用位于`executors/insert_executor.cpp`，在 InsertExecutor 的 Next 函数中，调用了 Table 类的 InsertRecord 函数，该函数返回插入记录的 rid\_（rid\_表示一条记录的位置，由页面 id 和页面中的槽 id 组成）。
 
 Table 类的 InsertRecord 函数是你需要实现的部分。在这个函数中，你需要找到一个页面，通过 BufferPool 的 GetPage 函数获取页面，进一步调用页面 TablePage 的 InsertRecord 函数插入记录，其中 xid 和 cid 参数在实验 3 才会使用，本实验中你只需要将这两个参数原封不动传进去即可。在寻找页面时，你需要保证页面的空闲空间能够放下要插入的记录，如果找不到这样的页面，你需要调用 BufferPool 的 NewPage 函数新建一个页面，并在新页面中插入记录。
 
@@ -53,7 +59,6 @@ make lab1/10
 正常情况下，你将会得到如下输出：
 
 ```
-Test: 1/3
 lab1/10-insert.test ERROR
 lab1/10-insert.test:9
 Unexpected error: Wrong Result
@@ -77,11 +82,11 @@ xxd huadb_test/huadb_data/2/10000
 hexdump -C huadb_test/huadb_data/2/10000
 ```
 
-若你在程序右侧输出的 ascii 码中观察到插入数据的 a, bb, ccc 等字样，则说明数据已经成功写入到磁盘。
+若你在程序右侧输出的 ASCII 码中观察到插入数据的 a, bb, ccc 等字样，则说明数据已经成功写入到磁盘。
 
 ### 步骤 2：记录读取 { #t1_s2 }
 
-下面我们来补全记录读取的代码。记录读取的上层调用位于 `seqscan_executor.cpp`，调用 TableScan 的 GetNextRecord 函数。
+下面我们来补全记录读取的代码。记录读取的上层调用位于 `executors/seqscan_executor.cpp`，在 SeqScanExecutor 类的 Next 中调用了 TableScan 的 GetNextRecord 函数。
 
 我们首先需要补全 GetNextRecord 函数，这个函数有若干参数，这些参数用于实验 3，在本次实验你无需使用这些参数。在这个函数中，你需要维护 rid\_ 成员变量，表示目前读取到的记录的 rid，这是因为上层会多次调用 GetNextRecord 函数，每次返回一条记录，我们需要用 rid\_ 成员变量记录目前读取到了哪一条记录，下次读取时返回下一条记录。维护 rid\_变量之后，调用 TablePage 的 GetRecord 函数获取记录。当表中所有数据读取结束时，返回空指针，表示结束读取。
 
