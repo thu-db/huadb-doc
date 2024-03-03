@@ -1,6 +1,6 @@
 # 基础功能
 
-## 任务 1：变长记录的页面组织（12 分）
+## 任务 1：变长记录的页面组织（12 分） { #t1 }
 
 本任务中，你需要补全 `table.cpp`, `table_page.cpp` 以及 `table_scan.cpp`，来实现记录的增删改查功能。
 
@@ -32,7 +32,7 @@
 
 本任务中，你需要补全记录插入、读取和删除的代码，正确实现后可以通过测例`10-insert.test`, `20-delete.test` 和 `30-update.test`。
 
-### 步骤 1：记录插入
+### 步骤 1：记录插入 { #t1_s1 }
 
 我们首先来看记录插入的部分，记录插入的上层调用位于`insert_executor.cpp`，调用了 Table 类的 InsertRecord 函数，该函数返回插入记录的 rid\_（rid\_表示一条记录的位置，由页面 id 和页面中的槽 id 组成）。
 
@@ -75,7 +75,7 @@ hexdump -C huadb_test/huadb_data/2/10000
 
 若你在程序右侧输出的 ascii 码中观察到插入数据的 a, bb, ccc 等字样，则说明数据已经成功写入到磁盘。
 
-### 步骤 2：记录读取
+### 步骤 2：记录读取 { #t1_s2 }
 
 下面我们来补全记录读取的代码。记录读取的上层调用位于 `seqscan_executor.cpp`，调用 TableScan 的 GetNextRecord 函数。
 
@@ -85,7 +85,7 @@ hexdump -C huadb_test/huadb_data/2/10000
 
 如果你正确实现了以上函数，此时应该可以通过测例 `10-insert.test`。如果没有通过，可以根据测试输出，利用调试器对程序进行调试。
 
-### 步骤 3：记录删除
+### 步骤 3：记录删除 { #t1_s3 }
 
 进行这一步骤之前，请确保你已通过测例 `10-insert.test`。
 
@@ -113,7 +113,7 @@ table_page.cpp 的 DeleteRecord 函数实现了页面中记录的删除，在实
 
     这是因为在我们删除+插入的更新操作中，由于每次只对一条记录进行操作，读取记录时会将新插入的记录继续读取，对于新插入的记录，会再次执行删除+插入的操作，从而使读取永远不会中止。在本次实验中，你暂时无需解决这个问题，我们会在实验 3 中通过事务的 command id 来解决。
 
-### 步骤 4：将 SimpleCatalog 替换为系统表 SystemCatalog
+### 步骤 4：将 SimpleCatalog 替换为系统表 SystemCatalog { #t1_s4 }
 
 本部分不需要添加任何代码，只需要改变编译选项即可。
 
@@ -141,7 +141,7 @@ make debug
 
 此后的所有实验，我们只需要使用 SystemCatalog 版本的数据库即可，不再需要使用 `make lab1-debug` 命令。
 
-## 任务 2：LRU 缓存替换策略（3 分）
+## 任务 2：LRU 缓存替换策略（3 分） { #t2 }
 
 在任务 1 中，我们多次调用 BufferPool 的 GetPage 和 NewPage 函数，本任务中，你需要阅读 BufferPool 中这两个函数的实现代码，并为缓存池添加 LRU 替换算法。你只需修改 lru_buffer_strategy.cpp 即可，必要时可以在 lru_buffer_strategy.h 中添加成员变量。整体代码量很小，但希望通过此任务加深对缓存池的理解，这将帮助你更快地完成之后的实验。
 

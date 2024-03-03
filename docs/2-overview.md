@@ -1,4 +1,4 @@
-## 实验要求
+## 实验要求 { #requirement }
 
 每次实验聚焦于实验框架的 1-2 个模块，我们已为你提供了相应的类以及函数声明，你需要完成其中部分函数的实现，所有需要你来完成的代码部分均标注了`// LAB n BEGIN`，n 表示第 n 次实验，你可以通过编辑器的全局搜索功能快速定位每次实验需要补充的代码的位置。
 
@@ -6,7 +6,7 @@
 
 实现高级功能时，你可以对实验框架任意修改，建议单独开一个分支完成实验，避免影响后续实验。
 
-## 运行
+## 运行 { #run }
 
 实验代码根目录的 Makefile 文件提供了多种命令的支持，具体包括：
 
@@ -78,11 +78,11 @@ system> \d huadb_statistic
 
 在进行实验 1 之前，由于数据库还不支持记录的增删改查功能，系统表无法正常工作，你需要使用 catalog 文件夹下的 simple_catalog 来替代 system_catalog，因此在实验 1 中请使用 `make lab1-debug` 进行编译，完成实验 1 之后使用 `make` 或 `make debug` 进行编译。
 
-## 测试
+## 测试 { #test }
 
 每次实验均为端到端 SQL 测试，不设单元测试，测试框架基于 [sqllogictest](https://www.sqlite.org/sqllogictest/doc/trunk/about.wiki) 。
 
-### 测试文件格式
+### 测试文件格式 { #test_format }
 
 每个 sqllogictest 测试文件由一系列测试记录 (record) 组成，每条记录包含测试 SQL 语句以及语句的期望输出。测试记录分为 statement 和 query 两类。
 
@@ -183,7 +183,7 @@ statement ok
 drop table test;
 ```
 
-### 测试程序输出
+### 测试程序输出 { #test_output }
 
 测试成功
 

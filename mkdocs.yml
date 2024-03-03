@@ -6,9 +6,9 @@ repo_url: https://github.com/thu-db/huadb-doc
 
 nav:
   - 实验概述: index.md
-  - 实验配置: prepare.md
-  - 实验框架介绍: overview.md
-  - 实验提交要求: submit.md
+  - 实验配置: 1-prepare.md
+  - 实验框架介绍: 2-overview.md
+  - 实验提交要求: 3-submit.md
   - "实验 1: 页面组织与缓存管理":
     - 概述: lab1/1-intro.md
     - 基础功能: lab1/2-basic.md
@@ -64,6 +64,7 @@ theme:
         name: Switch to light mode
   features:
     - navigation.top
+    - content.code.copy
 
 extra_css:
   - stylesheets/extra.css
@@ -77,6 +78,7 @@ plugins:
 
 markdown_extensions:
   - admonition
+  - attr_list
   - pymdownx.details
   - pymdownx.superfences
 
