@@ -29,20 +29,20 @@ nav:
     - 概述: lab5/1-intro.md
     - 基础功能: lab5/2-basic.md
     - 高级功能: lab5/3-advanced.md
-  - 往年文档:
-    - 2023年春:
-      - 总述:
-        - 实验框架: 2023-spring/index.md
-        - 测试说明: 2023-spring/test.md
-        - 实验概述: 2023-spring/intro.md
-      - 实验:
-        - lab 1: 2023-spring/lab1.md
-        - lab 2: 2023-spring/lab2.md
-        - lab 3: 2023-spring/lab3.md
-        - lab 4: 2023-spring/lab4.md
-        - lab 5: 2023-spring/lab5.md
-      - 常见问题:
-        - FAQ: 2023-spring/faq.md
+  # - 往年文档:
+  #   - 2023年春:
+  #     - 总述:
+  #       - 实验框架: 2023-spring/index.md
+  #       - 测试说明: 2023-spring/test.md
+  #       - 实验概述: 2023-spring/intro.md
+  #     - 实验:
+  #       - lab 1: 2023-spring/lab1.md
+  #       - lab 2: 2023-spring/lab2.md
+  #       - lab 3: 2023-spring/lab3.md
+  #       - lab 4: 2023-spring/lab4.md
+  #       - lab 5: 2023-spring/lab5.md
+  #     - 常见问题:
+  #       - FAQ: 2023-spring/faq.md
 
 theme:
   name: material
