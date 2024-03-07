@@ -6,7 +6,7 @@
 
 HuaDB 使用了 C++17 标准，开始实验前，请确保你的开发环境支持 C++17 标准。
 
-目前 HuaDB 仅支持 macOS 和 Linux 操作系统，使用 Windows 的同学建议使用虚拟机或 WSL 进行实验。
+目前 HuaDB 仅支持 macOS 和 Linux 操作系统，使用 Windows 的同学建议使用虚拟机进行实验。
 
 HuaDB 代码下载与提交需要使用 [git](https://git-scm.com/) 工具，代码编译需要使用 [CMake](https://cmake.org/) 及 [Make](https://www.gnu.org/software/make/) 工具，且需要安装 [gcc](https://gcc.gnu.org/) 或 [clang](https://clang.llvm.org/) 编译器。此外，代码调试中可能会用到调试器 [gdb](https://www.sourceware.org/gdb/) 或 [lldb](https://lldb.llvm.org/)。开始实验前，请确保你的开发环境安装了这些工具并可以正常使用，如没有，请根据你使用的操作系统选择对应的命令进行环境配置：
 
@@ -32,7 +32,7 @@ brew install cmake
 2. Debian 10 及以上
 3. macOS Monterey 及以上
 
-在其他的环境（如 Windows, BSD 等）也可能可以编译和运行，但并未进行充分的测试，不保证可以正常工作。
+在其他的环境（如 WSL, BSD 等）也可能可以编译和运行，但并未进行充分的测试，不保证可以正常工作。
 
 ## 评测机详情 { #evaluate }
 
