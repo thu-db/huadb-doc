@@ -22,15 +22,15 @@
 | 记录删除日志 | DeleteLog  | 删除记录所属表的 oid，表所属数据库的 oid，删除数据的 page id，slot id                                                       |
 | 新页日志     | NewPageLog | 新页所属表的 oid，表所属数据库的 oid，前一页的 page id，新页的 page id                                                      |
 
-具体而言，你需要在对页面进行修改操作（记录插入、记录删除、新建页面）时，通过 LogManager 的 AppendInsertLog, AppendDeleteLog 和 AppendNewPageLog 函数进行日志追加，这些函数会返回日志的 lsn，得到 lsn 后，你还需要设置页面的 page lsn，这将用于任务 3 ARIES 算法的实现。
+具体而言，你需要在 `table/table.cpp` 中对页面进行修改操作（记录插入、记录删除、新建页面）时，通过 LogManager 的 AppendInsertLog, AppendDeleteLog 和 AppendNewPageLog 函数进行日志追加，这些函数会返回日志的 lsn，得到 lsn 后，你还需要设置页面的 page lsn，这将用于任务 3 ARIES 算法的实现。
 
 ### 步骤 2：Undo 日志读取 { #t1s2 }
 
-执行 rollback 语句时，数据库会调用 LogManager 的 Rollback 函数，这一步骤中，我们需要实现 Rollback 函数。在步骤 1 调用 AppendLog 函数的过程中，已帮你维护了 Logmanager 中的活跃事务表 att\_ 和脏页表 dpt\_ 变量，你可以在活跃事务表中查找到事务最后一条日志记录的 LSN，每条日志记录都有一个 prev_lsn\_ 字段，表示该事务前一条日志记录的 LSN，通过活跃事务表 att\_ 和 prev_lsn\_，便可以实现对一个事务相关日志记录的倒序遍历。
+执行 rollback 语句时，数据库会调用 LogManager 的 Rollback 函数，这一步骤中，我们需要实现 Rollback 函数。在步骤 1 调用 AppendLog 函数的过程中，已帮你维护了 LogManager 中的活跃事务表 att\_ 和脏页表 dpt\_ 变量，你可以在活跃事务表中查找到事务最后一条日志记录的 LSN，每条日志记录都有一个 prev_lsn\_ 字段，表示该事务前一条日志记录的 LSN，通过活跃事务表 att\_ 和 prev_lsn\_，便可以实现对一个事务相关日志记录的倒序遍历。
 
 !!! note "LSN 的表示方法"
 
-    在课程中，LSN 使用递增的连续序号表示，而在实验框架中，LSN 使用的是日志记录在日志文件中的位置表示，这种表示方法可以方便地通过 LSN 直接获取日志，无需再单独存一份 LSN 到日志位置的映射表。
+    在课程中，LSN 使用递增的连续序号表示，而在实验框架中，LSN 使用日志记录在日志文件中的位置来表示，这种表示方法可以方便地通过 LSN 直接从日志文件中获取日志，无需再单独存一份 LSN 到日志位置的映射表。
 
 得到一条日志记录的 LSN 后，你需要判断 LSN 与 flushed_lsn\_ 的大小关系。flushed_lsn\_ 表示刷新到磁盘的最大 LSN，通过比较 LSN 与 flushed_lsn\_，可以得知日志记录位于磁盘中还是 log 缓存中，进而从对应的位置获取到完整的日志记录。获取到日志记录后，调用日志记录的 Undo 函数进行回滚。
 
@@ -70,10 +70,10 @@
 
 经过 Analyze 阶段，你将得到数据库崩溃时的活跃事务表和脏页表，接下来，你将在 Undo 函数中调用任务 1 实现的 Rollback 函数将活跃事务回滚。
 
-完成以上步骤后，在 `30-aries.test` 中，数据库恢复后将读取到正确的数据。
+完成以上步骤后，在 `30-aries.test` 中，数据库恢复后将读取到正确的数据，从而完成本次实验。
 
-### 步骤 3：优化 Redo 次数 { #t3s3 }
+<!-- ### 步骤 3：优化 Redo 次数 { #t3s3 }
 
 你需要根据分析阶段维护的脏页表，在 redo 时根据脏页表中的 rec_lsn\_，页面的 page_lsn\_，以及日志的 lsn 的大小关系，判断 redo 操作是否有必要进行。每进行一次 redo 操作，你需要调用 LogManager 的 IncrementRedoCount 函数，统计 redo 操作次数。
 
-正确实现本步骤后，你将通过测例 `30-aries.test`，从而完成本次实验。
+正确实现本步骤后，你将通过测例 `30-aries.test`，从而完成本次实验。 -->
