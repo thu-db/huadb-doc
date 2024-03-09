@@ -10,6 +10,16 @@
 -   （2 分）实验报告
 -   （3 分）高级功能
 
+你可以前往你的 GitLab 仓库查看 CI 测试结果，如果仓库显示![](../pics/gitlab-success.png){: style="height:15px;width:15px"}图标，且 CI 输出（通过点击图标来查看）中包含如下几行：
+
+```
+lab n passed
+lab n score: 15.0
+Result has been sent
+```
+
+则说明你的第 n 次实验成功通过基础功能的 CI 测试。
+
 ## 补交说明 { #overdue }
 
 五次实验的 deadline 分别设置在第 5、7、9、11、13 周周日晚 23:59:00，实验截止前需要通过 GitLab 的 CI 测试，并在网络学堂的作业窗口提交实验报告以及基础功能最终版本的 commit id。

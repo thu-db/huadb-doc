@@ -47,13 +47,13 @@
 
 ### 步骤 1：实现锁管理器 LockManager { #t4_s1 }
 
-你需要实现 LockManager 类的 LockTable, LockRow 和 ReleaseLocks 函数，这几个函数分别实现了加表锁、加行锁和释放锁的功能，你可能需要添加适当的数据结构来保存锁信息。
+你需要实现 `transaction/lock_manager.cpp` 文件中的 LockTable, LockRow 和 ReleaseLocks 函数，这几个函数分别实现了加表锁、加行锁和释放锁的功能，你可能需要添加适当的数据结构来保存锁信息。
 
 此外，LockManager 类还提供了两个私有函数 Compatible 和 Upgrade 接口，Compatible 函数用于判断不同事务对同一个对象（行或表）加的锁是否兼容，Upgrade 用于同一个事务对相同对象重复加锁时实现锁的升级。
 
 ### 步骤 2：为修改操作加锁 { #t4_s2 }
 
-完成 LockManager 后，你需要在 `executors/insert_executor.cpp`, `executors/delete_executor.cpp` 和 `executors/update_executor.cpp` 中为修改操作加锁，如果加锁失败，即其他事务已经获取相应对象的锁，且锁类型不兼容，则抛出异常。
+完成步骤 1 后，你需要在 `executors/insert_executor.cpp`, `executors/delete_executor.cpp` 和 `executors/update_executor.cpp` 中为修改操作加锁，如果加锁失败，即其他事务已经获取相应对象的锁，且锁类型不兼容，则抛出异常。
 
 正确实现以上步骤后，你将通过 `50-lock.test` 测例。
 
