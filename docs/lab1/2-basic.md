@@ -6,7 +6,7 @@
 
 ## 任务 1：变长记录的页面组织（12 分） { #t1 }
 
-本任务中，你需要补全 `table.cpp`, `table_page.cpp` 以及 `table_scan.cpp`，来实现记录的增删改查功能。
+本任务中，你需要补全 `table/table.cpp`, `table/table_page.cpp` 以及 `table/table_scan.cpp` 中的相关函数，来实现记录的增删改查功能。
 
 实验框架的文件组织方式为堆表，页面之间采用链表连接，页面组织支持变长记录，页面大小为 256B。
 
@@ -44,13 +44,13 @@
 
 ### 步骤 1：记录插入 { #t1_s1 }
 
-我们首先来看记录插入的部分，记录插入的上层调用位于`executors/insert_executor.cpp`，在 InsertExecutor 的 Next 函数中，调用了 Table 类的 InsertRecord 函数，该函数返回插入记录的 rid\_（rid\_表示一条记录的位置，由页面 id 和页面中的槽 id 组成）。
+我们首先来看记录插入的部分，记录插入的上层调用位于 `executors/insert_executor.cpp`，在 InsertExecutor 的 Next 函数中，调用了 Table 类的 InsertRecord 函数，该函数返回插入记录的 rid\_（rid\_表示一条记录的位置，由页面 id 和页面中的槽 id 组成）。
 
 Table 类的 InsertRecord 函数是你需要实现的部分。在这个函数中，你需要找到一个页面，通过 BufferPool 的 GetPage 函数获取页面，进一步调用页面 TablePage 的 InsertRecord 函数插入记录，其中 xid 和 cid 参数在实验 3 才会使用，本实验中你只需要将这两个参数原封不动传进去即可。在寻找页面时，你需要保证页面的空闲空间能够放下要插入的记录，如果找不到这样的页面，你需要调用 BufferPool 的 NewPage 函数新建一个页面，并在新页面中插入记录。
 
 TablePage 的 InsertRecord 函数也是需要实现的部分，你需要维护页面的 lower 和 upper 指针，以及页面的记录槽信息（记录位置与记录长度），并将记录写入页面，同时不要忘了将页面标记为脏页，只有脏页才会在缓存替换时写回磁盘。
 
-完成这两个函数后，记录插入的部分就全部完成了，此时你可以尝试测试`10-insert.test`：
+完成这两个函数后，记录插入的部分就全部完成了，此时你可以尝试测试 `10-insert.test`：
 
 ```bash
 make lab1/10
@@ -98,15 +98,15 @@ hexdump -C huadb_test/huadb_data/2/10000
 
 进行这一步骤之前，请确保你已通过测例 `10-insert.test`。
 
-记录删除是任务 1 的最后一个步骤，你需要补充 table.cpp 和 table_page.cpp 的 DeleteRecord 函数。
+记录删除是任务 1 的最后一个步骤，你需要补充 `table/table.cpp` 和 `table/table_page.cpp` 的 DeleteRecord 函数。
 
-table.cpp 的 DeleteRecord 函数的实现思路与记录插入类似，我们只需通过 buffer_pool\_ 获取需要删除的记录对应的页面，调用页面 TablePage 的 DeleteRecord 函数即可。
+`table/table.cpp` 的 DeleteRecord 函数的实现思路与记录插入类似，我们只需通过 buffer_pool\_ 获取需要删除的记录对应的页面，调用页面 TablePage 的 DeleteRecord 函数即可。
 
-table_page.cpp 的 DeleteRecord 函数实现了页面中记录的删除，在实验的基础功能中，我们仅要求实现标记删除即可。你只需设置记录头部的 deleted\* 变量即可。
+`table/table_page.cpp` 的 DeleteRecord 函数实现了页面中记录的删除，在实验的基础功能中，我们仅要求实现标记删除即可。你只需设置记录头部的 deleted\* 变量即可。
 
-完成上述步骤后，我们还需要修改 table_scan.cpp 的 GetNextRecord 函数，读取记录时判断记录是否已经被标记为删除，不再返回已经删除的数据。
+完成上述步骤后，我们还需要修改 `table/table_scan.cpp` 的 GetNextRecord 函数，读取记录时判断记录是否已经被标记为删除，不再返回已经删除的数据。
 
-至此，若你的实现正确，可以通过 `20-delete.test` 和 `30-update.test`。你可能会好奇，为何我们的框架没有 update 函数，却可以通过 update 测例。这是因为实验框架没有实现原地更新函数，所有更新操作均由删除+插入的方式实现，你可以查看 update_executor.cpp 来了解框架的实现方式。这种实现方式会导致删除数据的空间不能被回收，造成了空间的浪费，带来的好处是在实验 2 和实验 3 中更简洁的实现。如果你对删除数据的空间回收感兴趣，可以在高级功能中实现[垃圾回收](3-advanced.md)。
+至此，若你的实现正确，可以通过 `20-delete.test` 和 `30-update.test`。你可能会好奇，为何我们的框架没有 update 函数，却可以通过 update 测例。这是因为实验框架没有实现原地更新函数，所有更新操作均由删除+插入的方式实现，你可以查看 `executors/update_executor.cpp` 来了解框架的实现方式。这种实现方式会导致删除数据的空间不能被回收，造成了空间的浪费，带来的好处是在实验 2 和实验 3 中更简洁的实现。如果你对删除数据的空间回收感兴趣，可以在高级功能中实现[垃圾回收](3-advanced.md)。
 
 !!! note "万圣节问题"
 
@@ -154,7 +154,7 @@ make debug
 
 ## 任务 2：LRU 缓存替换策略（3 分） { #t2 }
 
-在任务 1 中，我们多次调用 BufferPool 的 GetPage 和 NewPage 函数，本任务中，你需要阅读 BufferPool 中这两个函数的实现代码，并为缓存池添加 LRU 替换算法。你只需修改 lru_buffer_strategy.cpp 即可，必要时可以在 lru_buffer_strategy.h 中添加成员变量。整体代码量很小，但希望通过此任务加深对缓存池的理解，这将帮助你更快地完成之后的实验。
+在任务 1 中，我们多次调用 BufferPool 的 GetPage 和 NewPage 函数，本任务中，你需要阅读 BufferPool 中这两个函数的实现代码，并为缓存池添加 LRU 替换算法。你只需修改 `storage/lru_buffer_strategy.cpp` 即可，必要时可以在 `storage/lru_buffer_strategy.h` 中添加成员变量。整体代码量很小，但希望通过此任务加深对缓存池的理解，这将帮助你更快地完成之后的实验。
 
 BufferPool 的主要成员变量有三个：页面缓存 buffers\_ ，页面号到 buffers\_ 下标的映射表 hashmap\_ 以及缓存替换策略成员 buffer_strategy\_。
 

@@ -2,13 +2,13 @@
 
 ## 任务 1：事务回滚（6 分） { #t1 }
 
-本次实验中，你首先需要实现事务回滚的功能，主要涉及 log_manager.cpp 的 Rollback 函数，insert_log.cpp, delete_log.cpp 和 new_page_log.cpp 的 Undo 函数，此外，还需要修改 lab 1 中对 table.cpp 的实现，添加日志相关部分，并在 table_page.cpp 中增加 RedoInsertRecord 和 UndoDeleteRecord 的逻辑，完整实现后可以通过 `10-rollback.test` 测例。
+本次实验中，你首先需要实现事务回滚的功能，主要涉及 `log/log_manager.cpp` 的 Rollback 函数，`log/log_records/insert_log.cpp`, `log/log_records/delete_log.cpp` 和 `log/log_records/new_page_log.cpp` 的 Undo 函数，此外，还需要修改 lab 1 中对 Table 类相关函数的实现，添加日志相关部分，并在 `table/table_page.cpp` 中增加 RedoInsertRecord 和 UndoDeleteRecord 的逻辑，完整实现后可以通过 `10-rollback.test` 测例。
 
 ### 步骤 1：日志追加 { #t1s1 }
 
 实验框架通过读取日志的方式来实现事务回滚，当一个事务执行 rollback 语句时，数据库会逆序读取该事务产生的日志记录，将该事务所作的修改操作按倒序依次撤销。需要注意的是，实验框架采用了与课程讲授内容不同的方法，undo 日志和 redo 日志均使用物理日志。这一方面是为了减少本次实验的工作量，另一方面在实验框架的存储设计中，undo 日志可以采用物理日志来记录，你可以思考一下在实验框架中为何使用物理日志进行 undo 操作不会影响正确性。
 
-要在事务执行 rollback 时完成回滚操作，我们必须保证事务从开始到回滚之间所作的页面修改操作都记录在日志中，正确记录日志是实现回滚的重要前提，因此第一步，我们需要修改 table.cpp 的 InsertRecord 和 DeleteRecord 函数实现，在 write_log 参数为 true 时，添加日志写入的代码。
+要在事务执行 rollback 时完成回滚操作，我们必须保证事务从开始到回滚之间所作的页面修改操作都记录在日志中，正确记录日志是实现回滚的重要前提，因此第一步，我们需要修改 `table/table.cpp` 的 InsertRecord 和 DeleteRecord 函数实现，在 write_log 参数为 true 时，添加日志写入的代码。
 
 !!! info "系统表无需写日志"
 

@@ -2,11 +2,11 @@
 
 ## 任务 1：解决万圣节问题（3 分） { #t1 }
 
-还记得在实验 1 中提到的万圣节问题吗，本次实验的第一个任务便是解决这个问题，完成后你将通过 `10-halloween.test` 测例。
+还记得在实验 1 中提到的[万圣节问题](../lab1/2-basic.md#t1_s3)吗，本次实验的第一个任务便是解决这个问题，完成后你将通过 `10-halloween.test` 测例。
 
 ### 步骤 1：添加记录头信息 { #t1_s1 }
 
-记录头信息位于 `record_header.h` 文件，具体包括以下几个字段：
+记录头信息位于 `table/record_header.h` 文件，具体包括以下几个字段：
 
 | 变量名    | 变量类型 | 长度 | 作用                                |
 | --------- | -------- | ---- | ----------------------------------- |
@@ -21,7 +21,7 @@
 
 ### 步骤 2：修改可见性判断条件 { #t1_s2 }
 
-下一步你需要修改 table_scan.cpp 中 GetNextRecord 函数关于可见性判断的部分，为了解决万圣节问题，我们不仅需要判断记录是否被删除，还要判断读入的记录是不是由当前正在执行的 SQL 语句插入的，判断依据便是记录的 xid 和 cid，当前正在执行的 SQL 语句的 xid,和 cid。正确修改判断条件后，你将通过`10-halloween.test` 测例。同时，你也要保证代码的修改不影响前两次实验的正确性。
+下一步你需要修改 `table/table_scan.cpp` 中 GetNextRecord 函数关于可见性判断的部分，为了解决万圣节问题，我们不仅需要判断记录是否被删除，还要判断读入的记录是不是由当前正在执行的 SQL 语句插入的，判断依据便是记录的 xid 和 cid，当前正在执行的 SQL 语句的 xid,和 cid。正确修改判断条件后，你将通过`10-halloween.test` 测例。同时，你也要保证代码的修改不影响前两次实验的正确性。
 
 ## 任务 2：通过多版本并发控制实现可重复读隔离（3 分） { #t2 }
 
@@ -29,11 +29,11 @@
 
 ### 步骤 1：设置活跃事务集合 { #t2_s1 }
 
-在可重复读隔离级别中，你需要获取事务开始时的活跃事务集合，用于可见性判断。TransactionManager 已为你保存了这些信息，你只需要传入 xid 即可获取事务 xid 开始时的活跃事务集合，将该信息补充到 `seqscan_executor.cpp` 的 Next 函数中。
+在可重复读隔离级别中，你需要获取事务开始时的活跃事务集合，用于可见性判断。TransactionManager 已为你保存了这些信息，你只需要传入 xid 即可获取事务 xid 开始时的活跃事务集合，将该信息补充到 `executors/seqscan_executor.cpp` 的 Next 函数中。
 
 ### 步骤 2：修改可见性判断条件 { #t2_s2 }
 
-修改 table_scan.cpp 中的 GetNextRecord 函数，根据隔离级别，活跃事务 id，以及当前事务的 xid，cid，判断记录可见性。由于可见性判断的部分较为复杂，可能涉及多个分支，你可以将此部分单独设置一个函数。正确设置后将通过`20-mvcc_insert.test`, `21-mvcc_delete.test`, `22-mvcc_update.test`, `23-write_skew.test` 和 `30-repeatable_read.test` 测例。
+修改 `table/table_scan.cpp` 中的 GetNextRecord 函数，根据隔离级别，活跃事务 id，以及当前事务的 xid，cid，判断记录可见性。由于可见性判断的部分较为复杂，可能涉及多个分支，你可以将此部分单独设置一个函数。正确设置后将通过`20-mvcc_insert.test`, `21-mvcc_delete.test`, `22-mvcc_update.test`, `23-write_skew.test` 和 `30-repeatable_read.test` 测例。
 
 你可能会发现，尽管通过了实验 3 的 20-30 测例，但实验 2 的 `30-aries.test` 再次出错。这是因为实验框架的默认隔离级别为读已提交，而本任务中我们对可重复读隔离级别进行了设置。你需要在判断可见性时考虑到当前的隔离级别，根据不同级别使用不同的可见性判断条件。在本任务中，你可以先忽略这个问题，后续任务我们将指导你完成其他隔离级别的可见性判断条件。
 
@@ -53,7 +53,7 @@
 
 ### 步骤 2：为修改操作加锁 { #t4_s2 }
 
-完成 LockManager 后，你需要在 insert_executor.cpp, delete_executor.cpp 和 update_executor.cpp 中为修改操作加锁，如果加锁失败，即其他事务已经获取相应对象的锁，且锁类型不兼容，则抛出异常。
+完成 LockManager 后，你需要在 `executors/insert_executor.cpp`, `executors/delete_executor.cpp` 和 `executors/update_executor.cpp` 中为修改操作加锁，如果加锁失败，即其他事务已经获取相应对象的锁，且锁类型不兼容，则抛出异常。
 
 正确实现以上步骤后，你将通过 `50-lock.test` 测例。
 
@@ -63,14 +63,14 @@
 
 ### 步骤 1：实现 select for update 和 select for share 的加锁 { #t5_s1 }
 
-你需要在 `lock_rows_executor.cpp` 中为 select for update 和 select for share 添加支持，根据 SQL 语句类型加读锁或写锁。
+你需要在 `executors/lock_rows_executor.cpp` 中为 select for update 和 select for share 添加支持，根据 SQL 语句类型加读锁或写锁。
 
 ### 步骤 2：根据 select 类型获取活跃事务集合 { #t5_s2 }
 
-修改 `seqscan_executor.cpp`，在可串行化隔离级别下，根据 SQL 语句的类型，判断应采用当前读还是快照读，进而设置正确的活跃事务集合。
+修改 `executors/seqscan_executor.cpp`，在可串行化隔离级别下，根据 SQL 语句的类型，判断应采用当前读还是快照读，进而设置正确的活跃事务集合。
 
 ### 步骤 3：设置可串行化隔离级别的可见性判断条件 { #t5_s3 }
 
-修改 `table_scan.cpp`，为可串行化级别设置可见性判断条件。
+修改 `table/table_scan.cpp`，为可串行化级别设置可见性判断条件。
 
 正确完成以上步骤后，你将通过 `60-mv2pl.test` 和 `70-write_skew_serializable.test`，完成本次实验的所有基础功能。

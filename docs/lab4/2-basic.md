@@ -8,25 +8,25 @@
 
 Limit 算子是本次实验最基础的一个任务，算子本身的实现非常简单，希望你通过这个任务熟悉实验框架中火山模型的运作流程。
 
-你需要补充 limit_executor.cpp 中的 Next 函数，实现过程中你可能会用到对应的 LimitOperator 中的成员变量。你也可以为 LimitExecutor 增加新的成员变量来存储信息。
+你需要补充 `executors/limit_executor.cpp` 中的 Next 函数，实现过程中你可能会用到对应的 LimitOperator 中的成员变量。你也可以为 LimitExecutor 增加新的成员变量来存储信息。
 
 完成后你将通过 `10-limit.test` 测例。需要注意的是，为确保 limit 结果的唯一性，在该测例中使用了 order by 语句，而排序算子的实现是任务 2 的内容。但是该测例中所有排序均与插入顺序一致，因此只要你在 lab 1 中的实现可以保证读取顺序与插入顺序保持一致，便可以通过本测例。如果你的实现不能保证这一点，你可以在完成任务 2 后再来进行本测例的测试。
 
 ## 任务 2：排序算子（4 分） { #t2 }
 
-你需要补充 orderby_executor.cpp 中的 Next 函数，与 Limit 算子类似，你可能会使用到 OrderByOperator 中的成员变量，从中获取排序的列以及排序的类型（升序还是降序），实现过程中可以使用 STL 的 sort 函数。
+你需要补充 `executors/orderby_executor.cpp` 中的 Next 函数，与 Limit 算子类似，你可能会使用到 OrderByOperator 中的成员变量，从中获取排序的列以及排序的类型（升序还是降序），实现过程中可以使用 STL 的 sort 函数。
 
 正确实现后将通过 `20-sort.test` 测例。
 
 ## 任务 3：嵌套循环连接算子（4 分） { #t3 }
 
-你需要补充 nested_loop_join_executor.cpp 中的 Next 函数，从 NestedLoopJoinOperator 中获取连接条件，本次实验中仅要求实现内连接即可。
+你需要补充 `executors/nested_loop_join_executor.cpp` 中的 Next 函数，从 NestedLoopJoinOperator 中获取连接条件，本次实验中仅要求实现内连接即可。
 
 正确实现后将通过 `30-nested-loop-join.test` 测例。
 
 ## 任务 4：归并连接算子（4 分） { #t4 }
 
-你需要补充 merge_join_executor.cpp 中的 Next 函数，从 MergeJoinOperator 中获取连接条件，本次实验中仅要求实现内连接即可，注意可能需要对 join 两侧的表存在重复值的情况特殊处理。
+你需要补充 `executors/merge_join_executor.cpp` 中的 Next 函数，从 MergeJoinOperator 中获取连接条件，本次实验中仅要求实现内连接即可，注意可能需要对 join 两侧的表存在重复值的情况特殊处理。
 
 在查询计划生成时，已对归并连接的两个子节点添加了 OrderBy 节点进行排序操作，你在实现归并连接时无需再进行排序。
 
