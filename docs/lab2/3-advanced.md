@@ -25,7 +25,3 @@
 -   步骤 1：修改 LogManager::Checkpoint 函数，修改 BeginCheckpointLog 和 EndCheckpointLog 的实现，确定 ATT 和 DPT 实际存储位置。
 
 -   步骤 2：修改 LogManager 类，添加多线程检查点任务结束的异步通知机制，添加多线程情况下的检查点完成的处理函数。
-
-{%
-	include-markdown "common/advanced.md"
-%}

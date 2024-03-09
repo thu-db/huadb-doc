@@ -27,5 +27,5 @@
 -   步骤 2：修改记录扫描的逻辑，在扫描过程中回收无用的旧版本数据。
 
 {%
-	include-markdown "common/advanced.md"
+    include-markdown "common/advanced.md"
 %}

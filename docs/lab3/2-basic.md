@@ -17,7 +17,7 @@
 
 实验框架的 TransactionManager 类会在每个事务开启时为其分配一个事务 id，记为 xid。在每个事务内部，TransactionManager 会为每条 SQL 语句分配一个 command id，记为 cid，我们将通过 cid 来解决万圣节问题。
 
-你需要在修改实验 1 插入、删除记录和实验 2 中撤销删除记录的代码，涉及 TablePage 的 InsertRecord, DeleteRecord 和 UndoDeleteRecord 函数，在插入、删除以及撤销删除记录时正确设置记录头信息，在插入记录时设置 xmin 和 cid，删除和撤销删除记录时设置 xmax。
+你需要修改实验 1 插入、删除记录和实验 2 中撤销删除记录的代码，涉及 TablePage 的 InsertRecord, DeleteRecord 和 UndoDeleteRecord 函数，在插入、删除以及撤销删除记录时正确设置记录头信息，在插入记录时设置 xmin 和 cid，删除和撤销删除记录时设置 xmax。
 
 ### 步骤 2：修改可见性判断条件 { #t1_s2 }
 

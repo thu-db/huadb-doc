@@ -24,7 +24,7 @@
 
 在 ReorderJoin 函数中基于连接种类选择使用的算法类型，并在 Optimizer 中添加基于动态规划的连接顺序选择算法的成员函数。
 
-## 任务 3：基于数据画像的基数估计（1 分）
+<!-- ## 任务 3：基于数据画像的基数估计（1 分） { #t3 }
 
 ### 实验描述 { #t3_intro }
 
@@ -32,8 +32,4 @@
 
 ### 实现思路 { #t3_detail }
 
-修改数据库 Analyze 过程，在分析过程中使用 Count-Min 或 HyperLogLog 算法估计 distinct value。
-
-{%
-	include-markdown "common/advanced.md"
-%}
+修改数据库 Analyze 过程，在分析过程中使用 Count-Min 或 HyperLogLog 算法估计 distinct value。 -->

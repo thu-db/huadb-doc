@@ -27,5 +27,5 @@
 -   步骤 2：基于哈希表和哈希函数实现内存上的哈希连接算子以及聚合算子。
 
 {%
-	include-markdown "common/advanced.md"
+    include-markdown "common/advanced.md"
 %}
