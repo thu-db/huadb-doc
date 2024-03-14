@@ -35,7 +35,7 @@
 
 修改 `table/table_scan.cpp` 中的 GetNextRecord 函数，根据隔离级别，活跃事务 id，以及当前事务的 xid，cid，判断记录可见性。由于可见性判断的部分较为复杂，可能涉及多个分支，你可以将此部分单独设置一个函数。正确设置后将通过`20-mvcc_insert.test`, `21-mvcc_delete.test`, `22-mvcc_update.test`, `23-write_skew.test` 和 `30-repeatable_read.test` 测例。
 
-你可能会发现，尽管通过了实验 3 的 20-30 测例，但实验 2 的 `30-aries.test` 再次出错。这是因为实验框架的默认隔离级别为读已提交，而本任务中我们对可重复读隔离级别进行了设置。你需要在判断可见性时考虑到当前的隔离级别，根据不同级别使用不同的可见性判断条件。在本任务中，你可以先忽略这个问题，后续任务我们将指导你完成其他隔离级别的可见性判断条件。
+你可能会发现，尽管通过了实验 3 的 20-30 测例，但实验 2 的 `30-aries.test` 再次出错。这是因为实验框架的默认隔离级别为读已提交，而本任务中我们对可重复读隔离级别进行了设置。你需要在判断可见性时考虑到当前的隔离级别，根据不同级别使用不同的可见性判断条件。你可以在下一个任务中解决这个问题。
 
 ## 任务 3：实现读已提交隔离（2 分） { #t3 }
 
@@ -53,7 +53,7 @@
 
 ### 步骤 2：为修改操作加锁 { #t4_s2 }
 
-完成步骤 1 后，你需要在 `executors/insert_executor.cpp`, `executors/delete_executor.cpp` 和 `executors/update_executor.cpp` 中为修改操作加锁，如果加锁失败，即其他事务已经获取相应对象的锁，且锁类型不兼容，则抛出异常。
+完成步骤 1 后，你需要在 `executors/insert_executor.cpp`, `executors/delete_executor.cpp` 和 `executors/update_executor.cpp` 中为修改操作加锁，同时还需要在 `executors/seqscan_executor.cpp` 中为读操作加适当的锁。如果加锁失败，即其他事务已经获取相应对象的锁，且锁类型不兼容，则抛出异常。
 
 正确实现以上步骤后，你将通过 `50-lock.test` 测例。
 

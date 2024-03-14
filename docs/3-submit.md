@@ -10,7 +10,7 @@
 -   （2 分）实验报告
 -   （3 分）高级功能
 
-你可以前往你的 GitLab 仓库查看 CI 测试结果，如果仓库显示 ![](../pics/gitlab-success.png){: style="height:15px;width:15px"} 图标，且 CI 输出（通过点击图标来查看）中包含如下几行：
+你可以前往你的 GitLab 仓库查看 CI 测试结果，如果仓库显示 ![](pics/gitlab-success.png){: style="height:15px;width:15px"} 图标，且 CI 输出（通过点击图标来查看）中包含如下几行：
 
 ```
 lab n passed

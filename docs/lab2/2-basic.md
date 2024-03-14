@@ -20,7 +20,7 @@
 | ------------ | ---------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 记录插入日志 | InsertLog  | 插入记录所属表的 oid，表所属数据库的 oid，插入数据的 page id，slot id，记录在页面中的偏移量，记录长度，以及记录的序列化数据 |
 | 记录删除日志 | DeleteLog  | 删除记录所属表的 oid，表所属数据库的 oid，删除数据的 page id，slot id                                                       |
-| 新建页面日志     | NewPageLog | 新页所属表的 oid，表所属数据库的 oid，前一页的 page id，新页的 page id                                                      |
+| 新建页面日志 | NewPageLog | 新页所属表的 oid，表所属数据库的 oid，前一页的 page id，新页的 page id                                                      |
 
 具体而言，你需要在 `table/table.cpp` 中对页面进行修改操作（记录插入、记录删除、新建页面）时，通过 LogManager 的 AppendInsertLog, AppendDeleteLog 和 AppendNewPageLog 函数进行日志追加，这些函数会返回日志的 lsn，得到 lsn 后，你还需要设置页面的 page lsn，这将用于任务 3 ARIES 算法的实现。
 
@@ -36,9 +36,7 @@
 
 ### 步骤 3：实现日志的 Undo 操作 { #t1s3 }
 
-本步骤中，你将实现 InsertLog, DeleteLog 和 NewPageLog 的 Undo 函数，以及 TablePage 类的 UndoDeleteRecord 函数，来撤销事务对页面的修改。
-
-对于 InsertLog，你需要将插入的记录删除；对于 DeleteLog，你需要清除记录的删除标记（调用 TablePage 类的 UndoDeleteRecord 函数）；对于 NewPageLog，你需要重新设置前一页的 next_page_id\_ 字段，正确实现这些函数后，你将可以通过测例 `10-rollback.test`。
+本步骤中，你需要实现 InsertLog, DeleteLog 和 NewPageLog 的 Undo 函数，以及 TablePage 类的 UndoDeleteRecord 函数，来撤销事务对页面的修改。
 
 测例 `10-rollback.test` 分别进行了插入、删除、更新和新建页面的回滚测试，建议每实现完一种日志的回滚函数，进行一次测试，观察是否通过了对应操作的回滚测试。
 
@@ -52,9 +50,7 @@
 
 ### 步骤 2：实现日志的 Redo 操作 { #t2s2 }
 
-与任务 1 的步骤 3 类似，你需要实现 InsertLog, DeleteLog 和 NewPageLog 的 Redo 函数，以及 TablePage 类的 RedoInsertRecord 函数，来重做事务对页面的修改。
-
-由于我们没有记录 DDL 的日志，因此在重做过程中，你需要判断表的 oid 是否存在，如果不存在，说明日志记录对应的表已经被删除，无需进行重做。正确实现这些函数后，你将通过 `20-recover.test` 测例。
+与任务 1 的步骤 3 类似，你需要实现 InsertLog, DeleteLog 和 NewPageLog 的 Redo 函数，以及 TablePage 类的 RedoInsertRecord 函数，来重做事务对页面的修改，正确实现这些函数后，你将通过 `20-recover.test` 测例。
 
 与测例 `10-rollback.test` 类似，测例 `20-recover.test` 分别对插入、删除、更新和新建页面操作进行了重做测试，每实现完一种重做日志便可以进行测试。
 
