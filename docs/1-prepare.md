@@ -52,7 +52,7 @@ g++ 11.4.0
 
 -   对于选课同学：
 
-首先，你需要使用 git 将 HuaDB 代码仓库克隆到你的开发机上，对于选课的同学，助教已经在 git 上为你创建好仓库，使用如下命令进行克隆 (将 202x 改为你的选修年份，20xxxxxxxx 改为你的学号，克隆前请在 GitLab 上添加你的 SSH Key)：
+首先，你需要使用 git 将 HuaDB 代码仓库克隆到你的开发机上，对于选课的同学，助教已经在 GitLab 上为你创建好仓库，使用如下命令进行克隆 (将 202x 改为你的选修年份，20xxxxxxxx 改为你的学号，克隆前请在 GitLab 上添加你的 SSH Key)：
 
 ```bash
 git clone git@git.tsinghua.edu.cn:dbtrain/202x/dbtrain-20xxxxxxxx.git
@@ -106,7 +106,9 @@ CMAKE_BUILD_PARALLEL_LEVEL=$(nproc) make lab1-debug
 
 2. sqllogictest: 测试程序，用于批量测试。
 
-3. client 和 server: 实验 3 调试工具，当前无需关注。
+3. huadb-parser: 数据库文件解析器，支持解析数据、日持、控制文件，用于调试。
+
+4. client 和 server: 实验 3 调试工具，当前无需关注。
 
 运行如下命令来验证你编译出的数据库程序和测试程序可以正常运行：
 
@@ -138,7 +140,7 @@ make shell
 
 ```
 Welcome to HuaDB. Type "\?" or "\h" for help
-huadb> \?
+huadb=> \?
 
    \? or \h              show help message
    \c [database_name]    change database
@@ -147,7 +149,7 @@ huadb> \?
    \l                    show databases
    \q                    quit
 
-huadb> \l
+huadb=> \l
 +---------------+
 | database_name |
 +---------------+
@@ -155,9 +157,9 @@ huadb> \l
 +---------------+
 (1 row)
 
-huadb> create table test(id int, info varchar(10));
+huadb=> create table test(id int, info varchar(10));
  CREATE TABLE
-huadb> \d
+huadb=> \d
 +------------+
 | table_name |
 +------------+
@@ -165,7 +167,7 @@ huadb> \d
 +------------+
 (1 row)
 
-huadb> \d test
+huadb=> \d test
 +------+---------+------+
 | name | type    | size |
 +------+---------+------+
@@ -174,15 +176,15 @@ huadb> \d test
 +------+---------+------+
 (2 rows)
 
-huadb> drop table test;
+huadb=> drop table test;
  DROP TABLE
-huadb> \d
+huadb=> \d
 +------------+
 | table_name |
 +------------+
 (0 rows)
 
-huadb> \q
+huadb=> \q
 ```
 
 在完成实验 1 之前，你的程序仅支持在临时数据库 tmp 中创建表、删除表和查看表的结构，还不支持数据库的创建/切换/删除，也不支持在表中插入和读取数据。
