@@ -81,3 +81,5 @@
 你需要根据分析阶段维护的脏页表，在 redo 时根据脏页表中的 rec_lsn\_，页面的 page_lsn\_，以及日志的 lsn 的大小关系，判断 redo 操作是否有必要进行。每进行一次 redo 操作，你需要调用 LogManager 的 IncrementRedoCount 函数，统计 redo 操作次数。
 
 正确实现本步骤后，你将通过测例 `30-aries.test`，从而完成本次实验。 -->
+
+## 报告要求 { #report }

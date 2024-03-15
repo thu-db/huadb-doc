@@ -4,15 +4,15 @@
 
 ### 实验描述 { #t1_intro }
 
-基础功能中删除仅采用标记删除的方法，没有添加垃圾回收的功能，高级功能要求在此基础上补全 vacuum 机制，实现主动垃圾回收功能。可参考 PostgreSQL 文档中关于 [Vacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html) 的描述。
+基础功能中删除仅采用标记删除的方法，没有添加垃圾回收的功能，高级功能要求在此基础上补全 Vacuum 机制，实现主动垃圾回收功能。可参考 PostgreSQL 文档中关于 [Vacuum](https://www.postgresql.org/docs/current/routine-Vacuuming.html) 的描述。
 
 ### 实现思路 { #t1_detail }
 
--   步骤 1：理解 DatabaseEngine::ExecuteSql 函数的实现，在类中补充 vacuum 的实现接口。
+-   步骤 1：理解 DatabaseEngine::ExecuteSql 函数的实现，在类中补充 Vacuum 的实现接口。
 
--   步骤 2：思考 vacuum 过程中节约空间的收益与执行 vacuum 的 IO 成本，根据课程内容设计一种合理的算法流程（主要思考合并范围、合并阈值等）。
+-   步骤 2：思考 Vacuum 过程中节约空间的收益与执行 Vacuum 的 IO 成本，根据课程内容设计一种合理的算法流程（主要思考合并范围、合并阈值等）。
 
--   步骤 3：在 Table 和 TablePage 类中添加支持 vacuum 操作的函数，根据步骤 2 策略实现 vacuum 函数。
+-   步骤 3：在 Table 和 TablePage 类中添加支持 Vacuum 操作的函数，根据步骤 2 策略实现 Vacuum 函数。
 
 ## 任务 2：空闲空间管理（2 分） { #t2 }
 
@@ -22,6 +22,6 @@
 
 ### 实现思路 { #t2_detail }
 
--   步骤 1：设计内存中的空闲空间数组，建议在 Table 中单独添加新的类用于管理空闲空间数组。
+-   步骤 1：设计内存中的空闲空间数组，插入记录时根据记录大小和空闲空间数组快速寻找需要可以插入数据记录的页面。
 
 -   步骤 2：空闲空间数组的页面化管理，按照 TablePage 的思路设计新的页面结构。将空闲空间数组组织为页面格式进行存储，并在新建 Table 类后从文件导入。

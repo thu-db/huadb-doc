@@ -169,3 +169,9 @@ BufferPool 的主要成员变量有三个：页面缓存 buffers\_ ，页面号�
 页面缓存大小默认为 5，每次访问页面时会将页面放入缓存区，并调用 BufferStrategy 的 Access 函数。若缓存区已满，则需要调用 BufferStrategy 的 Evict 函数获取淘汰页面的编号。
 
 本任务中，你需要实现 LRUBufferStrategy 的 Access 和 Evict 函数，实现 LRU 缓存替换算法，正确实现后你将通过`50-buffer_pool.test`测例。
+
+## 报告要求 { #report }
+
+实验报告的通用要求请查看实验提交要求中的[实验报告部分](../3-submit.md#report)。
+
+本次实验中，请在实验报告中说明记录插入时使用的策略，如何寻找记录插入的页面，页面内部如何管理记录，以及 LRU 缓存替换算法的实现过程。
