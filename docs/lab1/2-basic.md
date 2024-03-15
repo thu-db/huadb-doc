@@ -108,7 +108,7 @@ hexdump -C huadb_test/huadb_data/2/10000
 
 `table/table.cpp` 的 DeleteRecord 函数的实现思路与记录插入类似，我们只需通过 buffer_pool\_ 获取需要删除的记录对应的页面，调用页面 TablePage 的 DeleteRecord 函数即可。
 
-`table/table_page.cpp` 的 DeleteRecord 函数实现了页面中记录的删除，在实验的基础功能中，我们仅要求实现标记删除即可。你只需设置记录头部的 deleted\* 变量即可。
+`table/table_page.cpp` 的 DeleteRecord 函数实现了页面中记录的删除，在实验的基础功能中，我们仅要求实现标记删除，你只需设置记录头部的 deleted\* 变量即可。
 
 完成上述步骤后，我们还需要修改 `table/table_scan.cpp` 的 GetNextRecord 函数，读取记录时判断记录是否已经被标记为删除，不再返回已经删除的数据。
 
@@ -174,4 +174,4 @@ BufferPool 的主要成员变量有三个：页面缓存 buffers\_ ，页面号�
 
 实验报告的通用要求请查看实验提交要求中的[实验报告部分](../3-submit.md#report)。
 
-本次实验中，请在实验报告中说明记录插入时使用的策略，如何寻找记录插入的页面，页面内部如何管理记录，以及 LRU 缓存替换算法的实现过程。
+本次实验中，请在实验报告中说明如何寻找记录插入的页面，页面内部如何管理记录，记录读取的策略，以及 LRU 缓存替换算法的实现过程。
