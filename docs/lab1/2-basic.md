@@ -84,6 +84,12 @@ hexdump -C huadb_test/huadb_data/2/10000
 
 若你在程序右侧输出的 ASCII 码中观察到插入数据的 a, bb, ccc 等字样，则说明数据已经成功写入到磁盘。
 
+你还可以使用 huadb_parser 的页面解析功能检查页面的合法性，用法为：
+
+```
+./build/debug/bin/huadb-parser -d <数据文件路径>
+```
+
 ### 步骤 2：记录读取 { #t1_s2 }
 
 下面我们来补全记录读取的代码。记录读取的上层调用位于 `executors/seqscan_executor.cpp`，在 SeqScanExecutor 类的 Next 中调用了 TableScan 的 GetNextRecord 函数。

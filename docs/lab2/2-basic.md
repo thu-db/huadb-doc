@@ -24,6 +24,14 @@
 
 具体而言，你需要在 `table/table.cpp` 中对页面进行修改操作（记录插入、记录删除、新建页面）时，通过 LogManager 的 AppendInsertLog, AppendDeleteLog 和 AppendNewPageLog 函数进行日志追加，这些函数会返回日志的 lsn，得到 lsn 后，你还需要设置页面的 page lsn，这将用于任务 3 ARIES 算法的实现。
 
+你可以使用 huadb_parser 的日志解析功能来打印日志内容，用法为：
+
+```
+./build/debug/bin/huadb-parser -l <数据库路径>
+```
+
+数据库路径的默认值为 huadb_data。
+
 ### 步骤 2：Undo 日志读取 { #t1s2 }
 
 执行 rollback 语句时，数据库会调用 LogManager 的 Rollback 函数，这一步骤中，我们需要实现 Rollback 函数。在步骤 1 调用 AppendLog 函数的过程中，已帮你维护了 LogManager 中的活跃事务表 att\_ 和脏页表 dpt\_ 变量，你可以在活跃事务表中查找到事务最后一条日志记录的 LSN，每条日志记录都有一个 prev_lsn\_ 字段，表示该事务前一条日志记录的 LSN，通过活跃事务表 att\_ 和 prev_lsn\_，便可以实现对一个事务相关日志记录的倒序遍历。

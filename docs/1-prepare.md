@@ -58,7 +58,7 @@ g++ 11.4.0
 git clone git@git.tsinghua.edu.cn:dbtrain/202x/dbtrain-20xxxxxxxx.git
 ```
 
-HuaDB 代码随时可能会有更新，发布重要更新时我们会在课程微信群内通知，此时你需要将更新的部分同步到你的本地。为了新增一个远程仓库，在你的 dbtrain 目录下执行：
+HuaDB 代码随时可能会有更新，发布重要更新时我们会在课程微信群内通知，此时你需要将更新的部分同步到你的本地。为了新增一个远程仓库，在你的项目根目录下执行：
 
 ```bash
 git remote add upstream git@git.tsinghua.edu.cn:dbtrain/huadb-template.git
@@ -71,6 +71,8 @@ git pull upstream main
 ```
 
 合并过程中可能产生冲突，冲突时请手动解决所有冲突并执行 `git add` 和 `git commit` 指令完成合并。
+
+我们建议在每次实验开始前进行一次代码同步更新，保持你的代码为最新版本。
 
 -   对于非选课同学：
 

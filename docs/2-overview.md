@@ -10,9 +10,9 @@
 
 实验代码根目录的 Makefile 文件提供了多种命令的支持，具体包括：
 
--   `make lab1-debug`：实验 1 数据库构建。
--   `make` 或 `make debug`：实验 1 之后的数据库构建（debug 版本）。
--   `make release`：实验 1 之后的数据库构建（release 版本）。
+-   `make lab1-debug`：编译数据库（仅用于实验 1）。
+-   `make` 或 `make debug`：编译数据库（debug 版本）。
+-   `make release`：编译数据库（release 版本）。
 -   `make shell`：进入数据库交互界面。
 -   `make labn`：运行 lab 0 至 lab n 的所有测例（0 <= n <= 5）。
 -   `make labn-only`：仅运行 lab n 的测例（0 <= n <= 5）。
@@ -33,9 +33,9 @@
 **完成实验 1 的任务 1 后**，你可以进入 system 数据库中查看系统表的结构：
 
 ```
-huadb> \c system
+huadb=> \c system
  Change to database system
-system> \d
+system=> \d
 +-----------------+
 | table_name      |
 +-----------------+
@@ -45,7 +45,7 @@ system> \d
 +-----------------+
 (3 rows)
 
-system> \d huadb_table
+system=> \d huadb_table
 +-------------+---------+------+
 | name        | type    | size |
 +-------------+---------+------+
@@ -57,7 +57,7 @@ system> \d huadb_table
 +-------------+---------+------+
 (5 rows)
 
-system> \d huadb_database
+system=> \d huadb_database
 +---------+---------+------+
 | name    | type    | size |
 +---------+---------+------+
@@ -66,7 +66,7 @@ system> \d huadb_database
 +---------+---------+------+
 (2 rows)
 
-system> \d huadb_statistic
+system=> \d huadb_statistic
 +-------------+---------+------+
 | name        | type    | size |
 +-------------+---------+------+
@@ -77,6 +77,24 @@ system> \d huadb_statistic
 +-------------+---------+------+
 (4 rows)
 ```
+
+## 数据库文件结构 { #file_structure }
+
+当通过 `make shell` 进入交互界面访问数据库时，数据库生成的文件位于 `huadb_data` 文件夹。通过 `make labn` 进行批量测试时，数据库文件位于 `huadb_test/huadb_data` 文件夹。
+
+数据库相关文件有如下几类：
+
+-   `init`: 空文件，存在时表示数据库已初始化。
+-   `control`: 数据库控制文件，存储数据库下一个可用的 xid（事务 id）、lsn、oid，以及数据库是否正常关闭等信息。
+-   `log`: 数据库日志文件。
+-   `next_lsn`: 下一条日志的 lsn。
+-   `master_record`: 最新一次检查点的位置。
+
+后三个文件为实验 2 相关文件，你在实验 1 中无需考虑。
+
+此外，还会存在若干数据文件，具体数量取决于数据库中表的数量。每个表对应一个文件，文件路径为 `db_oid/table_oid`。
+
+其中，系统数据库和系统表的 oid 为固定值，如系统数据库的 oid 为 1，实验 1 中所用的 tmp 数据库的 oid 为 2，其余系统表的 oid 可以在源码的 `common/constants` 中查看。普通数据库和表（即用户自己定义的数据库和表）的 oid 从 10000 开始递增分配。
 
 ## 测试 { #test }
 
