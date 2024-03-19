@@ -44,7 +44,7 @@ make 4.3
 g++ 11.4.0
 ```
 
-虽然 HuaDB 同时支持 macOS 和 Linux 操作系统，也同时支持 gcc 和 clang 编译器，但对于一些特殊情况（如未初始化的变量）不同的环境可能会有不同的处理方式，这将可能导致你在本地可以通过测试，而在评测机的 CI 测试中失败。建议选课的同学准备一套与评测机一致的环境，在出现上述情况时帮助定位问题。我们也准备了一个与评测机环境一致的 docker 镜像，dockerhub 标签为 [hnjylwb/dbtrain](https://hub.docker.com/r/hnjylwb/dbtrain)，需要的同学可以使用。
+虽然 HuaDB 同时支持 macOS 和 Linux 操作系统，也同时支持 gcc 和 clang 编译器，但对于一些特殊情况（如未初始化的变量）不同的环境可能会有不同的处理方式，这将可能导致你在本地可以通过测试，而在评测机的 CI 测试中失败。建议选课的同学准备一套与评测机一致的环境，在出现上述情况时帮助定位问题。我们也准备了一个与评测机环境一致的 docker 镜像，Docker Hub 标签为 [hnjylwb/dbtrain](https://hub.docker.com/r/hnjylwb/dbtrain)，需要的同学可以使用。
 
 ## 开始前的工作 { #begin }
 
@@ -52,7 +52,7 @@ g++ 11.4.0
 
 -   对于选课同学：
 
-首先，你需要使用 git 将 HuaDB 代码仓库克隆到你的开发机上，对于选课的同学，助教已经在 GitLab 上为你创建好仓库，使用如下命令进行克隆 (将 202x 改为你的选修年份，20xxxxxxxx 改为你的学号，克隆前请在 GitLab 上添加你的 SSH Key)：
+首先，你需要使用 git 将 HuaDB 代码仓库克隆到你的开发机上，助教已经在 [GitLab](https://git.tsinghua.edu.cn) 上为你创建好仓库，使用如下命令进行克隆 (将 202x 改为你的选修年份，20xxxxxxxx 改为你的学号，克隆前请在 [GitLab](https://git.tsinghua.edu.cn/-/profile/keys) 上添加你的 SSH Key)：
 
 ```bash
 git clone git@git.tsinghua.edu.cn:dbtrain/202x/dbtrain-20xxxxxxxx.git
@@ -100,7 +100,7 @@ git clone git@gitee.com:thu-db/huadb.git
 CMAKE_BUILD_PARALLEL_LEVEL=$(nproc) make lab1-debug
 ```
 
-通过以上指令可以编译出 debug 版本的程序，为便于调试，我们不建议编译 release 版本。
+通过以上指令可以编译出 debug 版本的程序，为便于调试，我们不建议编译 release 版本的程序。
 
 编译生成的文件位于 `build/debug` 目录，实验过程中只需要关注 `build/debug/bin` 目录中的可执行程序即可，具体包括：
 
