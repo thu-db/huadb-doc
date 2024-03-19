@@ -60,7 +60,7 @@ Result has been sent
 
 1. 直接复制其他人的代码片段。
 2. 使用 GitHub Copilot、ChatGPT 等人工智能工具进行代码补全。
-3. 将完成实验的代码放到公开仓库。
+3. 将实验代码放到公开仓库。
 
 实验报告需包含个人独立完成实验的 Honor Code，模板如下:
 
