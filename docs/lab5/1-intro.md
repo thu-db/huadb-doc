@@ -28,14 +28,14 @@
 
 ## 关联知识点 { #knowledge }
 
-本次实验关联查询优化章节，重点涉及如下的知识点：
+本次实验关联查询优化章节，重点涉及以下知识点：
 
 1. 查询重写：本次实验需要理解查询重写中算子下推的重写规则和具体实现方式。
 2. 连接顺序选择：本次实验需要理解简化假设下连接运算的基数估计，高级功能要求理解基于数据画像的基数估计方法。
 
 ## 相关代码模块 { #code }
 
-本次实验涉及到代码中如下的功能模块：
+本次实验涉及到代码中以下功能模块：
 
 -   [optimizer](https://github.com/thu-db/huadb/blob/main/src/optimizer)：优化器相关类
     -   [optimizer](https://github.com/thu-db/huadb/blob/main/src/optimizer/optimizer.h)：优化器类，需要补全算子下推功能以及连接算子重新排序的功能。

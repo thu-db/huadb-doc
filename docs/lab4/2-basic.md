@@ -14,19 +14,19 @@ Limit 算子是本次实验最基础的一个任务，算子本身的实现非�
 
 ## 任务 2：排序算子（4 分） { #t2 }
 
-你需要补充 `executors/orderby_executor.cpp` 中的 Next 函数，与 Limit 算子类似，你可能会使用到 OrderByOperator 中的成员变量，从中获取排序的列以及排序的类型（升序还是降序），实现过程中可以使用 STL 的 sort 函数。
+你需要补充 `executors/orderby_executor.cpp` 中的 Next 函数，与 Limit 算子类似，你可能会使用到 OrderByOperator 中的成员变量，从中获取排序的列以及排序的类型（升序还是降序），实现过程中可以使用 C++ 标准库的 sort 函数。
 
 正确实现后将通过 `20-sort.test` 测例。
 
 ## 任务 3：嵌套循环连接算子（4 分） { #t3 }
 
-你需要补充 `executors/nested_loop_join_executor.cpp` 中的 Next 函数，从 NestedLoopJoinOperator 中获取连接条件，本次实验中仅要求实现内连接即可。
+你需要补充 `executors/nested_loop_join_executor.cpp` 中的 Next 函数，从 NestedLoopJoinOperator 中获取连接条件，本次实验中仅要求实现内连接，不要求实现外连接。
 
 正确实现后将通过 `30-nested-loop-join.test` 测例。
 
 ## 任务 4：归并连接算子（4 分） { #t4 }
 
-你需要补充 `executors/merge_join_executor.cpp` 中的 Next 函数，从 MergeJoinOperator 中获取连接条件，本次实验中仅要求实现内连接即可，注意可能需要对 join 两侧的表存在重复值的情况特殊处理。
+你需要补充 `executors/merge_join_executor.cpp` 中的 Next 函数，从 MergeJoinOperator 中获取连接条件，本次实验中仅要求实现内连接，不要求实现外连接。注意可能需要对 join 两侧的表存在重复值的情况特殊处理。
 
 在查询计划生成时，已对归并连接的两个子节点添加了 OrderBy 节点进行排序操作，你在实现归并连接时无需再进行排序。
 
@@ -38,4 +38,8 @@ Limit 算子是本次实验最基础的一个任务，算子本身的实现非�
 
 ## 报告要求 { #report }
 
-TBA
+{%
+    include-markdown "common/report.md"
+%}
+
+本次实验的代码补充位置清晰，请在实验报告中分别粘贴四次任务的实现代码，并对代码辅以必要的注释或文字解释，描述每个算子的运行流程。

@@ -26,7 +26,7 @@
 | --------------- | ----------------------------------------------------------------------------------------------------------- |
 | huadb_table     | 存储所有表的 oid (object identifier)，所属数据库的 oid，表名，表的结构，以及表的行数（用于实验 5 基数估计） |
 | huadb_database  | 存储数据库的 oid，以及数据库名                                                                              |
-| huadb_statistic | 存储列的统计信息，包括直方图和 distinct value (不同值的个数)                                                |
+| huadb_statistic | 存储列的统计信息，包括直方图和 distinct value (非重复值的个数)                                              |
 
 在完成[实验 1 的任务 1](lab1/2-basic.md#t1) 之前，由于数据库还不支持记录的增删改查功能，系统表无法正常工作，你需要使用 `make lab1-debug` 进行编译，该编译指令通过定义 SIMPLE_CATALOG 宏，实现用 catalog 文件夹下的 simple_catalog 来替代 system_catalog，此时你的数据库将不使用系统表，而是使用文件来代替系统表的功能。在完成实验 1 的任务 1 之后，使用 `make` 或 `make debug` 进行编译，来使数据库具备正常的系统表功能。
 
