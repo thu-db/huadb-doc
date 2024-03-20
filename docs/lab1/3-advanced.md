@@ -12,7 +12,7 @@
 
 -   步骤 2：理解 DatabaseEngine::ExecuteSql 函数的实现，并补充 Vacuum 函数的实现代码。
 
--   步骤 3：在 Table 和 TablePage 类中添加支持 Vacuum 操作的函数，根据步骤 2 的策略实现 Vacuum 函数。
+-   步骤 3：在 Table 和 TablePage 类中添加支持 Vacuum 操作的函数，根据步骤 1 的策略实现 Vacuum 函数。
 
 ## 任务 2：空闲空间管理（2 分） { #t2 }
 
