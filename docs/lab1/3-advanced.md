@@ -18,7 +18,7 @@
 
 ### 实验描述 { #t2_intro }
 
-基础功能中仅要求实现最简单的逐页遍历的方式来选择记录的插入页面，本任务要求在此基础上添加空闲空间数组来加速记录插入页面的选择过程。同时设计新的页面结构，按照页面的方式管理空闲空间数组。如果想了解现有数据库的实现方式，可参考 PostgreSQL 的 [Free Space Map](https://www.postgresql.org/docs/current/storage-fsm.html)。
+基础功能中仅要求实现最简单的逐页遍历的方式来选择记录的插入页面，本任务要求在此基础上添加空闲空间数组来加速记录插入页面的选择过程。同时设计新的页面结构，按照页面的方式管理空闲空间数组。如果想了解现有数据库的实现方式，可参考 PostgreSQL 的 [Free Space Map](https://www.postgresql.org/docs/current/storage-fsm.html)（[中文解析 1](http://mysql.taobao.org/monthly/2019/03/06/)，[中文解析 2](https://zhmin.github.io/posts/postgresql-fsm-file/)）。
 
 ### 实现思路 { #t2_detail }
 
