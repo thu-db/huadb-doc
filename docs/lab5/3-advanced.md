@@ -1,6 +1,6 @@
 # 高级功能
 
-## 任务 1：投影算子下推（2 分） { #t1 }
+## 任务 1：投影算子下推（1 分） { #t1 }
 
 ### 实验描述 { #t1_intro }
 
@@ -8,10 +8,10 @@
 
 ### 实现思路 { #t1_detail }
 
--   步骤 1：实现 PushdownProjection 函数，对形如 `select a.id from a, b` 的 SQL 进行投影下推。
--   步骤 2：增加对查询中谓词相关列的处理，对形如 `select a.id from a, b where b.score > 90` 的 SQL 实现投影下推。
+-   步骤 1：实现 PushdownProjection 函数，对形如 `select a.id, b.id from a, b` 的 SQL 进行投影下推。
+-   步骤 2：增加对查询中连接谓词相关列的处理，对形如 `select a.score from a, b where a.id = b.id` 的 SQL 实现投影下推。
 
-## 任务 2：基于动态规划算法的连接顺序选择（1 分） { #t2 }
+## 任务 2：基于动态规划算法的连接顺序选择（2 分） { #t2 }
 
 ### 实验描述 { #t2_intro }
 
