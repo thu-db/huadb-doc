@@ -8,7 +8,8 @@
 
 ### 实现思路 { #t1_detail }
 
-TBA
+-   步骤 1：实现 PushdownProjection 函数，对形如 `select a.id from a, b` 的 SQL 进行投影下推。
+-   步骤 2：增加对查询中谓词相关列的处理，对形如 `select a.id from a, b where b.score > 90` 的 SQL 实现投影下推。
 
 ## 任务 2：基于动态规划算法的连接顺序选择（1 分） { #t2 }
 
