@@ -67,9 +67,3 @@ Result has been sent
 1. 我在完成作业的过程中没有抄袭他人代码，如果和他人进行过实现思路的讨论，或参考借鉴了他人的实现思路，我会在报告中写明。
 2. 我没有使用 GitHub Copilot、ChatGPT 等工具进行代码自动补全。
 3. 我不会将本人代码放于任何公开仓库。
-
-## 问题反馈 { #feedback }
-
-有关于实验框架的问题可以在实验仓库中提交 [issue](https://github.com/thu-db/huadb/issues)，
-或直接提交包含问题描述和修复补丁的 [pull request](https://github.com/thu-db/huadb/pulls)，
-选课的同学也可以直接联系助教，或在网络学堂讨论区发帖。
