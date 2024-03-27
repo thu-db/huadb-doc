@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="681 756 359 245" width="359" height="245">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -2 5 4" markerWidth="5" markerHeight="4" color="black">
+      <g>
+        <path d="M 2.4 0 L 0 -.9 L 0 .9 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="LAB_2__" fill="none" stroke="none" stroke-dasharray="none" stroke-opacity="1" fill-opacity="1">
+    <title>LAB 2 细化</title>
+    <rect fill="white" x="681" y="756" width="359" height="245"/>
+    <g id="LAB_2___图层_1">
+      <title>图层 1</title>
+      <g id="Graphic_2">
+        <rect x="682.5" y="757" width="200" height="134.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(687.5 762)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="65" y="16">事务管理</tspan>
+        </text>
+      </g>
+      <g id="Graphic_3">
+        <rect x="693" y="786" width="179" height="97.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(698 791)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="54.5" y="16">事务管理</tspan>
+        </text>
+      </g>
+      <g id="Graphic_4">
+        <rect x="932" y="757" width="107" height="134.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(937 762)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="18.5" y="16">查询处理</tspan>
+        </text>
+      </g>
+      <g id="Graphic_5">
+        <path d="M 977 808.1729 C 977 805.2363 976.6825 804.87295 974.3632 801.9667 L 974.3388 801.9366 C 972.0072 799 971.983 799 969.5902 799 C 966.4042 799 952 799 952 799 L 952 830 L 977 830 L 977 808.1729 Z" fill="white"/>
+        <path d="M 977 808.1729 C 977 805.2363 976.6825 804.87295 974.3632 801.9667 L 974.3388 801.9366 C 972.0072 799 971.983 799 969.5902 799 C 966.4042 799 952 799 952 799 L 952 830 L 977 830 L 977 808.1729 Z M 977 808.0216 C 977 805.2363 976.9755 805.2363 971.983 805.2363 L 971.983 805.2363 C 971.983 799.0304 971.983 799 969.7368 799" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_6">
+        <path d="M 977 861.6729 C 977 858.7363 976.6825 858.373 974.3632 855.4667 L 974.3388 855.4366 C 972.0072 852.5 971.983 852.5 969.5902 852.5 C 966.4042 852.5 952 852.5 952 852.5 L 952 883.5 L 977 883.5 L 977 861.6729 Z" fill="white"/>
+        <path d="M 977 861.6729 C 977 858.7363 976.6825 858.373 974.3632 855.4667 L 974.3388 855.4366 C 972.0072 852.5 971.983 852.5 969.5902 852.5 C 966.4042 852.5 952 852.5 952 852.5 L 952 883.5 L 977 883.5 L 977 861.6729 Z M 977 861.5216 C 977 858.7363 976.9755 858.7363 971.983 858.7363 L 971.983 858.7363 C 971.983 852.5304 971.983 852.5 969.7368 852.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_7">
+        <text transform="translate(982 796)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">旧页面</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <text transform="translate(982 857.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">新页面</tspan>
+        </text>
+      </g>
+      <g id="Line_9">
+        <line x1="964.5" y1="831" x2="964.5" y2="843.4" marker-end="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_12">
+        <path d="M 812 817 L 863 817 C 865.2091 817 867 818.7909 867 821 L 867 870.5 C 867 872.7091 865.2091 874.5 863 874.5 L 812 874.5 C 809.7909 874.5 808 872.7091 808 870.5 L 808 821 C 808 818.7909 809.7909 817 812 817 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(813 824.75)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="9.5" y="16">日志</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="9.5" y="37">生成</tspan>
+        </text>
+      </g>
+      <g id="Graphic_16">
+        <path d="M 697 990.65 L 697 915.85 C 697 910.6888 735.976 906.5 784 906.5 C 832.024 906.5 871 910.6888 871 915.85 L 871 990.65 C 871 995.8112 832.024 1e3 784 1e3 C 735.976 1e3 697 995.8112 697 990.65 M 697 915.85 C 697 921.0112 735.976 925.2 784 925.2 C 832.024 925.2 871 921.0112 871 915.85" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_17">
+        <text transform="translate(706 942)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">日志管理</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="7.5" y="37">与存储</tspan>
+        </text>
+      </g>
+      <g id="Graphic_18">
+        <rect x="776.5" y="937" width="25" height="23.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_19">
+        <rect x="807" y="937" width="25" height="23.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_20">
+        <rect x="776.5" y="965.5" width="25" height="23.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_21">
+        <rect x="807" y="965.5" width="25" height="23.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_22">
+        <rect x="837.5" y="937" width="25" height="23.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_23">
+        <rect x="837.5" y="965.5" width="25" height="23.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_26">
+        <path d="M 701 815 L 794.5 815 C 796.7091 815 798.5 816.7909 798.5 819 L 798.5 837.5 C 798.5 839.7091 796.7091 841.5 794.5 841.5 L 701 841.5 C 698.7909 841.5 697 839.7091 697 837.5 L 697 819 C 697 816.7909 698.7909 815 701 815 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(702 817.75)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="8.25" y="16">事务元信息</tspan>
+        </text>
+      </g>
+      <g id="Graphic_31">
+        <path d="M 942 836.875 L 942 843.625 L 879.5 843.625 L 879.5 847 L 865.5 840.25 L 879.5 833.5 L 879.5 836.875 Z" fill="white"/>
+        <path d="M 942 836.875 L 942 843.625 L 879.5 843.625 L 879.5 847 L 865.5 840.25 L 879.5 833.5 L 879.5 836.875 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_25">
+        <path d="M 701 848 L 794.5 848 C 796.7091 848 798.5 849.7909 798.5 852 L 798.5 870.5 C 798.5 872.7091 796.7091 874.5 794.5 874.5 L 701 874.5 C 698.7909 874.5 697 872.7091 697 870.5 L 697 852 C 697 849.7909 698.7909 848 701 848 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(702 850.75)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="15.75" y="16">故障恢复</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <rect x="889.5" y="820" width="35.5" height="40.5" fill="white"/>
+        <rect x="889.5" y="820" width="35.5" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(894.5 825)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x=".75" y="13">页面</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x=".75" y="30">变化</tspan>
+        </text>
+      </g>
+      <g id="Graphic_27">
+        <path d="M 784 883 L 792.125 893.7461 L 787.5902 893.7461 L 787.5902 907.3789 L 792.125 907.3789 L 784 918.125 L 775.875 907.3789 L 780.4098 907.3789 L 780.4098 893.7461 L 775.875 893.7461 Z" fill="white"/>
+        <path d="M 784 883 L 792.125 893.7461 L 787.5902 893.7461 L 787.5902 907.3789 L 792.125 907.3789 L 784 918.125 L 775.875 907.3789 L 780.4098 907.3789 L 780.4098 893.7461 L 775.875 893.7461 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>
