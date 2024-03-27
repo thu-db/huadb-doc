@@ -1,2 +1,3 @@
+jieba
 mkdocs-material
 mkdocs-include-markdown-plugin
