@@ -50,7 +50,11 @@
 
 我们首先来看记录插入的部分，记录插入的上层调用位于 `executors/insert_executor.cpp`，在 InsertExecutor 的 Next 函数中，调用了 Table 类的 InsertRecord 函数，该函数返回插入记录的 rid\_（rid\_ 表示一条记录的位置，由页面 id 和页面中的记录槽 id 组成）。
 
-Table 类的 InsertRecord 函数是你需要实现的部分。在这个函数中，你需要找到一个页面，通过 BufferPool 的 GetPage 函数获取页面，进一步调用页面 TablePage 的 InsertRecord 函数插入记录，其中 xid 和 cid 参数在实验 3 才会使用，本实验中你只需要将这两个参数原封不动传进去即可。在寻找页面时，你需要保证页面的空闲空间能够放下要插入的记录，如果找不到这样的页面，你需要调用 BufferPool 的 NewPage 函数新建一个页面，并在新页面中插入记录。
+Table 类的 InsertRecord 函数是你需要实现的部分。在这个函数中，你需要找到一个页面，通过 BufferPool 的 GetPage 函数获取页面，进一步调用页面 TablePage 的 InsertRecord 函数插入记录，其中 xid 和 cid 参数在实验 3 才会使用，本实验中你只需要将这两个参数原封不动传进去即可。在寻找页面时，你需要保证页面的空闲空间能够放下要插入的记录，如果找不到这样的页面，你需要调用 BufferPool 的 NewPage 函数新建一个页面，并在新页面中插入记录。多个页面之间通过 next_page_id\_ 字段组成链表，你需要正确设置该字段，使页面之间形成正向链表，即从页面 n 指向页面 n + 1（基础功能中无需考虑中间页面被删除的情况）。
+
+!!! note
+
+    由于 Table 类的 first_page_id\_ 在初始化时只有 NULL_PAGE_ID 和 0 两种取值，请使用正向链表（从页面 n 指向页面 n + 1）实现页面的连接，不要使用反向链表（从页面 n + 1 指向页面 n）。
 
 TablePage 的 InsertRecord 函数也是需要实现的部分，你需要维护页面的 lower 和 upper 指针，以及页面的记录槽信息（记录位置与记录长度），并将记录写入页面，同时不要忘了将页面标记为脏页，只有脏页才会在缓存替换时写回磁盘。
 
