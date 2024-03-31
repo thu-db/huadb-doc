@@ -1,5 +1,9 @@
 # 基础功能
 
+{%
+    include-markdown "common/update.md"
+%}
+
 与上次实验类似，本次实验同样具有较为明确的目标，所有修改均在 `optimizer/optimizer.cpp` 和 `optimizer/optimizer.h` 中完成，你需要在优化器中操作查询计划树节点，得到更优的查询计划。
 
 完成本实验时，你需要操作查询计划树节点，修改节点在查询计划树中的位置，熟悉 Operator 的成员变量及构造方式将会对完成本次实验有较大的帮助，建议在开始实验前阅读 operators 文件夹下的代码，了解不同 Operator 的构造方式。

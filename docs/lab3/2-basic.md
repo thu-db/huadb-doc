@@ -1,5 +1,9 @@
 # 基础功能
 
+{%
+    include-markdown "common/update.md"
+%}
+
 ## 任务 1：解决万圣节问题（3 分） { #t1 }
 
 还记得在实验 1 中提到的[万圣节问题](../lab1/2-basic.md#t1_s3)吗，本次实验的第一个任务便是通过记录头的 cid 字段解决这个问题，完成后你将通过 `10-halloween.test` 测例。

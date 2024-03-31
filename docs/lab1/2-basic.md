@@ -4,6 +4,10 @@
 
     可通过搜索 `// LAB 1 BEGIN` 快速定位需要补充的代码的位置
 
+{%
+    include-markdown "common/update.md"
+%}
+
 ## 任务 1：变长记录的页面组织（12 分） { #t1 }
 
 本任务中，你需要补全 `table/table.cpp`, `table/table_page.cpp` 以及 `table/table_scan.cpp` 中的相关函数，来实现记录的增删改查功能。

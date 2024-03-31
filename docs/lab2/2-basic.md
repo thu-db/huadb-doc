@@ -1,5 +1,9 @@
 # 基础功能
 
+{%
+    include-markdown "common/update.md"
+%}
+
 ## 任务 1：事务回滚（6 分） { #t1 }
 
 本次实验中，你首先需要实现事务回滚的功能，主要涉及 `log/log_manager.cpp` 的 Rollback 函数，`log/log_records/insert_log.cpp`, `log/log_records/delete_log.cpp` 和 `log/log_records/new_page_log.cpp` 的 Undo 函数，此外，还需要修改 lab 1 中对 Table 类相关函数的实现，添加日志相关部分，并在 `table/table_page.cpp` 中增加 RedoInsertRecord 和 UndoDeleteRecord 的逻辑，完整实现后可以通过 `10-rollback.test` 测例。
