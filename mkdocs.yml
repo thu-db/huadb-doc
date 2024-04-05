@@ -17,6 +17,7 @@ nav:
     - 概述: lab2/1-intro.md
     - 基础功能: lab2/2-basic.md
     - 高级功能: lab2/3-advanced.md
+    - FAQ: lab2/4-faq.md
   - "实验 3: 多版本并发控制":
     - 概述: lab3/1-intro.md
     - 基础功能: lab3/2-basic.md
