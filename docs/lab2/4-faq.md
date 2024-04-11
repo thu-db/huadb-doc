@@ -7,3 +7,7 @@ A: 可能与 lab 1 的实现方式有关，如果在 lab 1 中采用反向链表
 Q: 我在本地（macOS）可以通过测例，在 CI 上面却出现 Segmentation Fault 等错误。
 
 A: 通常是一些不标准的写法（如变量未初始化）在 macOS 的 clang 和 Linux 的 gcc 环境下编译结果不同导致的，可以在 Linux 环境（比如用 docker）上调试一下。
+
+Q: 我的程序运行后出现 Segmentation Fault，该怎么知道问题出在哪？
+
+A: 不要局限于 print 调试法，学习一下调试器（gdb 或 lldb）的基本使用，通过基本的 r 和 bt 命令即可定位到问题代码。
