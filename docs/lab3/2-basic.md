@@ -73,7 +73,7 @@
 
 你需要在 `executors/lock_rows_executor.cpp` 中为 select for update 和 select for share 添加支持，根据 SQL 语句类型加读锁或写锁。
 
-### 步骤 2：根据 select 类型获取活跃事务集合 { #t5_s2 }
+### 步骤 2：设置活跃事务集合 { #t5_s2 }
 
 修改 `executors/seqscan_executor.cpp`，在可串行化隔离级别下，设置正确的活跃事务集合。
 
