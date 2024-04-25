@@ -57,7 +57,7 @@
 
 你需要实现 `transaction/lock_manager.cpp` 文件中的 LockTable, LockRow 和 ReleaseLocks 函数，这几个函数分别实现了加表锁、加行锁和释放锁的功能，你可能需要添加适当的数据结构来保存锁信息。
 
-此外，LockManager 类还提供了两个私有函数 Compatible 和 Upgrade 接口，Compatible 函数用于判断不同事务对同一个对象（行或表）加的锁是否兼容，Upgrade 用于同一个事务对相同对象重复加锁时实现锁的升级。
+此外，LockManager 类还提供了两个私有函数 Compatible 和 Upgrade 接口，Compatible 函数用于判断不同事务对同一个对象（行或表）加的锁是否兼容，Upgrade 用于同一个事务对相同对象重复加锁时实现锁的升级（如同一个事务对一行数据先加读锁再加写锁，则会将读锁升级为写锁）。
 
 ### 步骤 2：为修改操作加锁 { #t4_s2 }
 

@@ -22,6 +22,7 @@ nav:
     - 概述: lab3/1-intro.md
     - 基础功能: lab3/2-basic.md
     - 高级功能: lab3/3-advanced.md
+    - FAQ: lab3/4-faq.md
   - "实验 4: 查询处理":
     - 概述: lab4/1-intro.md
     - 基础功能: lab4/2-basic.md
