@@ -19,4 +19,4 @@
 
 ### 实现思路 { #t2_detail }
 
-在 ReorderJoin 函数中基于连接种类选择使用的算法类型，补充动态规划算法相关代码。
+在 ReorderJoin 函数中根据 join_order_algorithm\_ 的值选择使用的算法类型，并补充动态规划算法相关代码。
