@@ -26,22 +26,22 @@ jobs:
       - run: sed -i s/G-5GB0HPD8DB/G-HEL2FBFEDQ/g mkdocs.yml
       - run: sed -i s/00e4461e56ebc82fcd2bf2cc9974a464/17c357ea8d2f3947abbbee7437c9458a/g docs/javascripts/analytics.js;
       - run: mkdocs gh-deploy --force -b gitee-pages
-  sync:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - uses: yesolutions/mirror-action@master
-        with:
-          REMOTE: git@gitee.com:thu-db/huadb-doc.git
-          GIT_SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
-          GIT_SSH_NO_VERIFY_HOST: "true"
-      - name: Build Gitee Pages
-        uses: yanglbme/gitee-pages-action@main
-        with:
-          gitee-username: hnjylwb
-          gitee-password: ${{ secrets.GITEE_PASSWORD }}
-          gitee-repo: thu-db/huadb-doc
-          branch: gitee-pages
+  # sync:
+  #   needs: deploy
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #     - uses: yesolutions/mirror-action@master
+  #       with:
+  #         REMOTE: git@gitee.com:thu-db/huadb-doc.git
+  #         GIT_SSH_PRIVATE_KEY: ${{ secrets.GITEE_RSA_PRIVATE_KEY }}
+  #         GIT_SSH_NO_VERIFY_HOST: "true"
+  #     - name: Build Gitee Pages
+  #       uses: yanglbme/gitee-pages-action@main
+  #       with:
+  #         gitee-username: hnjylwb
+  #         gitee-password: ${{ secrets.GITEE_PASSWORD }}
+  #         gitee-repo: thu-db/huadb-doc
+  #         branch: gitee-pages
