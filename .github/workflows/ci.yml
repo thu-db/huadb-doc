@@ -23,9 +23,9 @@ jobs:
             mkdocs-material-
       - run: pip install -r requirements.txt
       - run: mkdocs gh-deploy --force
-      - run: sed -i s/G-5GB0HPD8DB/G-HEL2FBFEDQ/g mkdocs.yml
-      - run: sed -i s/00e4461e56ebc82fcd2bf2cc9974a464/17c357ea8d2f3947abbbee7437c9458a/g docs/javascripts/analytics.js;
-      - run: mkdocs gh-deploy --force -b gitee-pages
+      # - run: sed -i s/G-5GB0HPD8DB/G-HEL2FBFEDQ/g mkdocs.yml
+      # - run: sed -i s/00e4461e56ebc82fcd2bf2cc9974a464/17c357ea8d2f3947abbbee7437c9458a/g docs/javascripts/analytics.js;
+      # - run: mkdocs gh-deploy --force -b gitee-pages
   # sync:
   #   needs: deploy
   #   runs-on: ubuntu-latest
