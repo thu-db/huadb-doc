@@ -4,9 +4,9 @@
     include-markdown "common/update.md"
 %}
 
-与上次实验类似，本次实验同样具有较为明确的目标，所有修改均在 `optimizer/optimizer.cpp` 和 `optimizer/optimizer.h` 中完成，你需要在优化器中操作查询计划树节点，得到更优的查询计划。
+与上次实验类似，本次实验同样具有较为明确的目标，所有修改均在 `optimizer/optimizer.cpp` 和 `optimizer/optimizer.h` 中完成，你需要在优化器中修改查询计划树节点，得到更优的查询计划。
 
-完成本实验时，你需要操作查询计划树节点，修改节点在查询计划树中的位置，熟悉 Operator 的成员变量及构造方式将会对完成本次实验有较大的帮助，建议在开始实验前阅读 operators 文件夹下的代码，了解不同 Operator 的构造方式。
+完成本实验时，你需要修改节点在查询计划树中的位置。熟悉 Operator 的成员变量及构造方式将会对完成本次实验有较大的帮助，在实验过程中可能需要阅读 operators 文件夹下的代码，了解不同 Operator 的构造方式。
 
 ## 任务 1：查询重写（8 分） { #t1 }
 
@@ -28,9 +28,9 @@
 
 ### 步骤 2：下推选择运算 { #t1_s2 }
 
-在 PushDown 函数中，优化器会再次遍历查询计划树，并根据查询计划树节点调用对应的优化函数，本步骤中你需要完成 PushDownFilter 和 PushDownSeqScan 函数，完成后将通过 `10-filter-pushdown.test` 测例。
+在 PushDown 函数中，优化器会再次自顶向下遍历查询计划树，并根据查询计划树节点调用对应的优化函数，本步骤中你需要完成 PushDownFilter 和 PushDownSeqScan 函数，完成后将通过 `10-filter-pushdown.test` 测例。
 
-PushDownFilter 函数负责处理 Filter 节点，你需要判断谓词是普通谓词还是连接谓词。
+PushDownFilter 函数负责处理 Filter 节点，你需要判断谓词是普通谓词还是连接谓词，并记录必要的谓词信息。
 
 PushDownSeqScan 函数负责处理查询计划树底层的扫描节点，该函数需要查找当前计划树的普通谓词是否使用了扫描节点中包含的列，若存在这样的普通谓词，则将相应的谓词下推到该扫描节点上方。
 
