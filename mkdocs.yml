@@ -31,6 +31,7 @@ nav:
     - 概述: lab5/1-intro.md
     - 基础功能: lab5/2-basic.md
     - 高级功能: lab5/3-advanced.md
+    - FAQ: lab5/4-faq.md
   - 往年文档:
     - 2023年春: https://thu-db.github.io/dbtrain-tutorial/
 
