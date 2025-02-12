@@ -25,6 +25,8 @@
 
 如果实验过程中遇到任何问题，可以在 GitHub 的 [Discussions](https://github.com/thu-db/huadb/discussions) 中讨论。
 
+选课同学可联系助教进行答疑，答疑前请先阅读[答疑说明](3-submit.md#consultation)。
+
 如果发现了实验框架的 bug，可以提交 [Issue](https://github.com/thu-db/huadb/issues) 或 [Pull request](https://github.com/thu-db/huadb/pulls)。
 
 如需要联系课程团队，选课同学可通过微信群或网络学堂与助教联系，其他同学可通过邮件 [lwb21@mails.tsinghua.edu.cn](mailto:lwb21@mails.tsinghua.edu.cn) 与我们联系。
