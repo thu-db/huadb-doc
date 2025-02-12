@@ -21,6 +21,8 @@
 -   **table: 表相关类及函数**
 -   **transaction: 事务模块**
 
+**实验过程中，请不要将自己的实验代码放置于任何公开仓库中。**
+
 ## 联系方式 { #contact }
 
 如果实验过程中遇到任何问题，可以在 GitHub 的 [Discussions](https://github.com/thu-db/huadb/discussions) 中讨论。
