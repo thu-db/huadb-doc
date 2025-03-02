@@ -38,7 +38,7 @@
 -   [optimizer](https://github.com/thu-db/huadb/blob/main/src/optimizer)：优化器相关类
     -   [optimizer](https://github.com/thu-db/huadb/blob/main/src/optimizer/optimizer.h)：优化器类，需要补全算子下推功能以及连接算子重新排序的功能。
 
-基础功能需要补充约 200 行代码，本次实验依赖于实验 1，请确保完成实验 1 再开始本次实验。
+本次实验依赖于实验 1，请确保完成实验 1 再开始本次实验。
 
 相关功能模块的抽象示意图如下：
 

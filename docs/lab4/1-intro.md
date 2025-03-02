@@ -45,7 +45,7 @@
     -   [hash_join_executor](https://github.com/thu-db/huadb/blob/main/src/executors/hash_join_executor.h)：(高级功能) 哈希连接算子。
     -   [aggregate_executor](https://github.com/thu-db/huadb/blob/main/src/executors/aggregate_executor.h)：(高级功能) 聚合算子。
 
-基础功能需要补充约 150 行代码，本次实验依赖于实验 1，请确保完成实验 1 再开始本次实验。
+本次实验依赖于实验 1，请确保完成实验 1 再开始本次实验。
 
 相关功能模块的抽象示意图如下：
 

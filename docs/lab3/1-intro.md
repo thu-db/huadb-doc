@@ -49,7 +49,9 @@
     -   [update_executor](https://github.com/thu-db/huadb/tree/main/src/executors/update_executor.h)：添加更新的写事务锁。
     -   [lock_rows_executor](https://github.com/thu-db/huadb/tree/main/src/executors/lock_rows_executor.h)：添加行级锁。
 
-基础功能需要补充约 100 行代码，本次实验依赖于实验 1 及实验 2 任务 1，请确保完成上述任务再开始本次实验。
+根据往年经验，本次实验难度较大，请尽早开始实验。
+
+本次实验依赖于实验 1 及实验 2 任务 1，请确保完成上述任务再开始本次实验。
 
 相关功能模块的示意图如下：
 
