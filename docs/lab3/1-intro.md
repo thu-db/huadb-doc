@@ -35,7 +35,7 @@
 
 -   [table](https://github.com/thu-db/huadb/tree/main/src/table/)：数据表相关类。
 
-    -   [table](https://github.com/thu-db/huadb/tree/main/src/table/table.h)：修改实验 1 中记录的增删改接口，添加版本信息。
+    -   [table_page](https://github.com/thu-db/huadb/tree/main/src/table/table_page.h)：修改实验 1 中记录的增删改接口，添加版本信息。
     -   [table_scan](https://github.com/thu-db/huadb/tree/main/src/table/table_scan.h)：添加判断记录对事务可见性的接口，并修改查询函数。
 
 -   [transaction](https://github.com/thu-db/huadb/tree/main/src/transaction/)：事务相关类。
