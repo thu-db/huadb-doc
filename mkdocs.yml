@@ -34,6 +34,7 @@ nav:
     - FAQ: lab5/4-faq.md
   - 往年文档:
     - 2023年春: https://thu-db.github.io/dbtrain-tutorial/
+    - 2025年春: archives/2025春/index.md
 
 theme:
   name: material
