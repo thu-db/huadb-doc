@@ -1,3 +1,4 @@
 jieba
 mkdocs-material==9.6.5
 mkdocs-include-markdown-plugin
+mkdocs-literate-nav
