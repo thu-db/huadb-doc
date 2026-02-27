@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xl="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="315 508 512 77" width="512" height="77">
+  <defs>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-9 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M -8 0 L 0 3 L 0 -3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+    <marker orient="auto" overflow="visible" markerUnits="strokeWidth" id="FilledArrow_Marker_2" stroke-linejoin="miter" stroke-miterlimit="10" viewBox="-1 -4 10 8" markerWidth="10" markerHeight="8" color="black">
+      <g>
+        <path d="M 8 0 L 0 -3 L 0 3 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="版面___2" stroke="none" fill="none" stroke-opacity="1" fill-opacity="1" stroke-dasharray="none">
+    <title>版面 2</title>
+    <rect fill="white" x="315" y="508" width="512" height="77"/>
+    <g id="版面___2_图层_1">
+      <title>图层 1</title>
+      <g id="Graphic_11">
+        <rect x="530.504" y="508.5" width="295.5" height="29.747178" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(530.504 515.3736)" fill="black">
+          <tspan font-family="PingFang SC" font-size="11" fill="black" x="125.75" y="12">记录内容</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <rect x="410.504" y="508.5" width="60" height="29.747178" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(410.504 514.8736)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="12.408" y="13">xmax_</tspan>
+        </text>
+      </g>
+      <g id="Graphic_9">
+        <rect x="470.504" y="508.5" width="60" height="29.747178" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(470.504 514.8736)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="18.666" y="13">cid_</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <rect x="350.504" y="508.5" width="60" height="29.747178" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <text transform="translate(350.504 514.8736)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="13.926" y="13">xmin_</tspan>
+        </text>
+      </g>
+      <g id="Graphic_7">
+        <rect x="335.504" y="508.5" width="15" height="29.747178" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_6">
+        <text transform="translate(320 565.5)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" fill="black" x="8171241e-19" y="11">deleted_</tspan>
+        </text>
+      </g>
+      <g id="Line_5">
+        <line x1="343.004" y1="548.1472" x2="343.004" y2="560.5" marker-start="url(#FilledArrow_Marker)" stroke="black" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      </g>
+      <g id="Graphic_4">
+        <rect x="530.504" y="508.5" width="15" height="29.747178" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+      <g id="Graphic_3">
+        <text transform="translate(508.322 565.5)" fill="black">
+          <tspan font-family="Helvetica Neue" font-size="12" fill="black" x="6963319e-19" y="11">null bitmap</tspan>
+        </text>
+      </g>
+      <g id="Line_2">
+        <line x1="538.004" y1="560.5" x2="538.004" y2="548.1472" marker-end="url(#FilledArrow_Marker_2)" stroke="black" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
