@@ -10,20 +10,13 @@ B+ 树的核心思想是把"一页可容纳数百个键与指针"这一容量优
 
 本实验涉及B+树的创建和查找两类操作，需要实现的具体功能如下
 
-1. 完善 B+ 树页面结构
-- 补全 index/btree_index.cpp 中的 SetRootPageId 和 GetRootPageId 函数
-- 补全 index/btree_page.cpp 的 Init 和 AddRecord 函数
+1. 完善 B+ 树页面结构：补全 index/btree_index.cpp 中的 SetRootPageId 和 GetRootPageId 函数；补全 index/btree_page.cpp 的 Init 和 AddRecord 函数
 
-2. 实现 B+ 树创建功能 (CREATE INDEX ...)
-- 补全 index/btree_index.cpp 中的 Build，BuildAdd，FinishBuild 函数
+2. 实现 B+ 树创建功能 (CREATE INDEX ...)：补全 index/btree_index.cpp 中的 Build，BuildAdd，FinishBuild 函数
 
-3. 实现删除表 (DROP TABLE ...) 时级联删除 B+ 树索引
-- 补全 catalog/system_catalog.cpp 中的 DropTable 函数
+3. 实现删除表 (DROP TABLE ...) 时级联删除 B+ 树索引：补全 catalog/system_catalog.cpp 中的 DropTable 函数
 
-4. 实现 B+ 树索引扫描功能
-- SeqScan 转 BTreeIndexScan：补全 optimizer/optimizer.cpp 中的 Optimize 和 Seq2Index 函数
-- 实现 RidUnion 算子，用于拼接并去重 SeqScan 和 BTreeIndexScan 的结果：补全 executors/rid_union_executor.cpp 的 Init 和 Next 函数
-- 实现 BTreeIndexScan 算子：补全 executors/btree_scan_executor.cpp 中的 Init 和 Next 函数，补全 index/btree_index.cpp 中的 Search 函数
+4. 实现 B+ 树索引扫描功能：SeqScan 转 BTreeIndexScan：补全 optimizer/optimizer.cpp 中的 Optimize 和 Seq2Index 函数；实现 RidUnion 算子，用于拼接并去重 SeqScan 和 BTreeIndexScan 的结果：补全 executors/rid_union_executor.cpp 的 Init 和 Next 函数；实现 BTreeIndexScan 算子：补全 executors/btree_scan_executor.cpp 中的 Init 和 Next 函数，补全 index/btree_index.cpp 中的 Search 函数
 
 ## 关联知识点
 
