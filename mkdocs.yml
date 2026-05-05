@@ -30,8 +30,12 @@ nav:
   - "实验 5: 查询优化":
     - 概述: lab5/1-intro.md
     - 基础功能: lab5/2-basic.md
-    - 高级功能(不计分): lab5/3-advanced.md
-    - FAQ: lab5/4-faq.md
+    # - 高级功能(不计分): lab5/3-advanced.md
+    # - FAQ: lab5/4-faq.md
+  - "实验 6: B+ 树索引":
+    - 概述: lab6/1-intro.md
+    - 基础功能: lab6/2-basic.md
+    - 调试说明: lab6/3-debug.md
   - 往年文档:
     - 2023年春: https://thu-db.github.io/dbtrain-tutorial/
     - 2025年春: archives/2025春/
