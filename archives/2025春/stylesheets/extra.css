@@ -1,0 +1,13 @@
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+    font-weight: bold;
+}
+
+.md-nav__title {
+    font-size: 18px;
+}
+
+.md-nav__link {
+    font-size: 16px;
+}

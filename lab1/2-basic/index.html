@@ -1,0 +1,2400 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../1-intro/">
+      
+      
+        <link rel="next" href="../3-advanced/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.5">
+    
+    
+      
+        <title>基础功能 - HuaDB 数据库内核课程实验文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-5GB0HPD8DB"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-5GB0HPD8DB",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-5GB0HPD8DB",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="HuaDB 数据库内核课程实验文档" class="md-header__button md-logo" aria-label="HuaDB 数据库内核课程实验文档" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HuaDB 数据库内核课程实验文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              基础功能
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/thu-db/huadb-doc" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    thu-db/huadb-doc
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="HuaDB 数据库内核课程实验文档" class="md-nav__button md-logo" aria-label="HuaDB 数据库内核课程实验文档" data-md-component="logo">
+      
+  <img src="../../assets/images/logo.png" alt="logo">
+
+    </a>
+    HuaDB 数据库内核课程实验文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/thu-db/huadb-doc" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    thu-db/huadb-doc
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验概述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1-prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验配置
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验框架介绍
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3-submit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验提交要求
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验 1: 页面组织与缓存管理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            实验 1: 页面组织与缓存管理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#t1" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务 1：变长记录的页面组织（12 分）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="任务 1：变长记录的页面组织（12 分）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#t1_s1" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 1：记录插入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t1_s2" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 2：记录读取
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t1_s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 3：记录删除
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t1_s4" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 4：将 SimpleCatalog 替换为系统表 SystemCatalog
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#t2" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务 2：LRU 缓存替换策略（3 分）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      报告要求
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级功能(不计分)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验 2: 事务处理与故障恢复
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            实验 2: 事务处理与故障恢复
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/3-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级功能(不计分)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab2/4-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验 3: 多版本并发控制
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            实验 3: 多版本并发控制
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/3-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级功能(不计分)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab3/4-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验 4: 查询处理
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            实验 4: 查询处理
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab4/3-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级功能(不计分)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验 5: 查询优化
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            实验 5: 查询优化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab5/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab5/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    实验 6: B+ 树索引
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            实验 6: B+ 树索引
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab6/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概述
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab6/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lab6/3-debug/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    调试说明
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    往年文档
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            往年文档
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://thu-db.github.io/dbtrain-tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2023年春
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2" id="__nav_11_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    2025年春
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            2025年春
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HuaDB 数据库内核课程实验文档
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/1-prepare/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 prepare
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/2-overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/3-submit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 submit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2_5" id="__nav_11_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Common
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_11_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Common
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/common/report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Report
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/common/update/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Update
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2_6" id="__nav_11_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab1
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_11_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Lab1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab1/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验 1: 页面组织与缓存管理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab1/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab1/3-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2_7" id="__nav_11_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab2
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_11_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            Lab2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab2/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验 2: 事务处理与故障恢复
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab2/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab2/3-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab2/4-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2_8" id="__nav_11_2_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab3
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_11_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            Lab3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab3/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验 3:多版本并发控制
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab3/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab3/3-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab3/4-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2_9" id="__nav_11_2_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab4
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_11_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            Lab4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab4/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验 4:查询处理
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab4/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab4/3-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11_2_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_11_2_10" id="__nav_11_2_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Lab5
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_11_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            Lab5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab5/1-intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    实验 5:查询优化
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab5/2-basic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab5/3-advanced/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    高级功能
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../archives/2025%E6%98%A5/lab5/4-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#t1" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务 1：变长记录的页面组织（12 分）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="任务 1：变长记录的页面组织（12 分）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#t1_s1" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 1：记录插入
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t1_s2" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 2：记录读取
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t1_s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 3：记录删除
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#t1_s4" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 4：将 SimpleCatalog 替换为系统表 SystemCatalog
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#t2" class="md-nav__link">
+    <span class="md-ellipsis">
+      任务 2：LRU 缓存替换策略（3 分）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report" class="md-nav__link">
+    <span class="md-ellipsis">
+      报告要求
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">基础功能</h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>可通过搜索 <code>// LAB 1 BEGIN</code> 快速定位需要补充的代码的位置</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>实验开始前请先<a href="../../1-prepare/#clone">更新实验框架</a></p>
+</div>
+<h2 id="t1">任务 1：变长记录的页面组织（12 分）</h2>
+<p>本任务中，你需要补全 <code>table/table.cpp</code>, <code>table/table_page.cpp</code> 以及 <code>table/table_scan.cpp</code> 中的相关函数，来实现记录的增删改查功能。</p>
+<p>实验框架的文件组织方式为堆表，页面之间采用链表连接，页面组织支持变长记录，页面大小为 256B。</p>
+<div class="admonition note">
+<p class="admonition-title">数据页面大小</p>
+<p>实际数据库系统中，数据页面大小一般设置为 4KB, 8KB, 16KB 等，实验框架将页面大小设置为 256B，主要是为了方便测试，避免在测试多页面功能时测试数据文件过大。</p>
+</div>
+<p>页面头由以下几个字段组成：</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>变量类型</th>
+<th>长度（字节）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page_lsn_</td>
+<td>lsn_t</td>
+<td>8</td>
+<td>PageLSN，实验 2 中使用</td>
+</tr>
+<tr>
+<td>next_page_id_</td>
+<td>pageid_t</td>
+<td>4</td>
+<td>记录下一个页面的页面号</td>
+</tr>
+<tr>
+<td>lower_</td>
+<td>db_size_t</td>
+<td>2</td>
+<td>页面空闲空间起始位置</td>
+</tr>
+<tr>
+<td>upper_</td>
+<td>db_size_t</td>
+<td>2</td>
+<td>页面空闲空间终止位置</td>
+</tr>
+</tbody>
+</table>
+<p>页面组织方式如下：</p>
+<p><img alt="" src="../../pics/lab1-page.svg" /></p>
+<p>每条记录都由记录头、空值向量和数据组成：</p>
+<p><img alt="" src="../../pics/lab1-record.svg" /></p>
+<p>记录头包含如下几个字段：</p>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>变量类型</th>
+<th>长度（字节）</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deleted_</td>
+<td>bool</td>
+<td>1</td>
+<td>标注记录是否删除</td>
+</tr>
+<tr>
+<td>xmin_</td>
+<td>xid_t</td>
+<td>4</td>
+<td>（实验 3）插入该数据的事务 id</td>
+</tr>
+<tr>
+<td>xmax_</td>
+<td>xid_t</td>
+<td>4</td>
+<td>（实验 3）删除该数据的事务 id</td>
+</tr>
+<tr>
+<td>cid_</td>
+<td>cid_t</td>
+<td>4</td>
+<td>（实验 3）插入该数据的事务内部 command id</td>
+</tr>
+</tbody>
+</table>
+<p>在实验 1 中，你只需要关注 deleted_ 字段即可。</p>
+<p>变长记录中的变长字段采用长度+数据的方式记录在原地，注意与课程介绍的方法不同，为简化设计，实验框架中没有将所有变长字段放于记录最后。</p>
+<p>本任务中，你需要补全记录插入、读取和删除的代码，正确实现后可以通过测例<code>10-insert.test</code>, <code>20-delete.test</code> 和 <code>30-update.test</code>。</p>
+<h3 id="t1_s1">步骤 1：记录插入</h3>
+<p>我们首先来看记录插入的部分，记录插入的上层调用位于 <code>executors/insert_executor.cpp</code>，在 InsertExecutor 的 Next 函数中，调用了 Table 类的 InsertRecord 函数，该函数返回插入记录的 rid_（rid_ 表示一条记录的位置，由页面 id 和页面中的记录槽 id 组成）。</p>
+<p>Table 类的 InsertRecord 函数是你需要实现的部分。在这个函数中，你需要找到一个页面，通过 BufferPool 的 GetPage 函数获取页面，进一步调用页面 TablePage 的 InsertRecord 函数插入记录，其中 xid 和 cid 参数在实验 3 才会使用，本实验中你只需要将这两个参数原封不动传进去即可。在寻找页面时，你需要保证页面的空闲空间能够放下要插入的记录，如果找不到这样的页面，你需要调用 BufferPool 的 NewPage 函数新建一个页面，并在新页面中插入记录。多个页面之间通过 next_page_id_ 字段组成链表，你需要正确设置该字段，使页面之间形成正向链表，即从页面 n 指向页面 n + 1（基础功能中无需考虑中间页面被删除的情况）。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>由于 Table 类的 first_page_id_ 在初始化时只有 NULL_PAGE_ID 和 0 两种取值，请使用正向链表（从页面 n 指向页面 n + 1）实现页面的连接，不要使用反向链表（从页面 n + 1 指向页面 n）。</p>
+</div>
+<p>TablePage 的 InsertRecord 函数也是需要实现的部分，你需要维护页面的 lower 和 upper 指针，以及页面的记录槽信息（记录位置与记录长度），并将记录写入页面，同时不要忘了将页面标记为脏页，只有脏页才会在缓存替换时写回磁盘。</p>
+<p>完成这两个函数后，记录插入的部分就全部完成了，此时你可以尝试测试 <code>10-insert.test</code>：</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>lab1/10
+</code></pre></div>
+<p>正常情况下，你将会得到如下输出：</p>
+<div class="highlight"><pre><span></span><code>lab1/10-insert.test ERROR
+lab1/10-insert.test:9
+Unexpected error: Wrong Result
+Your Result:
+
+Expected Result:
+1 1.1 a
+2 2.2 bb
+3 3.3 ccc
+</code></pre></div>
+<p>看上去好像记录插入并没有成功？其实不是，这是因为我们还没有补全记录读取的代码，不能通过 select 语句正确读取记录。但是，你可以通过 xxd 或 hexdump 等工具查看数据页面，判断记录插入是否成功。</p>
+<div class="highlight"><pre><span></span><code>xxd huadb_test/huadb_data/2/10000
+</code></pre></div>
+<p>或</p>
+<div class="highlight"><pre><span></span><code>hexdump -C huadb_test/huadb_data/2/10000
+</code></pre></div>
+<p>若你在程序右侧输出的 ASCII 码中观察到插入数据的 a, bb, ccc 等字样，则说明数据已经成功写入到磁盘。</p>
+<p>你还可以使用 huadb_parser 的页面解析功能检查页面的合法性，用法为：</p>
+<div class="highlight"><pre><span></span><code>./build/debug/bin/huadb-parser -d &lt;数据文件路径&gt;
+</code></pre></div>
+<h3 id="t1_s2">步骤 2：记录读取</h3>
+<p>下面我们来补全记录读取的代码。记录读取的上层调用位于 <code>executors/seqscan_executor.cpp</code>，在 SeqScanExecutor 类的 Next 中调用了 TableScan 的 GetNextRecord 函数。</p>
+<p>我们首先需要补全 GetNextRecord 函数，这个函数有若干参数，这些参数用于实验 3，在本次实验你无需使用这些参数。在这个函数中，你需要维护 rid_ 成员变量，表示目前读取到的记录的 rid，这是因为上层会多次调用 GetNextRecord 函数，每次返回一条记录，我们需要用 rid_ 成员变量记录目前读取到了哪一条记录，下次读取时返回下一条记录。维护 rid_ 变量之后，调用 TablePage 的 GetRecord 函数获取记录。当表中所有数据读取结束时，返回空指针，表示结束读取。</p>
+<p>之后你需要补充 TablePage 的 GetRecord 函数，根据 slot_id 和表的结构 column_list，从页面中反序列化得到记录。</p>
+<p>如果你正确实现了以上函数，此时应该可以通过测例 <code>10-insert.test</code>。如果没有通过，可以根据测试输出，利用调试器对程序进行调试。</p>
+<h3 id="t1_s3">步骤 3：记录删除</h3>
+<p>进行这一步骤之前，请确保你已通过测例 <code>10-insert.test</code>。</p>
+<p>记录删除是任务 1 的最后一个步骤，你需要补充 <code>table/table.cpp</code> 和 <code>table/table_page.cpp</code> 的 DeleteRecord 函数。</p>
+<p><code>table/table.cpp</code> 的 DeleteRecord 函数的实现思路与记录插入类似，我们只需通过 buffer_pool_ 获取需要删除的记录对应的页面，调用页面 TablePage 的 DeleteRecord 函数即可。</p>
+<p><code>table/table_page.cpp</code> 的 DeleteRecord 函数实现了页面中记录的删除，在实验的基础功能中，我们仅要求实现标记删除，你只需设置记录头部的 deleted_ 变量即可。</p>
+<p>完成上述步骤后，我们还需要修改 <code>table/table_scan.cpp</code> 的 GetNextRecord 函数，读取记录时判断记录是否已经被标记为删除，不再返回已经删除的数据。</p>
+<p>至此，若你的实现正确，可以通过 <code>20-delete.test</code> 和 <code>30-update.test</code>。你可能会好奇，为何我们的框架没有 update 函数，却可以通过 update 测例。这是因为实验框架没有实现原地更新函数，所有更新操作均由删除+插入的方式实现，你可以查看 <code>table/table.cpp</code> 的 UpdateRecord 函数来了解框架的实现方式。这种实现方式会导致删除数据的空间不能被回收，造成了空间的浪费，带来的好处是在实验 2 和实验 3 中可以更简洁地实现事务相关特性。如果你对删除数据的空间回收感兴趣，可以在高级功能中实现<a href="../3-advanced/">垃圾回收</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">万圣节问题</p>
+<p>如果你尝试运行以下 update 语句：</p>
+<div class="highlight"><pre><span></span><code><span class="k">create</span><span class="w"> </span><span class="k">table</span><span class="w"> </span><span class="n">test</span><span class="p">(</span><span class="n">id</span><span class="w"> </span><span class="nb">int</span><span class="p">);</span>
+<span class="k">insert</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">values</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="k">update</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<p>可能会发现程序会陷入死循环，这在数据库中被称为万圣节问题 (<a href="https://en.wikipedia.org/wiki/Halloween_Problem">Halloween Problem</a>)。</p>
+<p>这是因为在我们删除+插入的更新操作中，由于每次只对一条记录进行操作，读取记录时会将新插入的记录继续读取，对于新插入的记录，会再次执行删除+插入的操作，从而使读取永远不会中止。在本次实验中，你暂时无需解决这个问题，我们会在实验 3 中通过事务的 command id 来解决。</p>
+</div>
+<h3 id="t1_s4">步骤 4：将 SimpleCatalog 替换为系统表 SystemCatalog</h3>
+<p>本部分不需要添加任何代码，只需要改变编译选项即可。</p>
+<p>在完成步骤 1-3 之前，由于数据库不具备基础的增删改查功能，存储元信息的系统表无法正常工作，我们使用了 SimpleCatalog 临时替代了系统表功能。但是 SimpleCatalog 没有数据库的增加/删除/切换功能，导致我们无法通过 <code>40-database.test</code> 测例。因此，我们需要改变编译选项，让我们的数据库使用 SystemCatalog 系统表。</p>
+<p>首先清理此前生成的编译文件及数据库文件：</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>destroy<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>make<span class="w"> </span>clean
+</code></pre></div>
+<p>之后编译使用 SystemCatalog 的数据库：</p>
+<div class="highlight"><pre><span></span><code>make
+</code></pre></div>
+<p>或</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>debug
+</code></pre></div>
+<p>编译完成后，再次对 lab 1 测例进行测试，可以通过 <code>40-database.test</code> 测例。</p>
+<p>此后的所有实验，我们只需要使用 SystemCatalog 版本的数据库即可，不再需要使用 <code>make lab1-debug</code> 命令。</p>
+<p>如果改变编译选项后仍无法通过 <code>40-database.test</code> 测例，可以与我们<a href="../../#contact">联系</a>。</p>
+<h2 id="t2">任务 2：LRU 缓存替换策略（3 分）</h2>
+<p>在任务 1 中，我们多次调用 BufferPool 的 GetPage 和 NewPage 函数，本任务中，你需要阅读 BufferPool 中这两个函数的实现代码，并为缓存池添加 LRU 替换算法。你只需修改 <code>storage/lru_buffer_strategy.cpp</code> 即可，必要时可以在 <code>storage/lru_buffer_strategy.h</code> 中添加成员变量。整体代码量很小，但希望通过此任务加深对缓存池的理解，这将帮助你更快地完成之后的实验。</p>
+<p>BufferPool 的主要成员变量有三个：页面缓存 buffers_ ，页面号到 buffers_ 下标的映射表 hashmap_ 以及缓存替换策略成员 buffer_strategy_。</p>
+<p>其他成员变量主要为系统表相关变量，你无需过多关注。</p>
+<p>页面缓存大小默认为 5，每次访问页面时会将页面放入缓存区，并调用 BufferStrategy 的 Access 函数。若缓存区已满，则需要调用 BufferStrategy 的 Evict 函数获取淘汰页面的编号。</p>
+<p>本任务中，你需要实现 LRUBufferStrategy 的 Access 和 Evict 函数，实现 LRU 缓存替换算法，正确实现后你将通过<code>50-buffer_pool.test</code>测例。</p>
+<h2 id="report">报告要求</h2>
+<p>实验报告的通用要求请查看实验提交要求中的<a href="../../3-submit/#report">实验报告部分</a>。</p>
+<p>本次实验中，请在实验报告中说明如何寻找记录插入的页面，页面内部如何管理记录，记录读取的策略，以及 LRU 缓存替换算法的实现过程。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023-2025 清华大学计算机系数据库实验室。All Rights Reserved.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="mailto:424026452@qq.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.8l167.6-182.8c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+        <script src="../../javascripts/analytics.js"></script>
+      
+        <script src="../../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

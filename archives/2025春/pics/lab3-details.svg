@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns="http://www.w3.org/2000/svg" xmlns:xl="http://www.w3.org/1999/xlink" version="1.1" viewBox="582 899 326 236" width="326" height="236">
+  <defs/>
+  <g id="LAB_3__" fill="none" stroke="none" stroke-dasharray="none" stroke-opacity="1" fill-opacity="1">
+    <title>LAB 3 细化</title>
+    <rect fill="white" x="582" y="899" width="326" height="236"/>
+    <g id="LAB_3___图层_1">
+      <title>图层 1</title>
+      <g id="Graphic_3">
+        <rect x="730.5" y="981.5" width="176.25" height="105" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(735.5 986.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="53.125" y="16">并发控制</tspan>
+        </text>
+      </g>
+      <g id="Graphic_4">
+        <rect x="583.5" y="981.5" width="81.5" height="105" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(588.5 986.5)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="5.75" y="16">事务管理</tspan>
+        </text>
+      </g>
+      <g id="Graphic_6">
+        <path d="M 597.25 1016.5 L 655.25 1016.5 C 657.4591 1016.5 659.25 1018.2909 659.25 1020.5 L 659.25 1070 C 659.25 1072.2091 657.4591 1074 655.25 1074 L 597.25 1074 C 595.04086 1074 593.25 1072.2091 593.25 1070 L 593.25 1020.5 C 593.25 1018.2909 595.04086 1016.5 597.25 1016.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(598.25 1024.25)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="13" y="16">事务</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="5.5" y="37">元信息</tspan>
+        </text>
+      </g>
+      <g id="Graphic_8">
+        <path d="M 746 1016.5 L 811 1016.5 C 813.2091 1016.5 815 1018.2909 815 1020.5 L 815 1070 C 815 1072.2091 813.2091 1074 811 1074 L 746 1074 C 743.7909 1074 742 1072.2091 742 1070 L 742 1020.5 C 742 1018.2909 743.7909 1016.5 746 1016.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(747 1024.25)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="9" y="16">可见性</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="16.5" y="37">分析</tspan>
+        </text>
+      </g>
+      <g id="Graphic_9">
+        <path d="M 829 1016.5 L 894 1016.5 C 896.2091 1016.5 898 1018.2909 898 1020.5 L 898 1070 C 898 1072.2091 896.2091 1074 894 1074 L 829 1074 C 826.7909 1074 825 1072.2091 825 1070 L 825 1020.5 C 825 1018.2909 826.7909 1016.5 829 1016.5 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+        <text transform="translate(830 1024.25)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="16.5" y="16">版本</tspan>
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="16.5" y="37">控制</tspan>
+        </text>
+      </g>
+      <g id="Graphic_10">
+        <rect x="730.5" y="1102" width="176.25" height="31.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(735.5 1107)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="60.625" y="16">执行器</tspan>
+        </text>
+      </g>
+      <g id="Graphic_11">
+        <path d="M 663.25 1048.625 L 663.25 1041.875 L 722.25 1041.875 L 722.25 1038.5 L 736.25 1045.25 L 722.25 1052 L 722.25 1048.625 Z" fill="white"/>
+        <path d="M 663.25 1048.625 L 663.25 1041.875 L 722.25 1041.875 L 722.25 1038.5 L 736.25 1045.25 L 722.25 1052 L 722.25 1048.625 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_7">
+        <rect x="669.625" y="1025" width="50.5" height="40.5" fill="white"/>
+        <rect x="669.625" y="1025" width="50.5" height="40.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(674.625 1030)" fill="black">
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="8.25" y="13">活跃</tspan>
+          <tspan font-family="PingFang SC" font-size="12" fill="black" x="2.25" y="30">事务表</tspan>
+        </text>
+      </g>
+      <g id="Graphic_12">
+        <path d="M 857.4375 1074 L 865.5625 1074 L 865.5625 1097.125 L 869.625 1097.125 L 861.5 1109.125 L 853.375 1097.125 L 857.4375 1097.125 Z" fill="white"/>
+        <path d="M 857.4375 1074 L 865.5625 1074 L 865.5625 1097.125 L 869.625 1097.125 L 861.5 1109.125 L 853.375 1097.125 L 857.4375 1097.125 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_13">
+        <path d="M 782.5625 1102 L 774.4375 1102 L 774.4375 1078.875 L 770.375 1078.875 L 778.5 1066.875 L 786.625 1078.875 L 782.5625 1078.875 Z" fill="white"/>
+        <path d="M 782.5625 1102 L 774.4375 1102 L 774.4375 1078.875 L 770.375 1078.875 L 778.5 1066.875 L 786.625 1078.875 L 782.5625 1078.875 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_14">
+        <rect x="745.5" y="934.5" width="69.5" height="31.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(750.5 939.75)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="9.89" y="16">事务</tspan>
+          <tspan font-family="Helvetica Neue" font-size="15" fill="black" y="16">A</tspan>
+        </text>
+      </g>
+      <g id="Graphic_15">
+        <rect x="828.5" y="934.5" width="69.5" height="31.5" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <text transform="translate(833.5 939.75)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="9.6125" y="16">事务</tspan>
+          <tspan font-family="Helvetica Neue" font-size="15" fill="black" y="16">B</tspan>
+        </text>
+      </g>
+      <g id="Graphic_17">
+        <path d="M 780.25 958 L 788.375 968.7461 L 783.8402 968.7461 L 783.8402 977.7539 L 788.375 977.7539 L 780.25 988.5 L 772.125 977.7539 L 776.6598 977.7539 L 776.6598 968.7461 L 772.125 968.7461 Z" fill="white"/>
+        <path d="M 780.25 958 L 788.375 968.7461 L 783.8402 968.7461 L 783.8402 977.7539 L 788.375 977.7539 L 780.25 988.5 L 772.125 977.7539 L 776.6598 977.7539 L 776.6598 968.7461 L 772.125 968.7461 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Graphic_18">
+        <path d="M 863.25 958 L 871.375 968.7461 L 866.8402 968.7461 L 866.8402 977.7539 L 871.375 977.7539 L 863.25 988.5 L 855.125 977.7539 L 859.6598 977.7539 L 859.6598 968.7461 L 855.125 968.7461 Z" fill="white"/>
+        <path d="M 863.25 958 L 871.375 968.7461 L 866.8402 968.7461 L 866.8402 977.7539 L 871.375 977.7539 L 863.25 988.5 L 855.125 977.7539 L 859.6598 977.7539 L 859.6598 968.7461 L 855.125 968.7461 Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+      <g id="Line_21">
+        <line x1="821.25" y1="934.5" x2="821.25" y2="975" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2.0,8.0" stroke-width="2"/>
+      </g>
+      <g id="Graphic_22">
+        <text transform="translate(759.77 904)" fill="black">
+          <tspan font-family="PingFang SC" font-size="15" fill="black" x="0" y="16">并发执行,快照隔离</tspan>
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,255 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="526pt" height="361pt" viewBox="0.00 0.00 526.00 361.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 356.8)">
+<title>BPlusTree</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-356.8 522,-356.8 522,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_Internal</title>
+<polygon fill="none" stroke="gray" stroke-dasharray="5,2" points="130,-154.4 130,-308.8 370,-308.8 370,-154.4 130,-154.4"/>
+<text xml:space="preserve" text-anchor="middle" x="159.77" y="-292.2" font-family="Times,serif" font-size="14.00">Internal</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_Leaf</title>
+<polygon fill="none" stroke="gray" stroke-dasharray="5,2" points="8,-64 8,-146.4 510,-146.4 510,-64 8,-64"/>
+<text xml:space="preserve" text-anchor="middle" x="28.82" y="-129.8" font-family="Times,serif" font-size="14.00">Leaf</text>
+</g>
+<!-- meta -->
+<g id="node1" class="node">
+<title>meta</title>
+<polygon fill="none" stroke="black" points="335.63,-352.8 164.37,-352.8 164.37,-316.8 335.63,-316.8 335.63,-352.8"/>
+<text xml:space="preserve" text-anchor="middle" x="250" y="-330.6" font-family="Helvetica,sans-Serif" font-size="14.00">Meta Page (Page ID = 0)</text>
+</g>
+<!-- root -->
+<g id="node2" class="node">
+<title>root</title>
+<polygon fill="none" stroke="black" points="291.08,-276 208.92,-276 208.92,-240 291.08,-240 291.08,-276"/>
+<text xml:space="preserve" text-anchor="middle" x="250" y="-253.8" font-family="Helvetica,sans-Serif" font-size="14.00">Root Page</text>
+</g>
+<!-- meta&#45;&gt;root -->
+<g id="edge1" class="edge">
+<title>meta-&gt;root</title>
+<path fill="none" stroke="black" d="M250,-316.45C250,-306.07 250,-292.75 250,-281.56"/>
+<polygon fill="black" stroke="black" points="251.4,-281.77 250,-277.77 248.6,-281.77 251.4,-281.77"/>
+</g>
+<!-- I1 -->
+<g id="node3" class="node">
+<title>I1</title>
+<polygon fill="none" stroke="black" points="200.35,-204 137.65,-204 137.65,-162.4 200.35,-162.4 200.35,-204"/>
+<text xml:space="preserve" text-anchor="middle" x="169" y="-187.4" font-family="Helvetica,sans-Serif" font-size="14.00">Internal</text>
+<text xml:space="preserve" text-anchor="middle" x="169" y="-170.6" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- root&#45;&gt;I1 -->
+<g id="edge2" class="edge">
+<title>root-&gt;I1</title>
+<path fill="none" stroke="black" d="M230.8,-239.75C220.21,-230.23 206.9,-218.27 195.35,-207.88"/>
+<polygon fill="black" stroke="black" points="196.54,-207.07 192.63,-205.44 194.67,-209.15 196.54,-207.07"/>
+</g>
+<!-- I2 -->
+<g id="node4" class="node">
+<title>I2</title>
+<polygon fill="none" stroke="black" points="281.35,-204 218.65,-204 218.65,-162.4 281.35,-162.4 281.35,-204"/>
+<text xml:space="preserve" text-anchor="middle" x="250" y="-187.4" font-family="Helvetica,sans-Serif" font-size="14.00">Internal</text>
+<text xml:space="preserve" text-anchor="middle" x="250" y="-170.6" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- root&#45;&gt;I2 -->
+<g id="edge3" class="edge">
+<title>root-&gt;I2</title>
+<path fill="none" stroke="black" d="M250,-239.75C250,-230.81 250,-219.71 250,-209.8"/>
+<polygon fill="black" stroke="black" points="251.4,-209.94 250,-205.94 248.6,-209.94 251.4,-209.94"/>
+</g>
+<!-- I3 -->
+<g id="node5" class="node">
+<title>I3</title>
+<polygon fill="none" stroke="black" points="362.35,-204 299.65,-204 299.65,-162.4 362.35,-162.4 362.35,-204"/>
+<text xml:space="preserve" text-anchor="middle" x="331" y="-187.4" font-family="Helvetica,sans-Serif" font-size="14.00">Internal</text>
+<text xml:space="preserve" text-anchor="middle" x="331" y="-170.6" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- root&#45;&gt;I3 -->
+<g id="edge4" class="edge">
+<title>root-&gt;I3</title>
+<path fill="none" stroke="black" d="M269.2,-239.75C279.79,-230.23 293.1,-218.27 304.65,-207.88"/>
+<polygon fill="black" stroke="black" points="305.33,-209.15 307.37,-205.44 303.46,-207.07 305.33,-209.15"/>
+</g>
+<!-- L2 -->
+<g id="node6" class="node">
+<title>L2</title>
+<polygon fill="none" stroke="black" points="70,-113.6 16,-113.6 16,-72 70,-72 70,-113.6"/>
+<text xml:space="preserve" text-anchor="middle" x="43" y="-97" font-family="Helvetica,sans-Serif" font-size="14.00">Leaf</text>
+<text xml:space="preserve" text-anchor="middle" x="43" y="-80.2" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- I1&#45;&gt;L2 -->
+<g id="edge5" class="edge">
+<title>I1-&gt;L2</title>
+<path fill="none" stroke="black" d="M137.46,-174.64C119.01,-169.07 96.07,-160.05 79,-146.4 69.64,-138.92 61.76,-128.35 55.78,-118.65"/>
+<polygon fill="black" stroke="black" points="57.02,-118 53.77,-115.28 54.61,-119.43 57.02,-118"/>
+</g>
+<!-- L3 -->
+<g id="node7" class="node">
+<title>L3</title>
+<polygon fill="none" stroke="black" points="142,-113.6 88,-113.6 88,-72 142,-72 142,-113.6"/>
+<text xml:space="preserve" text-anchor="middle" x="115" y="-97" font-family="Helvetica,sans-Serif" font-size="14.00">Leaf</text>
+<text xml:space="preserve" text-anchor="middle" x="115" y="-80.2" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- I1&#45;&gt;L3 -->
+<g id="edge6" class="edge">
+<title>I1-&gt;L3</title>
+<path fill="none" stroke="black" d="M156.75,-162.14C148.86,-149.23 138.56,-132.37 130.16,-118.62"/>
+<polygon fill="black" stroke="black" points="131.46,-118.06 128.18,-115.38 129.07,-119.52 131.46,-118.06"/>
+</g>
+<!-- L4 -->
+<g id="node8" class="node">
+<title>L4</title>
+<polygon fill="none" stroke="black" points="214,-113.6 160,-113.6 160,-72 214,-72 214,-113.6"/>
+<text xml:space="preserve" text-anchor="middle" x="187" y="-97" font-family="Helvetica,sans-Serif" font-size="14.00">Leaf</text>
+<text xml:space="preserve" text-anchor="middle" x="187" y="-80.2" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- I2&#45;&gt;L4 -->
+<g id="edge7" class="edge">
+<title>I2-&gt;L4</title>
+<path fill="none" stroke="black" d="M234.7,-162.25C230.83,-157.12 226.73,-151.58 223,-146.4 216.45,-137.29 209.44,-127.14 203.36,-118.21"/>
+<polygon fill="black" stroke="black" points="204.72,-117.71 201.31,-115.18 202.4,-119.28 204.72,-117.71"/>
+</g>
+<!-- L5 -->
+<g id="node9" class="node">
+<title>L5</title>
+<polygon fill="none" stroke="black" points="286,-113.6 232,-113.6 232,-72 286,-72 286,-113.6"/>
+<text xml:space="preserve" text-anchor="middle" x="259" y="-97" font-family="Helvetica,sans-Serif" font-size="14.00">Leaf</text>
+<text xml:space="preserve" text-anchor="middle" x="259" y="-80.2" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- I2&#45;&gt;L5 -->
+<g id="edge8" class="edge">
+<title>I2-&gt;L5</title>
+<path fill="none" stroke="black" d="M252.04,-162.14C253.33,-149.46 255.01,-132.95 256.4,-119.34"/>
+<polygon fill="black" stroke="black" points="257.77,-119.71 256.78,-115.59 254.98,-119.43 257.77,-119.71"/>
+</g>
+<!-- L6 -->
+<g id="node10" class="node">
+<title>L6</title>
+<polygon fill="none" stroke="black" points="358,-113.6 304,-113.6 304,-72 358,-72 358,-113.6"/>
+<text xml:space="preserve" text-anchor="middle" x="331" y="-97" font-family="Helvetica,sans-Serif" font-size="14.00">Leaf</text>
+<text xml:space="preserve" text-anchor="middle" x="331" y="-80.2" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- I3&#45;&gt;L6 -->
+<g id="edge9" class="edge">
+<title>I3-&gt;L6</title>
+<path fill="none" stroke="black" d="M331,-162.14C331,-149.46 331,-132.95 331,-119.34"/>
+<polygon fill="black" stroke="black" points="332.4,-119.6 331,-115.6 329.6,-119.6 332.4,-119.6"/>
+</g>
+<!-- L7 -->
+<g id="node11" class="node">
+<title>L7</title>
+<polygon fill="none" stroke="black" points="430,-113.6 376,-113.6 376,-72 430,-72 430,-113.6"/>
+<text xml:space="preserve" text-anchor="middle" x="403" y="-97" font-family="Helvetica,sans-Serif" font-size="14.00">Leaf</text>
+<text xml:space="preserve" text-anchor="middle" x="403" y="-80.2" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- I3&#45;&gt;L7 -->
+<g id="edge10" class="edge">
+<title>I3-&gt;L7</title>
+<path fill="none" stroke="black" d="M352.63,-162.01C357.54,-157.07 362.6,-151.68 367,-146.4 374.3,-137.63 381.56,-127.39 387.63,-118.29"/>
+<polygon fill="black" stroke="black" points="388.64,-119.3 389.67,-115.18 386.3,-117.75 388.64,-119.3"/>
+</g>
+<!-- L8 -->
+<g id="node12" class="node">
+<title>L8</title>
+<polygon fill="none" stroke="black" points="502,-113.6 448,-113.6 448,-72 502,-72 502,-113.6"/>
+<text xml:space="preserve" text-anchor="middle" x="475" y="-97" font-family="Helvetica,sans-Serif" font-size="14.00">Leaf</text>
+<text xml:space="preserve" text-anchor="middle" x="475" y="-80.2" font-family="Helvetica,sans-Serif" font-size="14.00">Page</text>
+</g>
+<!-- I3&#45;&gt;L8 -->
+<g id="edge11" class="edge">
+<title>I3-&gt;L8</title>
+<path fill="none" stroke="black" d="M362.84,-177.26C385.81,-172.44 416.59,-163.27 439,-146.4 448.65,-139.14 456.61,-128.5 462.58,-118.7"/>
+<polygon fill="black" stroke="black" points="463.77,-119.44 464.58,-115.28 461.35,-118.02 463.77,-119.44"/>
+</g>
+<!-- L2&#45;&gt;L3 -->
+<g id="edge12" class="edge">
+<title>L2-&gt;L3</title>
+<path fill="none" stroke="black" d="M75.74,-92.8C77.99,-92.8 80.24,-92.8 82.5,-92.8"/>
+<polygon fill="black" stroke="black" points="75.79,-91.4 71.79,-92.8 75.79,-94.2 75.79,-91.4"/>
+<polygon fill="black" stroke="black" points="82.24,-94.2 86.24,-92.8 82.24,-91.4 82.24,-94.2"/>
+</g>
+<!-- heap -->
+<g id="node13" class="node">
+<title>heap</title>
+<path fill="none" stroke="black" d="M311.74,-32.73C311.74,-34.53 288.1,-36 259,-36 229.9,-36 206.26,-34.53 206.26,-32.73 206.26,-32.73 206.26,-3.27 206.26,-3.27 206.26,-1.47 229.9,0 259,0 288.1,0 311.74,-1.47 311.74,-3.27 311.74,-3.27 311.74,-32.73 311.74,-32.73"/>
+<path fill="none" stroke="black" d="M311.74,-32.73C311.74,-30.92 288.1,-29.45 259,-29.45 229.9,-29.45 206.26,-30.92 206.26,-32.73"/>
+<text xml:space="preserve" text-anchor="middle" x="259" y="-13.8" font-family="Helvetica,sans-Serif" font-size="14.00">Heap Records</text>
+</g>
+<!-- L2&#45;&gt;heap -->
+<g id="edge18" class="edge">
+<title>L2-&gt;heap</title>
+<path fill="none" stroke="black" d="M66.1,-71.78C70.21,-68.87 74.59,-66.14 79,-64 117.4,-45.39 164.27,-33.99 200.55,-27.32"/>
+<polygon fill="black" stroke="black" points="200.64,-28.73 204.33,-26.64 200.15,-25.97 200.64,-28.73"/>
+</g>
+<!-- L3&#45;&gt;L4 -->
+<g id="edge13" class="edge">
+<title>L3-&gt;L4</title>
+<path fill="none" stroke="black" d="M147.74,-92.8C149.99,-92.8 152.24,-92.8 154.5,-92.8"/>
+<polygon fill="black" stroke="black" points="147.79,-91.4 143.79,-92.8 147.79,-94.2 147.79,-91.4"/>
+<polygon fill="black" stroke="black" points="154.24,-94.2 158.24,-92.8 154.24,-91.4 154.24,-94.2"/>
+</g>
+<!-- L3&#45;&gt;heap -->
+<g id="edge19" class="edge">
+<title>L3-&gt;heap</title>
+<path fill="none" stroke="black" d="M139.19,-71.76C143.03,-68.99 147.04,-66.3 151,-64 168.58,-53.79 188.92,-44.68 207.18,-37.38"/>
+<polygon fill="black" stroke="black" points="207.66,-38.7 210.86,-35.93 206.63,-36.09 207.66,-38.7"/>
+</g>
+<!-- L4&#45;&gt;L5 -->
+<g id="edge14" class="edge">
+<title>L4-&gt;L5</title>
+<path fill="none" stroke="black" d="M219.74,-92.8C221.99,-92.8 224.24,-92.8 226.5,-92.8"/>
+<polygon fill="black" stroke="black" points="219.79,-91.4 215.79,-92.8 219.79,-94.2 219.79,-91.4"/>
+<polygon fill="black" stroke="black" points="226.24,-94.2 230.24,-92.8 226.24,-91.4 226.24,-94.2"/>
+</g>
+<!-- L4&#45;&gt;heap -->
+<g id="edge20" class="edge">
+<title>L4-&gt;heap</title>
+<path fill="none" stroke="black" d="M207.06,-71.52C216.75,-61.72 228.39,-49.95 238.18,-40.05"/>
+<polygon fill="black" stroke="black" points="239.1,-41.12 240.91,-37.29 237.1,-39.15 239.1,-41.12"/>
+</g>
+<!-- L5&#45;&gt;L6 -->
+<g id="edge15" class="edge">
+<title>L5-&gt;L6</title>
+<path fill="none" stroke="black" d="M291.74,-92.8C293.99,-92.8 296.24,-92.8 298.5,-92.8"/>
+<polygon fill="black" stroke="black" points="291.79,-91.4 287.79,-92.8 291.79,-94.2 291.79,-91.4"/>
+<polygon fill="black" stroke="black" points="298.24,-94.2 302.24,-92.8 298.24,-91.4 298.24,-94.2"/>
+</g>
+<!-- L5&#45;&gt;heap -->
+<g id="edge21" class="edge">
+<title>L5-&gt;heap</title>
+<path fill="none" stroke="black" d="M259,-71.52C259,-62.24 259,-51.2 259,-41.64"/>
+<polygon fill="black" stroke="black" points="260.4,-41.73 259,-37.73 257.6,-41.73 260.4,-41.73"/>
+</g>
+<!-- L6&#45;&gt;L7 -->
+<g id="edge16" class="edge">
+<title>L6-&gt;L7</title>
+<path fill="none" stroke="black" d="M363.74,-92.8C365.99,-92.8 368.24,-92.8 370.5,-92.8"/>
+<polygon fill="black" stroke="black" points="363.79,-91.4 359.79,-92.8 363.79,-94.2 363.79,-91.4"/>
+<polygon fill="black" stroke="black" points="370.24,-94.2 374.24,-92.8 370.24,-91.4 370.24,-94.2"/>
+</g>
+<!-- L6&#45;&gt;heap -->
+<g id="edge22" class="edge">
+<title>L6-&gt;heap</title>
+<path fill="none" stroke="black" d="M310.94,-71.52C301.25,-61.72 289.61,-49.95 279.82,-40.05"/>
+<polygon fill="black" stroke="black" points="280.9,-39.15 277.09,-37.29 278.9,-41.12 280.9,-39.15"/>
+</g>
+<!-- L7&#45;&gt;L8 -->
+<g id="edge17" class="edge">
+<title>L7-&gt;L8</title>
+<path fill="none" stroke="black" d="M435.74,-92.8C437.99,-92.8 440.24,-92.8 442.5,-92.8"/>
+<polygon fill="black" stroke="black" points="435.79,-91.4 431.79,-92.8 435.79,-94.2 435.79,-91.4"/>
+<polygon fill="black" stroke="black" points="442.24,-94.2 446.24,-92.8 442.24,-91.4 442.24,-94.2"/>
+</g>
+<!-- L7&#45;&gt;heap -->
+<g id="edge23" class="edge">
+<title>L7-&gt;heap</title>
+<path fill="none" stroke="black" d="M378.81,-71.76C374.97,-68.99 370.96,-66.3 367,-64 349.42,-53.79 329.08,-44.68 310.82,-37.38"/>
+<polygon fill="black" stroke="black" points="311.37,-36.09 307.14,-35.93 310.34,-38.7 311.37,-36.09"/>
+</g>
+<!-- L8&#45;&gt;heap -->
+<g id="edge24" class="edge">
+<title>L8-&gt;heap</title>
+<path fill="none" stroke="black" d="M451.9,-71.78C447.79,-68.87 443.41,-66.14 439,-64 400.6,-45.39 353.73,-33.99 317.45,-27.32"/>
+<polygon fill="black" stroke="black" points="317.85,-25.97 313.67,-26.64 317.36,-28.73 317.85,-25.97"/>
+</g>
+</g>
+</svg>
