@@ -8,7 +8,7 @@
 - 本实验存在 5 个公开测试用例和 30 个隐藏测试用例，每个测试用例分数均为0.4，共14分，实验报告1分。
 - 本次实验的测试通过三种方式：
   - 通过 verify btree 检查 B+ 树是否满足部分性质
-  - 通过 keyword 匹配判断 explain 命令输出的查询计划中期望关键词（SeqScan，BTreeIndexScan，Filter，RidUnion）出现次数是否符合要求（是否出现，出现多少次）。
+  - 通过 keyword 匹配判断 explain 命令输出的查询计划中期望关键词（SeqScan，BTreeScan，Filter，RidUnion）出现次数是否符合要求（是否出现，出现多少次）。
   - 通过比对查询结果来判断优化后的查询计划是否正确。
 - 本实验不会测试同学们的连接顺序是否合理（即 `optimizer/join_reorder.cpp` 中的贪心算法是否正确）。
 
