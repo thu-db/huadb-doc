@@ -46,7 +46,7 @@ verify btree idx height=1
 
 | 编号 | 不变式 | 如果不满足可能说明哪些 bug |
 |------|--------|--------------|
-| 1 | **拓扑结构是树**：root 必须可达全部非 meta 页；每个非 root 页恰被 1 个 internal slot 引用；无环；internal slot 的 `ptr_.slot_id_` 恒为 0；同一 internal page 的所有子页类型一致 | `BuildAdd` ptr 指错；`FinishBuild` 漏登记导致孤儿页；`SetRootPage` 未调用；`SetRootPage` 没有将 meta page 设置为脏页 |
+| 1 | **拓扑结构是平衡树**：root 必须可达全部非 meta 页；每个非 root 页恰被 1 个 internal slot 引用；无环；internal slot 的 `ptr_.slot_id_` 恒为 0；同一 internal page 的所有子页类型一致；每个叶子到根的路径长度相等 | `BuildAdd` ptr 指错；`FinishBuild` 漏登记导致孤儿页；`SetRootPage` 未调用；`SetRootPage` 没有将 meta page 设置为脏页 |
 | 2 | **叶子双向链表**：从 root 下探到最左叶；沿 `next_page_id_` 走完整条链 == 全部 leaf 集合；每页的 `prev_page_id_` 与前驱一致；首叶 prev=NULL，末叶 next=NULL | `BuildAdd` 中 leaf 链的 prev/next 维护错 |
 | 3 | **层内严格升序（扩展键）**：同页 `slot[i].extended_key < slot[i+1].extended_key`；叶子层跨页（按 next 链）相邻 leaf 的 `last_slot < first_slot`。比较用扩展键 `(values_, heap_rid_)`，不是 user key | `AddRecord` slot 顺序错；`Build` 排序比较器漏 `heap_rid_` 作 tiebreaker |
 | 4 | **父 slot key = 子 slot[0] key**：每个 internal slot 的 `(values_, heap_rid_)` 必须严格等于其 ptr 指向页面 slot[0] 的 `(values_, heap_rid_)`（key=min 不变式） | `BuildAdd` 提升父 slot 时构造错；扩展键 tiebreaker 在 internal 层失效 |
