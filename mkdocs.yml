@@ -12,25 +12,25 @@ nav:
   - "实验 1: 页面组织与缓存管理":
     - 概述: lab1/1-intro.md
     - 基础功能: lab1/2-basic.md
-    - 高级功能: lab1/3-advanced.md
+    - 高级功能(不计分): lab1/3-advanced.md
   - "实验 2: 事务处理与故障恢复":
     - 概述: lab2/1-intro.md
     - 基础功能: lab2/2-basic.md
-    - 高级功能: lab2/3-advanced.md
+    - 高级功能(不计分): lab2/3-advanced.md
     - FAQ: lab2/4-faq.md
   - "实验 3: 多版本并发控制":
     - 概述: lab3/1-intro.md
     - 基础功能: lab3/2-basic.md
-    - 高级功能: lab3/3-advanced.md
+    - 高级功能(不计分): lab3/3-advanced.md
     - FAQ: lab3/4-faq.md
   - "实验 4: 查询处理":
     - 概述: lab4/1-intro.md
     - 基础功能: lab4/2-basic.md
-    - 高级功能: lab4/3-advanced.md
+    - 高级功能(不计分): lab4/3-advanced.md
   - "实验 5: 查询优化":
     - 概述: lab5/1-intro.md
     - 基础功能: lab5/2-basic.md
-    - 高级功能: lab5/3-advanced.md
+    - 高级功能(不计分): lab5/3-advanced.md
     - FAQ: lab5/4-faq.md
   - 往年文档:
     - 2023年春: https://thu-db.github.io/dbtrain-tutorial/
